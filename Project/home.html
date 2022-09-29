@@ -18,26 +18,21 @@ header {
 		   margin: auto;
            min-width:1250px;
 } 
-#htopic{
-  padding-left:15px;
-  padding-right: 300px;
-}
-#logo{
-  padding-top:10px;
-}
+
 #profile{
   float:left;
 }
 #hnav{
-  padding-top:30px;
+  padding-top:60px;
+  padding-left: 320px;
 }
 #profileNav{
-  padding-top:20px;
+  padding-top:50px;
   position: absolute;
   right:170px;
 }
 #loginNav{
-  padding-top:30px;
+  padding-top:60px;
   position: absolute;
   right:-10px;
 }
@@ -50,20 +45,72 @@ nav a {text-decoration: none;
 color: #000000;
 padding-right: 65px;
 }
+#footer1{
+  border-top: 1px solid #000000;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-top: 1px solid #000000;
+  display: flex;
+}
 #footer2{
   border-top: 1px solid #000000;
   width: 100%;
   background-color: #D9D9D9;
   text-align: center;
-  position: fixed;
   bottom:0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#bodycontent{
+  background-color: #FFFFFF;
+  height: 100vh;
+}
+#leftcolumn {
+ float: left;
+ width: 300px;
+ min-width: 300px;
+ padding-left: 30px;
+}
+#centercolumn1 {
+  position: absolute;
+  left: 550px;
+  float: left;
+  width: 250px;
+  min-width:250px;
+}
+#centercolumn2 {
+  position: absolute;
+  left: 950px;
+  width: 250px;
+  min-width:250px;
+}
+#rightcolumn {
+  position: absolute;
+  left: 1350px;
+  width: 300px;
+  min-width: 300px;
+  padding-top:32px;
+}
+#lowesttext {
+  padding-bottom:20px;
+}
+#header3 {
+  padding-top: 15px;
+  padding-left:38px;
+}
+#socialmedia{
+  padding-left: 115px;
+}
+#contactlogo{
+  padding:5px;
+  padding-top: 22px;
 }
 </style>
 <body>
 <div id="wrapper">
+
 	<header>
-		<img src="cliniclogo.png" width="50" height="50" id="logo">
-		<h1 id="htopic">NTUClinic</h1>
+		<h1> <img src="cliniclogo.png" width="50" height="50" id="logo"/> NTUClinic </h1>
 		<nav id="hnav">
 			<a href="home.html">Home</a>
 			<a href="about.html">About Us</a>
@@ -77,13 +124,53 @@ padding-right: 65px;
 			<a href="login.html">Login / Signup </a>
 		</nav>
 	</header>
+	
+	<div id="bodycontent">To be added</div>
+	
+	<footer id="footer1">
+	<div id="leftcolumn">
+		<h2><img src="cliniclogo.png" width="38" height="38" id="logo" /> NTUClinic</h2>
+		<small><dt>55 Ubi Ave 1 #08-01 Singapore 408935
+		<br>Fax: 6590 4389
+		<br>Opens Monday to Friday, 8:30am to
+		<br><dt id="lowesttext">6:00pm, except Public Holidays </small>
+	</div>
+	<div id="centercolumn1">
+		<h3 id="header3">Information<br> </h3>
+		<nav>
+		<small>
+			<ul>
+				<li><a href="about.html">About Us</a> </li>
+				<li><a href="doctor.html">Our Doctors</a> </li>
+				<li><a href="contact.html">Contact Us</a> </li>
+			</ul>
+		</small>
+	</nav>
+	</div>
+	<div id="centercolumn2">
+		<h3 id="header3">Patient's Site<br> </h3>
+		<nav>
+		<small>
+			<ul>
+				<li><a href="profile.html">Profile</a> </li>
+				<li><a href=".html">Your Appointments</a> </li>
+				<li><a href=".html">Book Appointments</a> </li>
+			</ul>
+		</small>
+	</div>
+	<div id="rightcolumn">
+		<dt>Follow us through our social media.
+		<div id="socialmedia">
+		<image src="facebook.png" width="35" height="35" id="contactlogo">
+		<image src="instagram.png" width="35" height="35" id="contactlogo">
+		<image src="whatsapp.png" width="35" height="35" id="contactlogo">
+		</div>
+	</div>
+	</footer>
 	<footer id="footer2">
-	<small><i>Copyright &copy; 2022 NTUClinic
-		<br> Contact us:
-		<a href=
-		"mailto: abc@example.com">
-		abc@example.com</a></i></small>
-		<small><i></i></small>
+	<div>
+		<small><i>Copyright &copy; 2022<br>NTUClinic<br></small>
 </footer>
 </div>
 </body>
+
