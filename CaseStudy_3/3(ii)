@@ -7,10 +7,7 @@
 body {font-family:Verdana, Arial, sans-serif;
       background-color: #F0E68C;
 }
-header{ <!--background-color: #B8A286;
-        color: #663300; 
-        font-size: 150%; -->
-        padding: 10px 10px 10px 155px;
+header{ padding: 10px 10px 10px 155px;
 		width:100%;
 		text-align:center;
 		background-image: url("headerbackgroundcolor.png");
