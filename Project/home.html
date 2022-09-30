@@ -16,7 +16,7 @@ header {
 #wrapper { background-color: #FFFFFF; 
            width: 100%;
 		   margin: auto;
-           min-width:1250px;
+           min-width:1650px;
 } 
 
 #profile{
@@ -39,11 +39,19 @@ header {
 body {font-family:arial, sans-serif;
       background-color: #FFFFFF;
 }
-nav ul { list-style-type: none;
+nav ul {
+ list-style-type: none;
 }
-nav a {text-decoration: none;
-color: #000000;
-padding-right: 65px;
+#topnav {
+  text-decoration: none;
+  color: #000000;
+  padding-right: 65px;
+}
+#botnav {
+  text-decoration: none;
+}
+footer{
+  min-width:1650px;
 }
 #footer1{
   border-top: 1px solid #000000;
@@ -63,7 +71,7 @@ padding-right: 65px;
 }
 #bodycontent{
   background-color: #FFFFFF;
-  height: 100vh;
+  min-height: calc(100vh - 40px);
 }
 #leftcolumn {
  float: left;
@@ -72,21 +80,21 @@ padding-right: 65px;
  padding-left: 30px;
 }
 #centercolumn1 {
-  position: absolute;
-  left: 550px;
   float: left;
-  width: 250px;
-  min-width:250px;
+  width: 200px;
+  min-width: 200px;
+  padding-left: 200px;
 }
 #centercolumn2 {
-  position: absolute;
-  left: 950px;
-  width: 250px;
-  min-width:250px;
+  float: left;
+  width: 300px;
+  min-width: 300px;
+  padding-left: 200px;
 }
 #rightcolumn {
-  position: absolute;
-  left: 1350px;
+  float: right;
+  width: 300px;
+  padding-left: 110px;
   width: 300px;
   min-width: 300px;
   padding-top:32px;
@@ -112,16 +120,16 @@ padding-right: 65px;
 	<header>
 		<h1> <img src="cliniclogo.png" width="50" height="50" id="logo"/> NTUClinic </h1>
 		<nav id="hnav">
-			<a href="home.html">Home</a>
-			<a href="about.html">About Us</a>
-			<a href="doctors.html">Our Doctors</a>
-			<a href="contact.html">Contact Us</a>
+			<a href="home.html" id="topnav">Home</a>
+			<a href="about.html" id="topnav">About Us</a>
+			<a href="doctors.html" id="topnav">Our Doctors</a>
+			<a href="contact.html" id="topnav">Contact Us</a>
 		</nav>
 		<div id="profileNav">
-		<img src="profile.png" width="38" height="38" id="profile">
+		<a href="profile.html"><img src="profile.png" width="38" height="38" id="profile">
 		</div>
 		<nav id="loginNav">
-			<a href="login.html">Login / Signup </a>
+			<a href="login.html" id="topnav">Login / Signup </a>
 		</nav>
 	</header>
 	
@@ -140,21 +148,22 @@ padding-right: 65px;
 		<nav>
 		<small>
 			<ul>
-				<li><a href="about.html">About Us</a> </li>
-				<li><a href="doctor.html">Our Doctors</a> </li>
-				<li><a href="contact.html">Contact Us</a> </li>
+				<li><a href="about.html" id="botnav">About Us</a> </li>
+				<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+				<li><a href="contact.html" id="botnav">Contact Us</a> </li>
 			</ul>
 		</small>
 	</nav>
+		
 	</div>
 	<div id="centercolumn2">
 		<h3 id="header3">Patient's Site<br> </h3>
 		<nav>
 		<small>
 			<ul>
-				<li><a href="profile.html">Profile</a> </li>
-				<li><a href=".html">Your Appointments</a> </li>
-				<li><a href=".html">Book Appointments</a> </li>
+				<li><a href="profile.html" id="botnav">Profile</a> </li>
+				<li><a href=".html" id="botnav">Your Appointments</a> </li>
+				<li><a href=".html" id="botnav">Book Appointments</a> </li>
 			</ul>
 		</small>
 	</div>
@@ -167,10 +176,8 @@ padding-right: 65px;
 		</div>
 	</div>
 	</footer>
-	<footer id="footer2">
-	<div>
+	<div id="footer2">
 		<small><i>Copyright &copy; 2022<br>NTUClinic<br></small>
-</footer>
+	</div>
 </div>
 </body>
-
