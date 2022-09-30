@@ -8,7 +8,6 @@ header {
   width: 100%;
   background-color: #FFFFFF;
   border-bottom: 1px solid #000000;
-  position: sticky;
   padding-left: 10px;
   top: 0;
   display: flex;
@@ -26,16 +25,6 @@ header {
   padding-top:60px;
   padding-left: 320px;
 }
-#profileNav{
-  padding-top:50px;
-  position: absolute;
-  right:170px;
-}
-#loginNav{
-  padding-top:60px;
-  position: absolute;
-  right:-10px;
-}
 body {font-family:arial, sans-serif;
       background-color: #FFFFFF;
 }
@@ -49,6 +38,14 @@ nav ul {
 }
 #botnav {
   text-decoration: none;
+}
+#profileimage {
+  padding-top: 50px;
+  padding-left: 400px;
+}
+#userdetails {
+  padding-top: 60px;
+  padding-left: 10px;
 }
 footer{
   min-width:1650px;
@@ -102,9 +99,10 @@ footer{
 #lowesttext {
   padding-bottom:20px;
 }
-#header3 {
-  padding-top: 15px;
+#footerheader {
+  padding-top: 35px;
   padding-left:38px;
+  font-size: 18px;
 }
 #socialmedia{
   padding-left: 115px;
@@ -125,12 +123,12 @@ footer{
 			<a href="doctors.html" id="topnav">Our Doctors</a>
 			<a href="contact.html" id="topnav">Contact Us</a>
 		</nav>
-		<div id="profileNav">
-		<a href="profile.html"><img src="profile.png" width="38" height="38" id="profile">
+		<div id="profileimage">
+		<a href="profile.html"><img src="profile.png" width="38" height="38"></a>
 		</div>
-		<nav id="loginNav">
-			<a href="login.html" id="topnav">Login / Signup </a>
-		</nav>
+		<div id="userdetails">
+		<dt><a href="login.html" id="botnav">Login / Signup</a> 
+		</div>
 	</header>
 	
 	<div id="bodycontent">To be added</div>
@@ -144,7 +142,7 @@ footer{
 		<br><dt id="lowesttext">6:00pm, except Public Holidays </small>
 	</div>
 	<div id="centercolumn1">
-		<h3 id="header3">Information<br> </h3>
+		<dt id="footerheader"><b>Information</b><br> </dt>
 		<nav>
 		<small>
 			<ul>
@@ -157,13 +155,13 @@ footer{
 		
 	</div>
 	<div id="centercolumn2">
-		<h3 id="header3">Patient's Site<br> </h3>
+		<dt id="footerheader"><b>Patient's Site</b><br> </dt>
 		<nav>
 		<small>
 			<ul>
 				<li><a href="profile.html" id="botnav">Profile</a> </li>
-				<li><a href=".html" id="botnav">Your Appointments</a> </li>
-				<li><a href=".html" id="botnav">Book Appointments</a> </li>
+				<li><a href="myappointment.html" id="botnav">Your Appointments</a> </li>
+				<li><a href="bookappointment.html" id="botnav">Book Appointments</a> </li>
 			</ul>
 		</small>
 	</div>
