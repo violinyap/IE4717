@@ -193,7 +193,7 @@ a:link, a:visited{
 #abcd{
   font-size: 25px;
 }
-#editbutton{
+#paybutton{
   padding-left:20px;
   padding-right:20px;
   padding-top: 3px;
@@ -279,15 +279,16 @@ a:link, a:visited{
 			<dt>Status: </dt>
 			<dt>Time completed: </dt></b> <br>
 			<div style="float:left;">
-			<button id="cancelbutton" onclick="alertpopup()">Cancel</button>
+			<button id="cancelbutton" onclick="alertpopup1()">Cancel</button>
 			<script>
-			function alertpopup(){
-			//window.confirm("Confirm to cancel the appointment? Refund will be made.")
+			function alertpopup1(){
+			//window.alert("Confirm to cancel the appointment? Refund will be made.")
 			//}
 			var val = confirm("Confirm to cancel the pre-appointment?");
 			if (val == true) {
 			alert("Appointment successfully cancelled.");
-			} else {
+			}
+			else {
 			alert("Appointment not cancelled. To confirm the appointment, click pay.");
 			}
 			}
@@ -295,7 +296,18 @@ a:link, a:visited{
 
 			</div>
 			<div style="float:right;">
-			<button id="editbutton" onclick="location.href='editappointment.html';">Edit</button>
+			<button id="paybutton" onclick="alertpopup2()">Pay</button>
+			<script>
+			function alertpopup2(){
+			var val1 = window.confirm("Open payment in new window?")
+			if (val1 == true) {
+			alert("Payment Successful!");
+			}
+			else {
+			alert("Payment not successful. Try again.");
+			}
+			}
+			</script>
 			</div>
 		</div>
 		<div id="maincontainercontent2">
