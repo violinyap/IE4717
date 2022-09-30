@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NTUClinic</title>
+<meta charset="utf-8">
+<style>
+header {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #000000;
+  padding-left: 10px;
+  top: 0;
+  display: flex;
+}
+#wrapper { background-color: #D9D9D9; 
+           width: 100%;
+		   margin: auto;
+           min-width:1650px;
+		   height: 100vh - 40px;
+} 
+#profile{
+  float:left;
+}
+#hnav{
+  padding-top:60px;
+  padding-left: 320px;
+}
+#profileNav{
+  padding-top:50px;
+  position: absolute;
+  right:170px;
+}
+#loginNav{
+  padding-top:60px;
+  position: absolute;
+  right:-10px;
+}
+body {font-family:arial, sans-serif;
+      background-color: #FFFFFF;
+}
+nav ul {
+ list-style-type: none;
+}
+#topnav {
+  text-decoration: none;
+  color: #000000;
+  padding-right: 65px;
+}
+#botnav {
+  text-decoration: none;
+}
+footer{
+  min-width:1650px;
+}
+#footer1{
+  border-top: 1px solid #000000;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-top: 1px solid #000000;
+  display: flex;
+}
+#footer2{
+  border-top: 1px solid #000000;
+  width: 100%;
+  background-color: #D9D9D9;
+  text-align: center;
+  bottom:0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#leftcolumn {
+ float: left;
+ width: 300px;
+ min-width: 300px;
+ padding-left: 30px;
+}
+#centercolumn1 {
+  float: left;
+  width: 200px;
+  min-width: 200px;
+  padding-left: 200px;
+}
+#centercolumn2 {
+  float: left;
+  width: 300px;
+  min-width: 300px;
+  padding-left: 200px;
+}
+#rightcolumn {
+  float: right;
+  width: 300px;
+  padding-left: 110px;
+  width: 300px;
+  min-width: 300px;
+  padding-top:32px;
+}
+#lowesttext {
+  padding-bottom:20px;
+}
+#footerheader {
+  padding-top: 35px;
+  padding-left:38px;
+  font-size: 18px;
+}
+#profileimage {
+  padding-top: 50px;
+  padding-left: 400px;
+}
+#userdetails {
+  padding-top: 55px;
+  padding-left: 10px;
+}
+#socialmedia{
+  padding-left: 115px;
+}
+#contactlogo{
+  padding:5px;
+  padding-top: 22px;
+}
+#bodycontent{
+  background-color: #D9D9D9;
+}
+#sidecontainer{
+  width:250px;
+  height:700px;
+  border: 1px solid #D9D9D9;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  background-color: #FFFFFF;
+}
+#maincontainer{
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 175px;
+  left: 350px;
+  height: 450px;
+  width: 1200px;
+}
+#appointmentnav{
+  position: absolute;
+  top: 150px;
+  left: 355px;
+  width: 300px;
+}
+a:link, a:visited{
+  color: blue;
+}
+#sidepanel{
+  text-align: center;
+}
+#panel1{
+  width:247px;
+  height:150px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border: 1px solid #D9D9D9;
+}
+#panel2{
+  width: 247px;
+  height: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border: 1px solid #D9D9D9;
+}
+#sidenav{
+  text-decoration: none;
+  color: #000000;
+}
+#abc{
+  padding-bottom: 10px;
+}
+#abcd{
+  padding-top: 20px;
+  padding-left: 20px;
+}
+#form{
+  padding-top: 20px;
+  padding-left: 50px;
+}
+</style>
+<body>
+<div id="wrapper">
+	<header>
+		<h1> <img src="cliniclogo.png" width="50" height="50" id="logo"/> NTUClinic </h1>
+		<nav id="hnav">
+			<a href="home.html" id="topnav">Home</a>
+			<a href="about.html" id="topnav">About Us</a>
+			<a href="doctors.html" id="topnav">Our Doctors</a>
+			<a href="contact.html" id="topnav">Contact Us</a>
+		</nav>
+		<div id="profileimage">
+		<a href="profile.html"><img src="profile.png" width="38" height="38"></a>
+		</div>
+		<div id="userdetails">
+		<dt id="username"><a href="profile.html" id="botnav">Example Guy</a> </dt>
+		<dt id="usertype"><b>User </b></dt><!--to add query-->
+		</div>
+	</header>
+	</header>
+	
+	<div id="bodycontent">
+	<div id="sidecontainer">
+		<nav id="sidepanel">
+			<div id="panel1">
+			<a href="profile.html"><img src="profile.png" width="75" height="75"> </a>
+			<br><dt>Example Guy<!--to add javascript-->
+			<br><b>User</b><br><br><!--to add javascript-->
+			<a href="editprofile.html" id="botnav">Edit Profile</a>
+			</div>
+			<div id="panel2">
+			<a href="bookappointment.html" id="sidenav">
+			<dt id="abc">Make An<br>Appointment</dt>
+			<img src="bookappointment.png" width="43" height="43"> </a>
+			</div>
+			<div id="panel2">
+			<a href="myappointment.html" id="sidenav">
+			<dt id="abc">My<br>Appointment</dt>
+			<img src="myappointment.png" width="43" height="43"> </a>
+			</div>
+			<div id="panel2">
+			<a href="payment.html" id="sidenav">
+			<dt id="abc">Payment</dt>
+			<img src="payment.png" width="43" height="43"> </a>
+			</div>
+		</nav>
+	</div>
+	<div id="appointmentnav">
+	<dt>
+		<b>My Profile</b> &nbsp;
+		>&nbsp;
+		<a href="editprofile.html" id="botnav">Edit Profile</a>
+	</dt>
+	</div>
+	<div id="maincontainer">
+		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
+		<br>
+		<form method="post" action="show_post.php" id="form">
+			<label for="username">*Username:</label>
+			<input type="text" name="username" id="username" placeholder="Enter your username here" required />
+			<br> <br> <br>
+			<label for="username">*Full Name:</label>
+			<input type="text" name="fullname" id="fullname" placeholder="Enter your full name here" required />
+			<br> <br> <br>
+			<label for="birthday">*Birthday:</label>
+			<input type="date" name="birthday" id="birthday" required />
+			<br> <br> <br>
+			<label for="myEmail">*E-mail:</label>
+			<input type="email" name="myEmail" id="myEmail" placeholder="Enter your E-mail ID here" required />
+			<br> <br> <br> <br>
+			<input id="Change" type="submit" value="Change" /> &nbsp; &nbsp; 
+			<input type ="button" value="Cancel" onclick="history.back()" /> 
+		</form>
+	</div>
+	</div>
+	
+	<footer id="footer1">
+	<div id="leftcolumn">
+		<h2><img src="cliniclogo.png" width="38" height="38" id="logo" /> NTUClinic</h2>
+		<small><dt>55 Ubi Ave 1 #08-01 Singapore 408935
+		<br>Fax: 6590 4389
+		<br>Opens Monday to Friday, 8:30am to
+		<br><dt id="lowesttext">6:00pm, except Public Holidays </small>
+	</div>
+	<div id="centercolumn1">
+		<dt id="footerheader"><b>Information</b><br> </dt>
+		<nav>
+		<small>
+			<ul>
+				<li><a href="about.html" id="botnav">About Us</a> </li>
+				<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+				<li><a href="contact.html" id="botnav">Contact Us</a> </li>
+			</ul>
+		</small>
+	</nav>
+		
+	</div>
+	<div id="centercolumn2">
+		<dt id="footerheader"><b>Patient's Site</b><br> </dt>
+		<nav>
+		<small>
+			<ul>
+				<li><a href="profile.html" id="botnav">Profile</a> </li>
+				<li><a href="myappointment.html" id="botnav">Your Appointments</a> </li>
+				<li><a href="bookappointment.html" id="botnav">Book Appointments</a> </li>
+			</ul>
+		</small>
+	</div>
+	<div id="rightcolumn">
+		<dt>Follow us through our social media.
+		<div id="socialmedia">
+		<image src="facebook.png" width="35" height="35" id="contactlogo">
+		<image src="instagram.png" width="35" height="35" id="contactlogo">
+		<image src="whatsapp.png" width="35" height="35" id="contactlogo">
+		</div>
+	</div>
+	</footer>
+	<div id="footer2">
+		<small><i>Copyright &copy; 2022<br>NTUClinic<br></small>
+	</div>
+</div>
+</body>
