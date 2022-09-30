@@ -8,18 +8,16 @@ header {
   width: 100%;
   background-color: #FFFFFF;
   border-bottom: 1px solid #000000;
-  position: sticky;
   padding-left: 10px;
   top: 0;
   display: flex;
 }
-#wrapper { background-color: #FFFFFF; 
+#wrapper { background-color: #D9D9D9; 
            width: 100%;
 		   margin: auto;
            min-width:1650px;
 		   height: 100vh - 40px;
 } 
-
 #profile{
   float:left;
 }
@@ -70,10 +68,6 @@ footer{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#bodycontent{
-  background-color: #FFFFFF;
-  hmin-height: calc(100vh - 40px);
-}
 #leftcolumn {
  float: left;
  width: 300px;
@@ -103,9 +97,18 @@ footer{
 #lowesttext {
   padding-bottom:20px;
 }
-#header3 {
-  padding-top: 15px;
+#footerheader {
+  padding-top: 35px;
   padding-left:38px;
+  font-size: 18px;
+}
+#profileimage {
+  padding-top: 50px;
+  padding-left: 400px;
+}
+#userdetails {
+  padding-top: 55px;
+  padding-left: 10px;
 }
 #socialmedia{
   padding-left: 115px;
@@ -114,16 +117,60 @@ footer{
   padding:5px;
   padding-top: 22px;
 }
+#bodycontent{
+  background-color: #D9D9D9;
+}
 #sidecontainer{
   width:250px;
   height:700px;
   border: 1px solid #D9D9D9;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  background-color: #FFFFFF;
+}
+#maincontainer{
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 175px;
+  left: 350px;
+  height: 450px;
+  width: 1200px;
+}
+#maincontainerleft{
+  padding-top:20px;
+  padding-left:50px;
+}
+#maincontainercontent{
+  position: absolute;
+  left:150px;
+  top: 28px;
+  font-size:24px;
+}
+#maincontainercontent2{
+  position: absolute;
+  left:150px;
+  top: 150px;
+  font-size:16px;
+}
+#maincontainercontent3{
+  position: absolute;
+  left:250px;
+  top: 150px;
+  font-size:16px;
+}
+#appointmentnav{
+  position: absolute;
+  top: 150px;
+  left: 355px;
+}
+a:link, a:visited{
+  color: blue;
 }
 #sidepanel{
   text-align: center;
 }
 #panel1{
-  width:249px;
+  width:247px;
   height:150px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -131,7 +178,7 @@ footer{
   border: 1px solid #D9D9D9;
 }
 #panel2{
-  width: 249px;
+  width: 247px;
   height: 100px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -145,6 +192,11 @@ footer{
 #abc{
   padding-bottom: 10px;
 }
+#editprofilebutton{
+  background-color: #D9D9D9;
+  height: 25px;
+  width: 100px;
+}
 </style>
 <body>
 <div id="wrapper">
@@ -156,22 +208,24 @@ footer{
 			<a href="doctors.html" id="topnav">Our Doctors</a>
 			<a href="contact.html" id="topnav">Contact Us</a>
 		</nav>
-		<div id="profileNav">
-		<a href="profile.html"><img src="profile.png" width="38" height="38" id="profile">
+		<div id="profileimage">
+		<a href="profile.html"><img src="profile.png" width="38" height="38"></a>
 		</div>
-		<nav id="loginNav">
-			<a href="login.html" id="topnav">Login / Signup </a>
-		</nav>
+		<div id="userdetails">
+		<dt id="username"><a href="profile.html" id="botnav">Example Guy</a> </dt>
+		<dt id="usertype"><b>User </b></dt><!--to add query-->
+		</div>
+	</header>
 	</header>
 	
 	<div id="bodycontent">
 	<div id="sidecontainer">
 		<nav id="sidepanel">
 			<div id="panel1">
-			<img src="profile.png" width="75" height="75">
+			<a href="profile.html"><img src="profile.png" width="75" height="75"> </a>
 			<br><dt>Example Guy<!--to add javascript-->
 			<br><b>User</b><br><br><!--to add javascript-->
-			<a href="editprofile.html">Edit Profile</a>
+			<a href="editprofile.html" id="botnav">Edit Profile</a>
 			</div>
 			<div id="panel2">
 			<a href="bookappointment.html" id="sidenav">
@@ -190,6 +244,43 @@ footer{
 			</div>
 		</nav>
 	</div>
+	
+	<div id="appointmentnav">
+		<a href="profile.html" id="botnav">My Profile</a>
+		&nbsp;
+	</div>
+	
+	<div id="maincontainer">
+		<div id="maincontainerleft">
+		<img src="profile.png" width="75" height="75">
+		</div>
+	<div id="maincontainercontent"><!--to query-->
+		<dt id="username">Example Guy</dt>
+		<dt id="usertype"><b>User</b></dt>
+	</div>
+	<div id="maincontainercontent2">
+		<b><dt> Name: </dt>
+		<dt>NRIC/FIN: </dt>
+		<dt>E-mail: </dt>
+		<dt>Birthday: </dt>
+		<br>
+		<dt id="usertime">User since: </dt></b>
+		<br>
+		<br>
+		<br>
+		<button id="editprofilebutton" onclick="location.href='editprofile.html';">Edit Profile</button>
+	</div>
+	<div id="maincontainercontent3"><!--to query-->
+		<dt id="name"> Example Guy </dt>
+		<dt id="nric">S1234567A </dt>
+		<dt id="email">exampleguy@gmail.com</dt>
+		<dt id="birthday">12/12/2012</dt>
+
+		<br>
+		<dt id="usertime">10/10/2020 </dt>
+	</div>
+	</div>
+	
 	</div>
 	
 	<footer id="footer1">
@@ -201,7 +292,7 @@ footer{
 		<br><dt id="lowesttext">6:00pm, except Public Holidays </small>
 	</div>
 	<div id="centercolumn1">
-		<h3 id="header3">Information<br> </h3>
+		<dt id="footerheader"><b>Information</b><br> </dt>
 		<nav>
 		<small>
 			<ul>
@@ -214,13 +305,13 @@ footer{
 		
 	</div>
 	<div id="centercolumn2">
-		<h3 id="header3">Patient's Site<br> </h3>
+		<dt id="footerheader"><b>Patient's Site</b><br> </dt>
 		<nav>
 		<small>
 			<ul>
 				<li><a href="profile.html" id="botnav">Profile</a> </li>
-				<li><a href=".html" id="botnav">Your Appointments</a> </li>
-				<li><a href=".html" id="botnav">Book Appointments</a> </li>
+				<li><a href="myappointment.html" id="botnav">Your Appointments</a> </li>
+				<li><a href="bookappointment.html" id="botnav">Book Appointments</a> </li>
 			</ul>
 		</small>
 	</div>
