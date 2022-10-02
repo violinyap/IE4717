@@ -1,0 +1,86 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <title>JavaJam Coffee House - Menu</title>
+        <meta charset=“utf-8”>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <img class="header-img" src="images/header.png" alt="JavaJam"/>
+            </header>
+            <div class="middle">
+                <nav class="navbar">
+                    <a class="navbar-menu active" href="index.html">Home</a> 
+                    <a class="navbar-menu active" href="menu.html">Menu</a> 
+                    <a class="navbar-menu active" href="music.html">Music</a> 
+                    <a class="navbar-menu active" href="jobs.html">Jobs</a>
+                </nav>
+                <div class="content">
+                    <h1 class="content-title">Jobs at JavaJam</h1>
+                    <p>Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked with an asterisk *</p>
+                    <form method="post" action="show_post.php">
+                        <table class="jobs-table">
+                            <tr class="jobs-row">
+                                <td class="form-label">
+                                    <label for="name">*Name:</label>
+                                </td>
+                                <td class="form-input">
+                                    <input type="text" name="name" id="name" placeholder="Enter your name here" required>
+                                </td>
+                            </tr>
+                            <tr class="jobs-row">
+                                <td class="form-label">
+                                    <label for="email">*E-mail:</label>
+                                </td>
+                                <td class="form-input">
+                                    <input type="email" name="email" id="email" placeholder="Enter your Email-ID here" required>
+                                </td>
+                            </tr>
+                            <tr class="jobs-row">
+                                <td class="form-label">
+                                    <label for="date">Start Date:</label>
+                                </td>
+                                <td class="form-input">
+                                    <input type="date" name="date" id="date"> 
+                                </td>
+                            </tr>
+                            <tr class="jobs-row">
+                                <td class="form-label">
+                                    <label for="experience">*Experience:</label>
+                                </td>
+                                <td class="form-input">
+                                    <textarea name="experience" id="experience" rows="4" cols="40" placeholder="Enter your past experience here" required></textarea>
+                                </td>
+                            </tr>
+                            <tr class="jobs-row">
+                                <td colspan="2" class="form-button">
+                                    <input id="clear" type="reset" value="Clear">
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="jobs-row">
+                                <td colspan="2" class="form-button">
+                                    <input id="submit" type="submit" value="Apply Now">
+                                </td>
+                            </tr>
+                        
+                        
+                        
+                        
+                        
+                        
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <footer class="footer">
+                <small class="footer-copy"><i>Copyright &copy; 2014 JavaJam Coffee House</i></small>
+                <a class="footer-email" href="mailto:violin@yapputri.com"><small><i>violin@yapputri.com</i></small></a>
+            </footer>
+        </div>
+        <script type="text/javascript" src="jobs.js"></script>
+    </body>
+</html>

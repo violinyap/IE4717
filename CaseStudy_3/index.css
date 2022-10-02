@@ -1,0 +1,163 @@
+body {
+    background-color: #F2EDBA;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    color: #3A0000;
+}
+.wrapper {
+    box-shadow: 2px 2px 2px 2px #270500;
+    min-width: 800px;
+    width: 80%;
+}
+.header {
+    background-color: #D1B38F;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.header-img {
+    width: 800px;
+}
+.middle {
+    display: flex;
+    width: 100%;
+}
+
+.navbar {
+    float: left;
+    flex: 1;
+    background-color: #E1D1B1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.navbar-menu {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    color: #7C4F35;
+    margin: 3px;
+}
+
+.active {
+    color: #A38069;
+}
+
+.content {
+    float: right;
+    flex: 5;
+    background-color: #F5F5DD;
+    padding-left: 20px;
+    padding-bottom: 50px;
+}
+
+.content-title {
+    font-size: 28px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.content-left {
+    float: left;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.content-img {
+    max-width: 80%;
+    /* object-fit: contain; */
+}
+
+.content-right {
+    float: right;
+    flex: 1;
+    padding-left: 20px;
+}
+
+.content-list-item {
+    list-style-image: url(images/cup.png);
+    /* display: flex;
+    align-items: center; */
+}
+
+.footer {
+    background-color: #D1B38F;
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-copy {
+    color: black;
+}
+
+.footer-email {
+    color: #3A0000;
+}
+
+.menu-table {
+    color: #3A0000;
+    font-size: 20px;
+    max-width: 700px;
+}
+.menu-row:nth-of-type(odd) {
+    background-color: #D1B38F;
+}
+
+.coffee-name {
+    padding: 30px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.coffee-desc {
+    padding: 10px;
+}
+
+.music-table {
+    max-width: 700px;
+    margin-top: 30px;
+}
+.month {
+    background-color: #D1B38F;
+    font-size: 20px;
+}
+.song-cover {
+    width: 30%;
+    text-align: center;
+    vertical-align: middle;
+    padding:20px
+}
+.song-image {
+    width: 100px;
+}
+.song-content {
+    width: 70%;
+}
+
+
+.form-label {
+    text-align: right;
+    padding: 10px 20px;
+    vertical-align: top;
+}
+
+.form-input {
+    width: 500px;
+}
+#myName, #myEmail {
+    width: 200px;
+}
+
+.form-button {
+    padding: 10px;
+}
