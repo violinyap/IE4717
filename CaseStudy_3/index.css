@@ -178,3 +178,7 @@ body {
 .form-button {
     padding: 10px;
 }
+
+.priceInput {
+    width: 30px;
+}
