@@ -4,7 +4,7 @@ function chkName(event) {
   
   var nameInput = event.currentTarget;
 
-  var pos = nameInput.value.search(/^[a-zA-Z][a-zA-Z ]+$/);
+  var pos = nameInput.value.search(/^[a-zA-Z][a-zA-Z ]+?$/);
 
   if (pos != 0) {
     alert("The name you entered (" + nameInput.value + 
