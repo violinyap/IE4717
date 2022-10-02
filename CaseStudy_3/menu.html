@@ -1,55 +1,160 @@
-<!doctype html>
-    <html lang="en">
-    <head>
-        <title>JavaJam Coffee House - Menu</title>
-        <meta charset=“utf-8”>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="wrapper">
-            <header class="header">
-                <img class="header-img" src="images/header.png" alt="JavaJam"/>
-            </header>
-            <div class="middle">
-                <nav class="navbar">
-                    <a class="navbar-menu active" href="index.html">Home</a> 
-                    <a class="navbar-menu active" href="menu.html">Menu</a> 
-                    <a class="navbar-menu" href="music.html">Music</a> 
-                    <a class="navbar-menu" href="jobs.html">Jobs</a>
-                </nav>
-                <div class="content">
-                    <h1 class="content-title">Coffee at JavaJam</h1>
-                    <div class="content-wrapper">
-                        <table class="menu-table">
-                            <tr class="menu-row">
-                                <td class="coffee-name"><strong>Just Java</strong></td>
-                                <td class="coffee-desc">
-                                    Regular house blend, decaffeinated coffee, or flavor of the day. <br>
-                                    <strong>Endless Cup $2.00</strong>
-                                </td>
-                            </tr>
-                            <tr class="menu-row">
-                                <td class="coffee-name"><strong>Cafe au Lait</strong></td>
-                                <td class="coffee-desc">
-                                    House blended coffee infused into a smooth, steamed milk. <br>
-                                    <strong>Single $2.00 Double $3.00</strong>
-                                </td>
-                            </tr>
-                            <tr class="menu-row">
-                                <td class="coffee-name"><strong>Iced Cappuccino</strong></td>
-                                <td class="coffee-desc">
-                                    Sweetned espresso blended with icy-cold milk and served in a chilled glass. <br>
-                                    <strong>Single $4.75 Double $5.75</strong>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <footer class="footer">
-                <small class="footer-copy"><i>Copyright &copy; 2014 JavaJam Coffee House</i></small>
-                <a class="footer-email" href="mailto:violin@yapputri.com"><small><i>violin@yapputri.com</i></small></a>
-            </footer>
-        </div>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaJam Coffee House</title>
+<meta charset="utf-8">
+<style>
+body {font-family:Verdana, Arial, sans-serif;
+      background-color: #F0E68C;
+}
+header{ <!--background-color: #B8A286;
+        color: #663300; 
+        font-size: 150%; -->
+        padding: 10px 10px 10px 155px;
+		width:100%;
+		text-align:center;
+		background-image: url("headerbackgroundcolor.png");
+		background-repeat: repeat;
+}
+h2 { color: #000000
+     font-family: arial, sans-serif;
+}.content {padding: 20px 20px 0 20px; 
+} 
+#floatright { margin: 10px;
+             float: right;
+}
+#wrapper { background-color: #dbbfa2; 
+           color: #FFE4C4;
+           width: 80%;
+		   margin: auto;
+           min-width:800px;
+} 
+#leftcolumn { float: left;
+	          width: 100px;
+			  text-align: center;
+} 
+#rightcolumn { margin-left: 155px;
+               background-color: #F5F5DC;
+               color: #000000;
+			   font-size: 90%;
+} 
+nav ul { list-style-type: none;
+}
+nav a {text-decoration: none;
+color: #663300;
+}
+a:visited{color:#a88e72
+}
+footer {font-size:80%;
+         text-align: center;
+         padding-bottom:20px;
+		 color: #000000;
+		 background-image: url("headerbackgroundcolor.png");
+		 background-repeat: repeat;
+}
+table{ margin: auto; border: 1px solid #ffffff; width: 600px; border-spacing: 1; }
+td, th { padding: 5px; font-family; Arial, sans-serif; border-style: none; }
+tr: nth-of-type(odd) { background-color: #ffffff; }
+tr:nth-of-type(even) { background-image: url("headerbackgroundcolor.png"); color: #000000;}
+#tableheader{
+  text-align: center;
+  font-weight: bold;
+}
+#tprice{
+  padding-bottom: 10px;
+  padding-left: 425px;
+}
+.textinput{
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<script src = "menu.js" ></script>
+<div id="wrapper">
+	<header>
+		<img src="JavaJam.png" width="540" height="100" alt="JavaJamLogo" class="center">
+		<!--<h1>JavaJam Coffee House</h1>-->
+	</header>
+<div id="leftcolumn">
+	<nav>
+	<ul style="font-weight: bold;">
+		<li><a href="index.html">Home</a> </li>
+		<li><a href="menu.html">Menu</a> </li>
+		<li><a href="music.html">Music</a> </li>
+		<li><a href="jobs.html">Jobs</a> </li>
+	</ul>
+	</nav>
+	</div>
+	
+	<div id="rightcolumn">
+	<div class="content"> 
+	<h2>Coffee at JavaJam</h2>
+		
+		<table border="1" style='font-family:Verdana, Arial, sans-serif; font-size:100%'>
+		
+		<tr id="tableheader">
+		<th>Menu</th>
+		<td>Description
+		</td>
+		<td colspan="2">Type/Qty:</td>
+		<td>Sub-total($):</td>
+		</tr>
+		
+		<tr>
+		<th style="padding:20px">JustJava</th>
+		<td>Regular house blend, decaffeinated coffee, or flavor of the day.
+		<br><b>Endless Cup $2.00</b>
+		</td>
+		<td align="center" colspan="2">Endless Cup<br><br>
+		<input type="text" class="textinput" name="JustJavaQty" id="JJQty" value="0" size="1" maxlength="2" onkeyup="calculatesubtotal()";>
+		</td>
+		<td align="center">
+		<input type="text" class="textinput" name="subtotal1" id="subtotal1" value="0.00"  size="1" onchange="setTwoNumberDecimal" readonly>
+		</td>
+		</tr>
+		
+		<tr>
+		<th style="padding:20px">Cafe au Lait</th>
+		<td>Home blended coffee infused into a smooth, steamed milk.
+		<br><b>Single $2.00 Double $3.00</b>
+		</td>
+		<td align="center">Single<br><br>
+		<input type="text" class="textinput" name="ALQty" id="ALQty1" value="0" size="1" maxlength="2" onkeyup="calculatesubtotal()";>
+		</td>
+		<td align="center">Double<br><br>
+		<input type="text" class="textinput" name="ALQty" id="ALQty2" value="0" size="1" maxlength="2" onkeyup="calculatesubtotal()";>
+		</td>
+		<td align="center">
+		<input type="text" class="textinput" name="subtotal2" id="subtotal2" value="0.00" size="1" readonly>
+		</td>
+		</tr>
+		
+		<tr>
+		<th style="padding:20px">Iced Cappucino</th>
+		<td>Sweetened espresso blended with icy-cold milk and served in a chilled glass.
+		<br><b>Single $4.75 Double $5.75</b></td>
+		<td align="center">Single<br><br>
+		<input type="text" class="textinput" name="CQty" id="CQty1" value="0" size="1" maxlength="2" onkeyup="calculatesubtotal()";>
+		</td>
+		<td align="center">Double<br><br>
+		<input type="text" class="textinput" name="CQty" id="CQty2" value="0" size="1" maxlength="2" onkeyup="calculatesubtotal()";>
+		</td>
+		<td align="center"><input type="text" class="textinput" name="subtotal3" id="subtotal3" value="0.00" size="1" readonly /></td>
+		</tr>
+	</table>
+	<br>
+	<dt align="center" id="tprice"><b><label>Total Price:</label> </b><input type="text" class="textinput" id="totalprice" value="0" size="2" onkeyup="calculatesubtotal()" readonly></dt>
+	</div>
+	</div>
+<footer>
+	<small><i>Copyright &copy; 2014 JavaJam Coffee House
+		<br> <a href=
+		"mailto: lim@jiasheng.com">
+		lim@jiasheng.com</a></i></small>
+	<small><i></i></small>
+</footer>
+</div>
+
+</body>
 </html>
