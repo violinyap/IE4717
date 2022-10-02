@@ -108,8 +108,12 @@ body {
     font-size: 20px;
     max-width: 700px;
 }
+
 .menu-row:nth-of-type(odd) {
     background-color: #D1B38F;
+}
+.menu-row > th {
+    padding: 10px;
 }
 
 .coffee-name {
@@ -121,6 +125,19 @@ body {
 
 .coffee-desc {
     padding: 10px;
+}
+
+.qtyInput {
+    width: 50px;
+}
+
+.coffee-type {
+    padding: 20px;
+    text-align: center;
+}
+
+.coffee-total {
+    text-align: center;
 }
 
 .music-table {
