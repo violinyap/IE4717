@@ -1,0 +1,158 @@
+.home-banner {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/clinic.jpg');
+
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-banner > h1 {
+  color: white;
+  margin: 0px;
+  font-size: 40px;
+}
+
+.banner-button {
+  margin-top: 20px;
+}
+
+.home-services {
+  display: flex;
+  padding: 80px;
+  flex-wrap: wrap;
+}
+
+.service-left {
+  flex: 2;
+  padding: 20px;
+}
+
+.service-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#service-image {
+  height: 300px;
+}
+
+.home-doctors {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  margin-bottom: 80px;
+}
+
+.doctors-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.doctor-card-img {
+  width: 100%;
+  height: 200px;
+}
+
+.doctor-card-text {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-card-text > h2 {
+  margin: 0;
+}
+
+.home-news {
+  display: flex;
+  padding: 80px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-left {
+  flex: 1;
+  min-width: 400px;
+}
+
+.news-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.news-img {
+  width: 250px;
+  height: 200px;
+  margin:20px;
+  background-color: grey;
+}
+
+.home-small-banner {
+  margin: 80px;
+  height: 100px;
+  background-color: grey;
+}
+
+.home-queries {
+  display: flex;
+  padding: 80px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.queries-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.queries-img {
+  width: 500px;
+  height: 400px;
+}
+
+.queries-right {
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+  justify-content: flex-start;
+  min-height: 400px;
+  flex: 1;
+}
+.queries-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.queries-form > input {
+  margin: 10px 0px;
+}
