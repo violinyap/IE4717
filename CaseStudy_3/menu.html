@@ -25,7 +25,7 @@
                             <tr class="menu-row">
                                 <th>Menu</th>
                                 <th>Description</th>
-                                <th colspan="2">Type/Qty:</th>
+                                <th>Qty:</th>
                                 <th>Sub-total($):</th>
                             </tr>
                             <tr class="menu-row">
@@ -34,8 +34,8 @@
                                     Regular house blend, decaffeinated coffee, or flavor of the day. <br>
                                     <strong>Endless Cup $2.00</strong>
                                 </td>
-                                <td class="coffee-type" colspan="2">Endless Cup<br><br>
-                                    <input type="number" class="qtyInput" name="JustJavaQty" id="JJQty" value="0" min="0" onchange="calculatesubtotal()";>
+                                <td class="coffee-type">
+                                    <input type="number" class="qtyInput" name="JustJavaQty" id="JJQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
                                 </td>
                                 <td class="coffee-total">
                                     $<span id="subtotal1">0.00</span>
@@ -45,13 +45,13 @@
                                 <td class="coffee-name"><strong>Cafe au Lait</strong></td>
                                 <td class="coffee-desc">
                                     House blended coffee infused into a smooth, steamed milk. <br>
-                                    <strong>Single $2.00 Double $3.00</strong>
+                                    <strong>
+									<input type = "radio" name="AL" id="AL1" value="1" onchange="calculatesubtotal()"; />Single $2.00<br>
+									<input type = "radio" name="AL" id="AL2" value="2" onchange="calculatesubtotal()"; />Double $3.00
+									</strong>
                                 </td>
-                                <td class="coffee-type">Single<br><br>
-                                    <input type="number" class="qtyInput" name="ALQty" id="ALQty1" value="0" min="0" onchange="calculatesubtotal()";>
-                                </td>
-                                <td class="coffee-type">Double<br><br>
-                                    <input type="number" class="qtyInput" name="ALQty" id="ALQty2" value="0" min="0" onchange="calculatesubtotal()";>
+                                <td class="coffee-type">
+                                    <input type="number" class="qtyInput" name="ALQty" id="ALQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
                                 </td>
                                 <td class="coffee-total">
                                     $<span id="subtotal2">0.00</span>
@@ -61,13 +61,13 @@
                                 <td class="coffee-name"><strong>Iced Cappuccino</strong></td>
                                 <td class="coffee-desc">
                                     Sweetned espresso blended with icy-cold milk and served in a chilled glass. <br>
-                                    <strong>Single $4.75 Double $5.75</strong>
+                                    <strong>
+									<input type = "radio" name="C" id="C1" value="1" onchange="calculatesubtotal()"; />Single $4.75 <br>
+									<input type = "radio" name="C" id="C2" value="2" onchange="calculatesubtotal()"; />Double $5.75</b></td>
+									</strong>
                                 </td>
-                                <td class="coffee-type">Single<br><br>
-                                    <input type="number" class="qtyInput" name="CQty" id="CQty1" value="0" min="0" onchange="calculatesubtotal()";>
-                                </td>
-                                <td class="coffee-type">Double<br><br>
-                                    <input type="number" class="qtyInput" name="CQty" id="CQty2" value="0" min="0" onchange="calculatesubtotal()";>
+                                <td class="coffee-type">
+                                    <input type="number" class="qtyInput" name="CQty" id="CQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
                                 </td>
                                 <td class="coffee-total">
                                     $<span id="subtotal3">0.00</span>
