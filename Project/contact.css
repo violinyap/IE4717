@@ -1,0 +1,109 @@
+.contact-banner {
+  width: 100vw;
+  height: 30vh;
+  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/clinic.jpg');
+
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-banner > h1 {
+  color: white;
+  margin: 0px;
+  font-size: 40px;
+}
+
+.home-queries {
+  display: flex;
+  padding: 80px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.queries-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.queries-img {
+  width: 500px;
+  height: 400px;
+}
+
+.queries-right {
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+  justify-content: flex-start;
+  min-height: 400px;
+  flex: 1;
+}
+.queries-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.queries-form > input {
+  margin: 10px 0px;
+}
+
+
+.home-services {
+  display: flex;
+  padding: 80px;
+  flex-wrap: wrap;
+}
+
+.service-left {
+  flex: 1;
+  padding: 20px;
+}
+
+.service-right {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+
+#service-image {
+  height: 300px;
+}
+
+/* 
+.about-locations {
+  padding: 80px;
+  margin-bottom: 80px;
+} */
+
+.locations-box {
+  margin: 20px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid;
+}
+
+.locations-text {
+  width: 30%;
+  padding: 20px;
+}
+
+.locations-text > h2, p {
+  margin: 0px;
+}
+
+.locations-img {
+  width: 70%;
+  background-color: grey;
+}
