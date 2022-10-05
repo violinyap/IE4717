@@ -1,0 +1,104 @@
+.doctors-banner {
+  width: 100vw;
+  height: 30vh;
+  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/clinic.jpg');
+
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctors-banner > h1 {
+  color: white;
+  margin: 0px;
+  font-size: 40px;
+}
+
+
+.doctors-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 80px;
+  justify-content: center;
+}
+
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.doctor-card-img {
+  width: 100%;
+  height: 200px;
+}
+
+.doctor-card-text {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-card-text > h2 {
+  margin: 0;
+}
+
+.doctors-detail-modal {
+  position: fixed;
+  width: 80vw;
+  height: 70vh;
+  top: 100px;
+  left: 100px;
+  z-index: 999;
+  background-color: wheat;
+  margin: auto;
+  justify-self: center;
+
+}
+
+.close-modal {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 20px 0px 0px;
+  font-size: 40px;
+}
+
+.close-modal > a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.detail-wrapper {
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: row;
+
+}
+.detail-left {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.detail-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.availability-table > tbody > tr {
+  background-color: white;
+}
