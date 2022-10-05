@@ -97,14 +97,18 @@
 .news-left {
   flex: 1;
   min-width: 400px;
+  padding-left: 20px;
 }
 
 .news-right {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: flex-end;
+  /* align-items: center; */
+}
+
+.news-photos {
+  min-width: 600px;
 }
 
 .news-img {
