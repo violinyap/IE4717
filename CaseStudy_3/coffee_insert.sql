@@ -1,4 +1,4 @@
-use myuser;
+use javajam;
 
 insert into coffee values
   (NULL, "Just Java", "Endless Cup", 2.00),

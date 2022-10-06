@@ -1,6 +1,6 @@
 create table coffee
-( coffeeid int unsigned not null auto_increment primary key,
-  name char(50) not null,
-  type char(50) not null,
-  price float unsigned,
-)
+( coffee_id int unsigned not null auto_increment primary key,
+  coffee_name char(50) not null,
+  coffee_type char(50) not null,
+  coffee_price float unsigned
+);
