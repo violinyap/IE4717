@@ -1,0 +1,99 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <title>JavaJam Coffee House - Menu</title>
+        <meta charset=“utf-8”>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <img class="header-img" src="images/header.png" alt="JavaJam"/>
+            </header>
+            <div class="middle">
+                <nav class="navbar">
+                    <a class="navbar-menu active" href="index.html">Home</a> 
+                    <a class="navbar-menu active" href="menu.html">Menu</a> 
+                    <a class="navbar-menu" href="music.html">Music</a> 
+                    <a class="navbar-menu" href="jobs.html">Jobs</a>
+                </nav>
+                <div class="content">
+                    <h1 class="content-title">Coffee at JavaJam</h1>
+                    <div class="content-wrapper">
+						<form action="menu.php" method="post">
+                        <table class="menu-table">
+                            <tr class="menu-row">
+                                <th>Menu</th>
+                                <th>Description</th>
+                                <th>Qty:</th>
+                                <th>Sub-total($):</th>
+                            </tr>
+                            <tr class="menu-row">
+                                <td class="coffee-name"><strong>Just Java</strong></td>
+                                <td class="coffee-desc">
+                                    Regular house blend, decaffeinated coffee, or flavor of the day. <br>
+                                    <strong>Endless Cup $2.00</strong>
+                                </td>
+                                <td class="coffee-type">
+                                    <input type="number" class="qtyInput" name="JJQty" id="JJQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
+                                </td>
+                                <td class="coffee-total">
+                                    $<span id="subtotal1">0.00</span>
+                                </td>
+                            </tr>
+                            <tr class="menu-row">
+                                <td class="coffee-name"><strong>Cafe au Lait</strong></td>
+                                <td class="coffee-desc">
+                                    House blended coffee infused into a smooth, steamed milk. <br>
+                                    <strong>
+									<input type = "radio" name="ALType" id="AL1" value="Single" onchange="calculatesubtotal()"; />Single $2.00<br>
+									<input type = "radio" name="ALType" id="AL2" value="Double" onchange="calculatesubtotal()"; />Double $3.00
+									</strong>
+                                </td>
+                                <td class="coffee-type">
+                                    <input type="number" class="qtyInput" name="ALQty" id="ALQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
+                                </td>
+                                <td class="coffee-total">
+                                    $<span id="subtotal2">0.00</span>
+                                </td>
+                            </tr>
+                            <tr class="menu-row">
+                                <td class="coffee-name"><strong>Iced Cappuccino</strong></td>
+                                <td class="coffee-desc">
+                                    Sweetned espresso blended with icy-cold milk and served in a chilled glass. <br>
+                                    <strong>
+									<input type = "radio" name="CType" id="C1" value="Single" onchange="calculatesubtotal()"; />Single $4.75 <br>
+									<input type = "radio" name="CType" id="C2" value="Double" onchange="calculatesubtotal()"; />Double $5.75</b></td>
+									</strong>
+                                </td>
+                                <td class="coffee-type">
+                                    <input type="number" class="qtyInput" name="CQty" id="CQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
+                                </td>
+                                <td class="coffee-total">
+                                    $<span id="subtotal3">0.00</span>
+                                </td>
+                            </tr>
+                            <tr class="menu-row">
+                                <td class="totalPrice" colspan="4">
+                                    <strong>Total Price: $<span id="totalprice">0.00</span></strong>
+                                </td>
+                            </tr>
+							<tr class="menu-row">
+								<td colspan="4">
+								<input type="submit" class="button" value="Checkout" />
+								</button>
+							</tr>
+                        </table>
+						</form>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <small class="footer-copy"><i>Copyright &copy; 2014 JavaJam Coffee House</i></small>
+                <a class="footer-email" href="mailto:violin@yapputri.com"><small><i>violin@yapputri.com</i></small></a>
+                <a href="mailto: lim@jiasheng.com"><small><i>lim@jiasheng.com</i></small></a>
+            </footer>
+        </div>
+        <script src = "menu.js" ></script>
+    </body>
+</html>
