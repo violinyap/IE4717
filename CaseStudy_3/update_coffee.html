@@ -25,22 +25,21 @@
                             <tr class="menu-row">
                                 <th>Menu</th>
                                 <th>Current Description</th>
-                                <th colspan="2">Edit Price</th>
-                                <th>Save</th>
+                                <th colspan="1">Edit Price</th>
                             </tr>
                             <tr class="menu-row">
-                                <form action="update.php" method="post">
+                                <form action="update_coffee.php" method="post">
                                     <td class="coffee-name"><strong>Just Java</strong></td>
                                     <td class="coffee-desc">
                                         Regular house blend, decaffeinated coffee, or flavor of the day. <br>
                                         <strong>Endless Cup $<span id="justjava-endless">2.00</span></strong>
                                     </td>
-                                    <td class="coffee-type" colspan="2">
+                                    <!-- <td class="coffee-type" colspan="2">
                                         Endless Cup<br><br>
                                         $ <input type="text" class="priceInput" name="JustJavaPrice" id="JJPrice" value="0.00">
-                                    </td>
+                                    </td> -->
                                     <td class="coffee-total">
-                                    <button onclick="savePrice('justjava')" type="submit">save</button>
+                                    <button onclick="savePrice('justjava')" type="submit">edit</button>
                                     </td>
                                 </form>
                             </tr>
@@ -53,15 +52,15 @@
                                       Double $<span id="aulait-double">3.00</span>
                                     </strong>
                                 </td>
-                                <td class="coffee-type">
+                                <!-- <td class="coffee-type">
                                   Single<br><br>
                                     $ <input type="text" class="priceInput" name="ALPriceS" id="ALPriceS" value="0.00">
                                 </td>
                                 <td class="coffee-type">Double<br><br>
                                     $ <input type="text" class="priceInput" name="ALPriceD" id="ALPriceD" value="0.00">
-                                </td>
+                                </td> -->
                                 <td class="coffee-total">
-                                  <button onclick="savePrice('aulait')">save</button>
+                                  <button onclick="savePrice('aulait')">edit</button>
                                 </td>
                             </tr>
                             <tr class="menu-row">
@@ -73,14 +72,14 @@
                                       Double $<span id="cappuccino-double">5.75</span>
                                     </strong>
                                 </td>
-                                <td class="coffee-type">Single<br><br>
+                                <!-- <td class="coffee-type">Single<br><br>
                                     $ <input type="text" class="priceInput" name="CPriceS" id="CPriceS" value="0.00">
                                 </td>
                                 <td class="coffee-type">Double<br><br>
                                     $ <input type="text" class="priceInput" name="CPriceD" id="CPriceD" value="0.00">
-                                </td>
+                                </td> -->
                                 <td class="coffee-total">
-                                  <button onclick="savePrice('cappuccino')">save</button>
+                                  <button onclick="savePrice('cappuccino')">edit</button>
                                 </td>
                             </tr>
                         </table>

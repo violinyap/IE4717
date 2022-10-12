@@ -6,6 +6,23 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
+        <?php
+            /* Database credentials. Assuming you are running MySQL
+            server with default setting (user 'root' with no password) */
+            define('DB_SERVER', 'localhost');
+            define('DB_USERNAME', 'javajam');
+            define('DB_PASSWORD', 'javajam');
+            define('DB_NAME', 'javajam');
+            
+            /* Attempt to connect to MySQL database */
+            @ $db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            
+            // Check connection
+            if(mysqli_connect_errno()){
+                echo "ERROR: Could not connect to database. Please try again later ";
+                exit;
+            }
+        ?>
         <div class="wrapper">
             <header class="header">
                 <img class="header-img" src="images/header.png" alt="JavaJam"/>
@@ -29,11 +46,17 @@
                                 <th>Save</th>
                             </tr>
                             <tr class="menu-row">
-                                <form action="update.php" method="post">
+                                <form action="update_coffee.php" method="post">
                                     <td class="coffee-name"><strong>Just Java</strong></td>
                                     <td class="coffee-desc">
                                         Regular house blend, decaffeinated coffee, or flavor of the day. <br>
                                         <strong>Endless Cup $<span id="justjava-endless">2.00</span></strong>
+                                        <?php
+                                            $query = "SELECT * FROM coffee WHERE coffee_name = 'Just Java' AND coffee_type = 'Endless Cup'";
+                                            $result = $db->query($query)
+                                            echo '<strong>Endless Cup $<span id="justjava-endless">2.00</span></strong>'
+                                        ?>
+                                        
                                     </td>
                                     <td class="coffee-type" colspan="2">
                                         Endless Cup<br><br>
