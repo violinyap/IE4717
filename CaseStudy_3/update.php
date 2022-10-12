@@ -7,21 +7,11 @@
     </head>
     <body>
         <?php
-            /* Database credentials. Assuming you are running MySQL
-            server with default setting (user 'root' with no password) */
-            define('DB_SERVER', 'localhost');
-            define('DB_USERNAME', 'javajam');
-            define('DB_PASSWORD', 'javajam');
-            define('DB_NAME', 'javajam');
-            
             /* Attempt to connect to MySQL database */
-            @ $db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            @ $db = mysqli_connect('localhost', 'root', '');
+            mysqli_select_db($db,'javajam');
             
-            // Check connection
-            if(mysqli_connect_errno()){
-                echo "ERROR: Could not connect to database. Please try again later ";
-                exit;
-            }
+            // IFF ERROR
         ?>
         <div class="wrapper">
             <header class="header">
@@ -53,8 +43,8 @@
                                         <strong>Endless Cup $<span id="justjava-endless">2.00</span></strong>
                                         <?php
                                             $query = "SELECT * FROM coffee WHERE coffee_name = 'Just Java' AND coffee_type = 'Endless Cup'";
-                                            $result = $db->query($query)
-                                            echo '<strong>Endless Cup $<span id="justjava-endless">2.00</span></strong>'
+                                            $result = mysqli_query($db,$query);
+                                            echo '<strong>Endless Cup $<span id="justjava-endless">'.$result.'</span></strong>'
                                         ?>
                                         
                                     </td>
