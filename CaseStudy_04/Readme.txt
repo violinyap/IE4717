@@ -10,4 +10,4 @@ Case Study 04
 - Access salesReport.php to view data -> navigate to salesReportProduct.php and salesReportCategory.php on clicking label for the checkboxes
 - "sales.php" for retrieval of data, sorting, and calculation
 
-Changes made to salesReport.php, menu.php, menu2.html, manuInsert.sql and index.css
+Changes made to salesReport.php, menu.php, menu2.html, manual_insert.sql and index.css
