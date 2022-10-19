@@ -8,11 +8,16 @@
     <body>
         <div class="wrapper">
             <header class="header">
-                <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                <a href="index.html">
+                    <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                </a>
             </header>
             <div class="middle">
                 <nav class="navbar">
                     <a class="navbar-menu active" href="salesReport.php">Daily<br>Sales<br>Report</a>
+										<hr/>
+										<a class="navbar-menu" href="update.php">Product <br> Price<br> Update</a>										
+
                 </nav>
                 <div class="content">
                     <h1 class="content-title">Click to generate daily sales report:</h1>

@@ -8,12 +8,19 @@
     <body>
         <div class="wrapper">
             <header class="header">
-                <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                <a href="index.html">
+                    <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                </a>
             </header>
             <div class="middle">
-                 <nav class="navbar">
-                    <dt class="navbar-menu"><strong>Order<br>Summary</Strong></dt>
+								<nav class="navbar">
+                    <a class="navbar-menu active" href="index.html">Home</a> 
+                    <a class="navbar-menu active" href="menu2.html">Menu</a> 
+                    <a class="navbar-menu" href="music.html">Music</a> 
+                    <a class="navbar-menu" href="jobs.html">Jobs</a>
+										<a class="navbar-menu" href="salesReport.php">Admin</a>
                 </nav>
+                
                 <div class="content">
                     <h1 class="content-title">Order Summary:</h1>
                     <div class="sales-wrapper">
