@@ -206,11 +206,30 @@ body {
 	color: #000000;
 	text-decoration: none;
 }
-#myCheck {
-	width:30px;
-	height: 30px;
+.myCheck {
+   appearance: none;
+   border: 1px solid #d3d3d3;
+   width: 30px;
+   height: 30px;
+   background-color: #E1D1B1;
+   content: none;
+   outline: 1px solid #7C4F35;
+   margin: 0;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#myCheck2 {
-	width:30px;
-	height: 30px;
+.myCheck:checked {
+  appearance: none;
+  outline: none;
+  padding: 0;
+  content: none;
+  outline: 1px solid #7C4F35;
+  border: none;
+}
+.myCheck:checked::before{
+  position: absolute;
+  color: #7C4F35 !important;
+  content: "\00A0\2713\00A0" !important;
+  border: 1px solid #d3d3d3;
+  font-weight: bolder;
+  font-size: 21px;
 }
