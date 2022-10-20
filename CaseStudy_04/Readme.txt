@@ -9,4 +9,5 @@ Case Study 04
 - Use manualInsert.sql to insert data for table, "Orders"
 - Access salesReport.php to view data -> navigate to salesReportProduct.php and salesReportCategory.php on clicking label for the checkboxes
 - "sales.php" for retrieval of data, sorting, and calculation
-- "salesDisplay.php" for checkbox show/hide text implementation in salesReport.php
+
+Changes made to salesReport.php, menu.php, menu2.html, manual_insert.sql and index.css

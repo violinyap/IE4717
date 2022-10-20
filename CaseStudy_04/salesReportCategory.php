@@ -7,7 +7,9 @@
 <body>
   <div class="wrapper">
             <header class="header">
-                <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                <a href="index.html">
+                    <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                </a>
             </header>
             <div class="middle">
                 <nav class="navbar">

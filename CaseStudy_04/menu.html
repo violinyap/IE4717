@@ -8,14 +8,17 @@
     <body>
         <div class="wrapper">
             <header class="header">
-                <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                <a href="index.html">
+                    <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                </a>
             </header>
             <div class="middle">
                 <nav class="navbar">
                     <a class="navbar-menu active" href="index.html">Home</a> 
-                    <a class="navbar-menu active" href="menu.html">Menu</a> 
+                    <a class="navbar-menu active" href="menu2.html">Menu</a> 
                     <a class="navbar-menu" href="music.html">Music</a> 
                     <a class="navbar-menu" href="jobs.html">Jobs</a>
+                    <a class="navbar-menu" href="salesReport.php">Admin</a>
                 </nav>
                 <div class="content">
                     <h1 class="content-title">Coffee at JavaJam</h1>
@@ -35,7 +38,8 @@
                                     <strong>Endless Cup $2.00</strong>
                                 </td>
                                 <td class="coffee-type">
-                                    <input type="number" class="qtyInput" name="JJQty" id="JJQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
+                                    <input type="number" class="qtyInput" name="JJQty" id="JJQty" min="0" value="0" min="0" maxlength="2" oninput="this.value = 
+									!!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" onchange="calculatesubtotal()"; required />
                                 </td>
                                 <td class="coffee-total">
                                     $<span id="subtotal1">0.00</span>
@@ -46,12 +50,13 @@
                                 <td class="coffee-desc">
                                     House blended coffee infused into a smooth, steamed milk. <br>
                                     <strong>
-									<input type = "radio" name="ALType" id="AL1" value="Single" onchange="calculatesubtotal()"; />Single $2.00<br>
+									<input type = "radio" name="ALType" id="AL1" value="Single" checked="checked" onchange="calculatesubtotal()"; />Single $2.00<br>
 									<input type = "radio" name="ALType" id="AL2" value="Double" onchange="calculatesubtotal()"; />Double $3.00
 									</strong>
                                 </td>
                                 <td class="coffee-type">
-                                    <input type="number" class="qtyInput" name="ALQty" id="ALQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
+                                    <input type="number" class="qtyInput" name="ALQty" id="ALQty" value="0" min="0" maxlength="2" oninput="this.value = 
+									!!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" onchange="calculatesubtotal()"; required />
                                 </td>
                                 <td class="coffee-total">
                                     $<span id="subtotal2">0.00</span>
@@ -62,12 +67,13 @@
                                 <td class="coffee-desc">
                                     Sweetned espresso blended with icy-cold milk and served in a chilled glass. <br>
                                     <strong>
-									<input type = "radio" name="CType" id="C1" value="Single" onchange="calculatesubtotal()"; />Single $4.75 <br>
+									<input type = "radio" name="CType" id="C1" value="Single" checked="checked" onchange="calculatesubtotal()"; />Single $4.75 <br>
 									<input type = "radio" name="CType" id="C2" value="Double" onchange="calculatesubtotal()"; />Double $5.75</b></td>
 									</strong>
                                 </td>
                                 <td class="coffee-type">
-                                    <input type="number" class="qtyInput" name="CQty" id="CQty" value="0" min="0" maxlength="2" onchange="calculatesubtotal()";>
+                                    <input type="number" class="qtyInput" name="CQty" id="CQty" value="0" min="0" maxlength="2" oninput="this.value = 
+									!!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" onchange="calculatesubtotal()"; required />
                                 </td>
                                 <td class="coffee-total">
                                     $<span id="subtotal3">0.00</span>
@@ -81,7 +87,6 @@
 							<tr class="menu-row">
 								<td colspan="4">
 								<input type="submit" class="button" value="Checkout" />
-								</button>
 							</tr>
                         </table>
 						</form>

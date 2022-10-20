@@ -1,90 +1,129 @@
-<?php
-  $JJQty = $_POST['JJQty'];
-  $JJType = "null";
-  $ALQty = $_POST['ALQty'];
-  $ALType = $_POST['ALType'];
-  $CQty = $_POST['CQty'];
-  $CType = $_POST['CType'];
+<!doctype html>
+    <html lang="en">
+    <head>
+        <title>JavaJam Coffee House - Daily Sales Report</title>
+        <meta charset=“utf-8”>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <a href="index.html">
+                    <img class="header-img" src="images/header.png" alt="JavaJam"/>
+                </a>
+            </header>
+            <div class="middle">
+								<nav class="navbar">
+                    <a class="navbar-menu active" href="index.html">Home</a> 
+                    <a class="navbar-menu active" href="menu2.html">Menu</a> 
+                    <a class="navbar-menu" href="music.html">Music</a> 
+                    <a class="navbar-menu" href="jobs.html">Jobs</a>
+										<a class="navbar-menu" href="salesReport.php">Admin</a>
+                </nav>
+                
+                <div class="content">
+                    <h1 class="content-title">Order Summary:</h1>
+                    <div class="sales-wrapper">
+					<table class="sales-table">
+                            <tr class="sales-row">
+							<td>
+							<?php
+							  $JJQty = $_POST['JJQty'];
+							  $JJType = "null";
+							  $ALQty = $_POST['ALQty'];
+							  $ALType = $_POST['ALType'];
+							  $CQty = $_POST['CQty'];
+							  $CType = $_POST['CType'];
+							?>
+							<?php
+								date_default_timezone_set("Asia/Singapore");
+								echo date_default_timezone_get();
+								echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
 
-?>
-<html>
-<head>
-  <title>Javajam - Order Summary</title>
-</head>
-<body>
-<h1>JavaJam Coffee House</h1>
-<h2>Order Summary</h2>
-<?php
-	echo "<p>Thank you for shopping with JavaJam Coffee!</p>";
-	date_default_timezone_set("Asia/Singapore");
-	echo date_default_timezone_get();
-	echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
+								$totalqty = 0;
+								$totalqty = $JJQty + $ALQty + $CQty;
+								echo "Items ordered: ".$totalqty."<br />";
+							
+								if ($totalqty == 0) {
 
-	echo "<p>Your order is as follows: </p>";
+								  echo "You did not order anything on the previous page!<br><br>";
+								  echo "<tr class='sales-row'><td>" .
+								  "<input type='button' class='button' onclick='history.back()' value='Restart Order' />" .
+								  "</td></tr>";
+								  exit;
 
-	$totalqty = 0;
-	$totalqty = $JJQty + $ALQty + $CQty;
-	echo "Items ordered: ".$totalqty."<br />";
+								} else {
 
+								  if ($JJQty > 0) {
+									echo $JJQty." Endless Cup(s) of Just Java.<br />";
+								  }
 
-	if ($totalqty == 0) {
+								  if ($ALQty > 0) {
+									echo $ALQty." ".$ALType." Cup(s) of Cafe Au Lait.<br />";
+								  }
 
-	  echo "You did not order anything on the previous page!<br />";
-	  exit;
+								  if ($CQty > 0) {
+									echo $CQty." ".$CType." Cup(s) of Iced Cappucino<br />";
+								  }
+								}
+								$JJPrice = 2;
+								$ALPrice = 0;
+								$CPrice = 0;
+								
+								if ($ALType == "Single")
+								{
+									$ALPrice = 2;
+								}else{
+									$ALPrice = 3;
+								}
+								if ($CType == "Single")
+								{
+									$CPrice = 4.75;
+								}else{
+									$CPrice = 5.75;
+								}
+								$Cost = $JJQty * $JJPrice
+											 + $ALQty * $ALPrice
+											 + $CQty * $CPrice;
 
-	} else {
+								echo "Total: $".number_format($Cost,2)."<br />";
+								
+								
+								@ $db = new mysqli('localhost', 'root', '', 'orderlist');
 
-	  if ($JJQty > 0) {
-		echo $JJQty." Endless Cup(s) of Just Java.<br />";
-	  }
+								if (mysqli_connect_errno()) {
+								 echo "Error: Could not connect to database.  Please try again later.";
+								 exit;
+								}
+								
+								$query = "insert into orders values
+										(NULL, '".$JJQty."', '".$JJType."', '".$ALQty."', '".$ALType."', '".$CQty."', '".$CType."', '".$Cost."')";
+								$result = $db->query($query);
 
-	  if ($ALQty > 0) {
-		echo $ALQty." ".$ALType." Cup(s) of Cafe Au Lait.<br />";
-	  }
+								$sql = "SELECT * FROM orders";
+								$result2 = $db->query($sql);
+								
+								$num_result = $result2->num_rows;
 
-	  if ($CQty > 0) {
-		echo $CQty." ".$CType." Cup(s) of Iced Cappucino<br />";
-	  }
-	}
+								if ($result) {
+								  echo "<p>Thank you for shopping with JavaJam Coffee!<br>" .
+								  "Collect your order at the counter when your order number is called.<br><br>" .
+								  "Your order number: ". $num_result . "</p>";
+								} else {
+								  echo "An error has occurred.  The order was not added.";
+								}
 
-
-	$Cost = 0.00;
-
-	define('JJPRICE', 2);
-	define('ALPRICE', 2);
-	define('CPRICE', 4.75);
-
-	$Cost = $JJQty * JJPRICE
-				 + $ALQty * ALPRICE
-				 + $CQty * CPRICE;
-
-	echo "Total: $".number_format($Cost,2)."<br />";
-	
-	
-	@ $db = new mysqli('localhost', 'root', '', 'orderlist');
-
-	if (mysqli_connect_errno()) {
-     echo "Error: Could not connect to database.  Please try again later.";
-     exit;
-	}
-	
-	$query = "insert into orders values
-            (NULL, '".$JJQty."', '".$JJType."', '".$ALQty."', '".$ALType."', '".$CQty."', '".$CType."', '".$Cost."')";
-	$result = $db->query($query);
-
-	$sql = "SELECT * FROM orders";
-	$result2 = $db->query($sql);
-	
-	$num_result = $result2->num_rows;
-
-	if ($result) {
-      echo  "Collect your order at the counter when your order no. is called.<br />";
-	  echo "<p>Your order no.: ".$num_result."</p>";
-	} else {
-  	  echo "An error has occurred.  The order was not added.";
-	}
-
-	$db->close();
-?>
-</body>
+								$db->close();
+							?>
+							</td>
+							</tr>
+							<tr class="sales-row"><a href="menu2.html">
+							<td><a href="menu2.html">
+							<input type="button" class="button" value="Start a new order" />
+							</td></a>
+							</tr>
+					</div>
+                </div>
+            </div>
+	</body>
 </html>
