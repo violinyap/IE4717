@@ -46,7 +46,7 @@
                                     </td>
                                     <td class="coffee-type" colspan="2">
                                         Endless Cup<br><br>
-                                        $ <input type="text" class="priceInput" name="JustJavaPrice" id="JJPrice" value="0.00" disabled onkeypress="return onlyNumberKey(event)">
+                                        $ <input type="text" class="priceInput" name="JustJavaPrice" id="JJPrice" value="0.00" disabled onkeypress="return isNumberKey(this, event)">
                                     </td>
                                     <td class="coffee-total">
                                         <button type="submit" id="saveJJ" disabled>save</button>
@@ -69,10 +69,10 @@
                                     </td>
                                     <td class="coffee-type">
                                     Single<br><br>
-                                        $ <input type="text" class="priceInput" name="ALPriceS" id="ALPriceS" value="0.00" disabled onkeypress="return onlyNumberKey(event)" >
+                                        $ <input type="text" class="priceInput" name="ALPriceS" id="ALPriceS" value="0.00" disabled onkeypress="return isNumberKey(this, event)">
                                     </td>
                                     <td class="coffee-type">Double<br><br>
-                                        $ <input type="text" class="priceInput" name="ALPriceD" id="ALPriceD" value="0.00" disabled onkeypress="return onlyNumberKey(event)">
+                                        $ <input type="text" class="priceInput" name="ALPriceD" id="ALPriceD" value="0.00" disabled onkeypress="return isNumberKey(this, event)">
                                     </td>
                                     <td class="coffee-total">
                                     <button onclick="savePrice('aulait')" id="saveAL" disabled>save</button>
@@ -94,10 +94,10 @@
                                         ?>
                                     </td>
                                     <td class="coffee-type">Single<br><br>
-                                        $ <input type="number" class="priceInput" name="CPriceS" id="CPriceS" value="0.00" disabled onkeypress="return onlyNumberKey(event)">
+                                        $ <input type="number" class="priceInput" name="CPriceS" id="CPriceS" value="0.00" disabled onkeypress="return isNumberKey(this, event)">
                                     </td>
                                     <td class="coffee-type">Double<br><br>
-                                        $ <input type="number" class="priceInput" name="CPriceD" id="CPriceD" value="0.00" disabled onkeypress="return onlyNumberKey(event)">
+                                        $ <input type="number" class="priceInput" name="CPriceD" id="CPriceD" value="0.00" disabled onkeypress="return isNumberKey(this, event)">
                                     </td>
                                     <td class="coffee-total">
                                     <button onclick="savePrice('cappuccino')" id="saveIC" disabled>save</button>
@@ -116,24 +116,22 @@
         </div>
         <script src="update.js"></script>
         <script>
-            function onlyNumberKey(evt) {
-                
-                // Only ASCII character in that range allowed
-                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode !== 46 && ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            function isNumberKey(txt, evt) {
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if (charCode == 46) {
+                    //Check if the text already contains the . character
+                    if (txt.value.indexOf('.') === -1) {
+                    return true;
+                    } else {
                     return false;
-                return true;
-            }
-        </script>
-        <script>
-            function checkInput(evt) {
-                
-                // Only ASCII character in that range allowed
-                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode !== 46 && ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    }
+                } else {
+                    if (charCode > 31 &&
+                    (charCode < 48 || charCode > 57))
                     return false;
+                }
                 return true;
-            }
+                }
         </script>
     </body>
 </html>
