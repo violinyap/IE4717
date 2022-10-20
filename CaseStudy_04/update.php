@@ -19,6 +19,7 @@
                 </nav>
                 <div class="content">
                     <h1 class="content-title">Coffee at JavaJam</h1>
+                    <h3>Click the checkbox, input positive value more than 0, click save, to update the price</h3>
                     <div class="content-wrapper">
     
                         <table class="menu-table">

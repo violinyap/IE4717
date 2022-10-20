@@ -15,12 +15,16 @@
     $update_query = 
       "UPDATE coffee SET coffee_price = ".$ICPriceS." WHERE coffee_name = 'Iced Cappuccino' AND coffee_type='Single'";
       $result = mysqli_query($db,$update_query);
+  } else if ($ICPriceS < 0) {
+    echo "<script>alert('Please input positive value more than 0 for the price of Iced Cappuccino Single. The price will be kept the same.');</script>";
   }
 
   if ($ICPriceD > 0) {
     $update_query = 
       "UPDATE coffee SET coffee_price = ".$ICPriceD." WHERE coffee_name = 'Iced Cappuccino' AND coffee_type='Double'";
       $result = mysqli_query($db,$update_query);
+  } else if ($ICPriceS < 0) {
+    echo "<script>alert('Please input positive value more than 0 for the price of Iced Cappuccino Double. The price will be kept the same.');</script>";
   }
 
   $db->close();

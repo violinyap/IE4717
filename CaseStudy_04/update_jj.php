@@ -15,6 +15,8 @@
     $update_query = 
       "UPDATE coffee SET coffee_price = ".$JJ_Price." WHERE coffee_name = 'Just Java' AND coffee_type='Endless Cup'";
       $result = mysqli_query($db,$update_query);
+  } else if ($JJ_Price < 0) {
+    echo "<script>alert('Please input positive value more than 0 for the price of Just Java Endless Cup. The price will be kept the same.');</script>";
   }
   $db->close();
 ?>

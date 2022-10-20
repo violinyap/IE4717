@@ -15,12 +15,17 @@
     $update_query = 
       "UPDATE coffee SET coffee_price = ".$ALPriceS." WHERE coffee_name = 'Cafe au Lait' AND coffee_type='Single'";
       $result = mysqli_query($db,$update_query);
+  } else if ($ALPriceS < 0) {
+    echo "<script>alert('Please input positive value more than 0 for the price of Au Lait Single. The price will be kept the same.');</script>";
+    
   }
 
   if ($ALPriceD > 0) {
     $update_query = 
       "UPDATE coffee SET coffee_price = ".$ALPriceD." WHERE coffee_name = 'Cafe au Lait' AND coffee_type='Double'";
       $result = mysqli_query($db,$update_query);
+  } else if ($ALPriceD < 0) {
+    echo "<script>alert('Please input positive value more than 0 for the price of Au Lait Double. The price will be kept the same.');</script>";
   }
 
   $db->close();
