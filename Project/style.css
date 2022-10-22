@@ -97,3 +97,6 @@ nav > .topnav {
   width: 150px;
   cursor: pointer;
 }
+#wrapper{
+  margin: auto;
+}
