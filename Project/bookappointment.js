@@ -32,10 +32,8 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-	//document.getElementById("appointmentForm").submit(); //to do
-	//return false;
-	alert("Submitted. Press 'OK' to view booked appointment");
-	window.location.href = "myappointment.html";
+    document.getElementById("appointmentform").submit();
+    return false;
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
@@ -72,3 +70,63 @@ function fixStepIndicator(n) {
   //... and adds the "active" class to the current step:
   x[n].className += " active";
 }
+
+function getlocation() {
+  var radioBtn = document.getElementsByName("location");
+  var c;
+  for(i=0; i<radioBtn.length; i++){
+   if(radioBtn[i].checked){
+     c = radioBtn[i].value;
+   }
+  }
+  document.getElementById("location").innerHTML = c;
+}
+
+function getdoctor() {
+  var radioBtn = document.getElementsByName("doctor");
+  var c;
+  for(i=0; i<radioBtn.length; i++){
+   if(radioBtn[i].checked){
+     c = radioBtn[i].value;
+   }
+  }
+  document.getElementById("doctor").innerHTML = c;
+}
+
+function getDate() {
+  var x = document.getElementById("date").value;
+  document.getElementById("date-confirm").value = x;
+}
+
+function getTime() {
+  var radioBtn = document.getElementsByName("timeslot");
+  var c;
+  for(i=0; i<radioBtn.length; i++){
+   if(radioBtn[i].checked){
+     c = radioBtn[i].value;
+   }
+  }
+  document.getElementById("time").innerHTML = c;
+}
+
+function chkDate(event) {
+
+  // Get the target node of the event
+  
+  var dateInput = event.currentTarget;
+  const currentDate = Date.now() + 6*1000*60*60;
+  const dateValue = new Date(dateInput.value);
+
+  if (dateValue <= currentDate) {
+    alert("The date you entered (" + dateInput.value + 
+          ") should be after today \n");
+    dateInput.focus();
+    dateInput.select();
+	dateInput.value = currentDate;
+    return false;
+  } 
+}
+
+var dateNode = document.getElementById("date");
+
+dateNode.addEventListener("change", chkDate, false);
