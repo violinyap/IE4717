@@ -8,8 +8,8 @@ create table Doctors
   clinicid int not null,
   image char(100) not null,
   contact char(10) not null,
-  joindate int not null,
-  certexp int not null,
+  joindate date not null,
+  certexp date not null,
   email char(100) not null,
   password char(255) not null
 );
@@ -20,8 +20,8 @@ create table Patients
   image char(100) not null,
   contact char(10) not null,
   nric char(10) not null,
-  signupdate int not null,
-  birthday int not null,
+  signupdate date not null,
+  birthday date not null,
   email char(100) not null,
   password char(255) not null
 );
@@ -29,6 +29,7 @@ create table Patients
 create table Appointments
 ( 
   appointmentID int unsigned not null auto_increment primary key,
+  userid int not null,
   location char(200) not null,
   doctor char(100) not null,
   date date not null,
