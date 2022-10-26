@@ -14,14 +14,19 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.html" class="topnav">Home</a>
-			<a href="about.html" class="topnav">About Us</a>
-			<a href="doctors.html" class="topnav">Our Doctors</a>
-			<a href="contact.html" class="topnav">Contact Us</a>
+			<a href="home.php" class="topnav">Home</a>
+			<a href="about.php" class="topnav">About Us</a>
+			<a href="doctors.php" class="topnav">Our Doctors</a>
+			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
 		<a href="login.html" id="headerprofile">
 			<img src="../images/profile.png" width="38" height="38" class="icon">
-			Login / Signup
+			<?php // Show registered name
+        include "dbconnect.php";
+        if (isset($_SESSION['valid_user']))
+        { echo $_SESSION["valid_user"]; } 
+        else { echo "Login / Signup"; }
+      ?>
 		</a> 
 	</header>
 	

@@ -14,31 +14,72 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.html" class="topnav">Home</a>
-			<a href="about.html" class="topnav">About Us</a>
-			<a href="doctors.html" class="topnav">Our Doctors</a>
-			<a href="contact.html" class="topnav">Contact Us</a>
+			<a href="home.php" class="topnav">Home</a>
+			<a href="about.php" class="topnav">About Us</a>
+			<a href="doctors.php" class="topnav">Our Doctors</a>
+			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
 		<a href="login.html" id="headerprofile">
 			<img src="images/profile.png" width="38" height="38" class="icon">
-			Login / Signup
+			<?php // Show registered name
+        include "dbconnect.php";
+        if (isset($_SESSION['valid_user']))
+        { echo $_SESSION["valid_user"]; } 
+        else { echo "Login / Signup"; }
+      ?>
 		</a> 
 	</header>
 	
 	<div id="bodycontent">
 		<div class="login-banner">
 			<div class="login-container">
-        <h1>Login</h1>
-        <form class="login-form">
-          <input />
-          <input />
-          <div class="login-buttons">
-            <a href="signup.html">No account? Sign up here</a>
-            <button class="primarybutton">
-              Login
-            </button>
-          </div>
-        </form>
+        <h1>Signup</h1>
+        <?php // register.php
+          include "dbconnect.php";
+
+
+          if (isset($_POST['submit'])) {
+            if (empty($_POST['email']) || empty ($_POST['pass'])
+              || empty ($_POST['cpass']) ) { // TODO: ADD ALL EMPTY
+            echo "All records to be filled in";
+            exit;}
+            }
+          $email = $_POST['email'];
+          $password = $_POST['pass'];
+          $password2 = $_POST['cpass'];
+          $name =  $_POST['name'];
+          $image =  $_POST['image'];
+          $contact =  $_POST['contact'];
+          $nric =  $_POST['nric'];
+          $bday =  $_POST['bday'];
+          date_default_timezone_set("Asia/Singapore");
+          $signupdate = date("Y-m-d");
+
+          if ($password != $password2) {
+            echo "Sorry passwords do not match";
+            exit;
+          }
+
+          $password = md5($password);
+          $sql = "INSERT INTO Patients (name,	contact, image,	nric,	signupdate,	birthday,	email,	password) 
+              VALUES ('$name',	'$contact', 'img',	'$nric',	'$signupdate',	'$bday',	'$email',	'$password')";
+            // echo "<br>". $sql. "<br>";
+          $result = $dbcnx->query($sql);
+
+
+          if (!$result) 
+            echo "Your query failed.";
+          else
+            echo "<h3>Welcome ". $name . ". You are now registered </h3>";
+            echo "<a class=\"login-buttons\" href=\"login.html\">
+                    <button class=\"primarybutton\">
+                      Login
+                    </button>
+                  </a>";
+            
+        ?>
+
+
       </div>
 		</div>
 

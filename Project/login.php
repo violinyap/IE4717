@@ -33,28 +33,16 @@
 	<div id="bodycontent">
 		<div class="login-banner">
 			<div class="login-container">
-        <h1>Signup</h1>
-        <form class="login-form" action="signup_auth.php" method="post">
-					<label for="email">Email*</label>
+        <h1>Login</h1>
+        <form class="login-form" method="post" action="login_auth.php">
+          <label for="email">Email*</label>
 					<input type="email" class="login-input" id="email" name="email" placeholder="example@email.com" required>
 					<label for="pass">Password*</label>
           <input class="login-input" type="password" id="pass" name="pass" placeholder="Password" required/>
-					<label for="cpass">Confirm Password*</label>
-          <input class="login-input" type="password" id="cpass" name="cpass" placeholder="Password" required/>
-					<label for="name">Name*</label>
-					<input type="text" class="login-input" id="name" name="name" placeholder="Your name" required>
-					<label for="name">Image*</label>
-					<input type="file" class="login-input" id="image" name="image" placeholder="Your photo" required>
-					<label for="contact">Contact*</label>
-          <input class="login-input" type="tel" id="contact" name="contact" pattern="[0-9]{4}-[0-9]{4}" placeholder="9999-9999" required/>
-					<label for="nric">NRIC*</label>
-					<input type="text" class="login-input" id="nric" name="nric" placeholder="NRIC" required>
-					<label for="bday">Birthday*</label>
-					<input type="date" class="login-input" id="bday" name="bday" placeholder="Birthday" required>
           <div class="login-buttons">
-            <a href="login.html">Already have an account? Login here</a>
+            <a href="signup.html">No account? Sign up here</a>
             <button class="primarybutton">
-              Signup
+              Login
             </button>
           </div>
         </form>
