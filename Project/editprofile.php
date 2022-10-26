@@ -37,10 +37,10 @@
 			<a href="doctors.php" class="topnav">Our Doctors</a>
 			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
-		<a href="login.html" id="headerprofile">
+		<a href="login.php" id="headerprofile">
 			<img src="images/profile.png" width="38" height="38" class="icon">
 			<?php // Show registered name
-        include "dbconnect.php";
+				session_start();
         if (isset($_SESSION['valid_user']))
         { echo $_SESSION["valid_user"]; } 
         else { echo "Login / Signup"; }
