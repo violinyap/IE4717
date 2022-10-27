@@ -1,23 +1,31 @@
-<?php
-  session_start();
-  
-  // store to test if they *were* logged in
-  $old_user = $_SESSION['valid_user'];  
-  unset($_SESSION['valid_user']);
-  unset($_SESSION['valid_user_id']);
-  session_destroy();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>NTUClinic</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="./style.css" />
-	<link rel="stylesheet" href="./login.css" />
+<title>NTUClinic</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="./sidepanel.css" />
+<link rel='stylesheet' href="./profile.css" />
+<style>
+#maincontainer{
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 175px;
+  left: 350px;
+  height: 450px;
+  width: 1200px;
+}
+#abcd{
+  padding-top: 20px;
+  padding-left: 20px;
+}
+#form{
+  padding-top: 20px;
+  padding-left: 50px;
+}
+</style>
 <body>
 <div id="wrapper">
-
 	<header>
 		<div id="headerlogo">
 			<img src="images/cliniclogo.png" width="50" height="50" class="icon"/> 
@@ -30,7 +38,8 @@
 			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
 		<?php // Show registered name
-				session_start();
+				session_start(); 
+        // todo replace to get name based on id
         if (isset($_SESSION['valid_user']))
         { 
 					echo "<a href='profile.php' id='headerprofile'>";
@@ -49,39 +58,53 @@
 	</header>
 	
 	<div id="bodycontent">
-		<div class="login-banner">
-			<div class="login-container">
-        <h1>Login</h1>
-        <?php 
-          if (!empty($old_user))
-          {
-            echo 'You have been logged out.<br />';
-          }
-          else
-          {
-            // if they weren't logged in but came to this page somehow
-            echo 'You were not logged in. Please log in here.<br />'; 
-          }
-        ?> 
-        <form class="login-form" method="post" action="login_auth.php">
-          <label for="email">Email*</label>
-					<input type="email" class="login-input" id="email" name="email" placeholder="example@email.com" required>
-					<label for="pass">Password*</label>
-          <input class="login-input" type="password" id="pass" name="pass" placeholder="Password" required/>
-          <div class="login-buttons">
-            <a href="signup.html">No account? Sign up here</a>
-            <button class="primarybutton">
-              Login
-            </button>
-          </div>
-        </form>
-      </div>
-		</div>
-
-
+	<div class="sidecontainer">
+		<nav id="sidepanel">
+			<div id="panel1">
+			<a href="profile.php"><img src="images/profile.png" width="75" height="75"> </a>
+			<br><dt>Example Guy<!--to add javascript-->
+			<br><b>User</b><br><br><!--to add javascript-->
+			<a href="editprofile.html" id="botnav">Edit Profile</a>
+			</div>
+			<div id="panel2">
+			<a href="bookappointment.php" id="sidenav">
+			<dt id="abc">Make An<br>Appointment</dt>
+			<img src="images/bookappointment.png" width="43" height="43"> </a>
+			</div>
+			<div id="panel2">
+			<a href="myappointment.php" id="sidenav">
+			<dt id="abc">My<br>Appointment</dt>
+			<img src="images/myappointment.png" width="43" height="43"> </a>
+			</div>
+			<div id="panel2">
+			<a href="payment.php" id="sidenav">
+			<dt id="abc">Payment</dt>
+			<img src="images/payment.png" width="43" height="43"> </a>
+			</div>
+		</nav>
 	</div>
-		
-
+	<div id="appointmentnav">
+	<dt>
+		<b>My Profile</b> &nbsp;
+		>&nbsp;
+		<a href="editprofile.html" id="botnav">Edit Profile</a>
+	</dt>
+	</div>
+	<div id="maincontainer">
+		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
+		<br>
+		<form method="post" action="editedprofile.php" id="form">
+			<label for="username">*Username:</label>
+			<br> <br> <br>
+			<label for="username">*Full Name:</label>
+			<br> <br> <br>
+			<label for="birthday">*Birthday:</label>
+			<br> <br> <br>
+			<label for="myEmail">*E-mail:</label>
+			<br> <br> <br> <br>
+		</form>
+	</div>
+	</div>
 	<footer>
 		<div id="footer1">
 			<div id="leftcolumn">
@@ -130,5 +153,4 @@
 			<small><i>Copyright &copy; 2022 NTUClinic </small>
 		</div>
 	</footer>
-</div>
 </body>

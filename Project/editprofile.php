@@ -92,19 +92,17 @@
 	<div id="maincontainer">
 		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
 		<br>
-		<form method="post" action="" id="form">
-			<label for="username">*Username:</label>
-			<input type="text" name="username" id="username" placeholder="Enter your username here" required />
-			<br> <br> <br>
-			<label for="username">*Full Name:</label>
+		<form method="post" action="editedprofile.php" id="form">
+			<label for="username">*Name:</label>
 			<input type="text" name="fullname" id="fullname" placeholder="Enter your full name here" required />
-			<br> <br> <br>
-			<label for="birthday">*Birthday:</label>
-			<input type="date" name="birthday" id="birthday" required />
 			<br> <br> <br>
 			<label for="myEmail">*E-mail:</label>
 			<input type="email" name="myEmail" id="myEmail" placeholder="Enter your E-mail ID here" required />
 			<br> <br> <br> <br>
+			<label for="contact">*Contact</label>
+      <input type="tel" id="contact" name="contact" pattern="[0-9]{4}-[0-9]{4}" placeholder="9999-9999" required/>
+			<br> <br> <br>
+					
 			<input id="Change" type="submit" value="Change" /> &nbsp; &nbsp; 
 			<input type ="button" value="Cancel" onclick="history.back()" /> 
 		</form>
@@ -128,9 +126,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.html" id="botnav">About Us</a> </li>
-						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
+						<li><a href="about.php" id="botnav">About Us</a> </li>
+						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				

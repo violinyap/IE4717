@@ -74,35 +74,41 @@
 	<div class="maincontainer">
 	<dt id="abcd">
 	<table class="profile-table">
-	<tr>
-		<td rowspan="7" style="vertical-align: top; margin: auto"><img src="images/profile.png" width="75" height="75"></td>
-		<th class="profile-row" style="text-align: left;">Username:
-		<td><span id="username">ExampleGuy123</span></td>
-	</tr>
-	<tr class="profile-row">
-		<th class="profile-col">Name: </th>
-		<td><span id="name">Example Guy</span></td>
-	</tr>
-	<tr class="profile-row">
-		<th class="profile-col">NRIC/FIN: </th>
-		<td><span id="nric">xxxx567A</span></td>
-	</tr>
-	<tr class="profile-row">
-		<th class="profile-col">E-mail: </th>
-		<td><span id="email">exampleguy123@gmail.com</span></td>
-	</tr>
-	<tr class="profile-row">
-		<th class="profile-col">Birthday: </th>
-		<td><span id="birthday">01/01/2000</span></td>
-	</tr>
-	</tr>
-	<tr class="profile-row">
-		<td colspan="2"></td>
-	</tr>
-	<tr class="profile-row">
-		<th class="profile-col">User since: </th>
-		<td><span id="signup_date">01/01/2022</span></td>
-	</tr>
+		<?php 
+			include 'methods/getPatientsData.php';
+
+			// NAME
+			echo "<tr>";
+			echo "<td rowspan='7' style='vertical-align: top; margin: auto'><img src='images/profile.png' width='75' height='75'></td>";
+			echo "<th class='profile-row' style='text-align: left;'>Name:</th>";
+			echo "<td><span id='name'>".$currentUserData['name']."</span></td>";
+			echo "</tr>";
+		
+			// EMAIL
+			echo "<tr>";
+			echo "<th class='profile-col'>Email:</th>";
+			echo "<td><span id='email'>".$currentUserData['email']."</span></td>";
+			echo "</tr>";
+
+			// NRIC
+			echo "<tr>";
+			echo "<th class='profile-col'>NRIC/FIN:</th>";
+			echo "<td><span id='nric'>".$currentUserData['nric']."</span></td>";
+			echo "</tr>";
+
+			// BDAY
+			echo "<tr>";
+			echo "<th class='profile-col'>Birthday:</th>";
+			echo "<td><span id='bday'>".$currentUserData['birthday']."</span></td>";
+			echo "</tr>";
+
+			// JOIN DATE
+			echo "<tr>";
+			echo "<th class='profile-col'>Joined since:</th>";
+			echo "<td><span id='signupdate'>".$currentUserData['signupdate']."</span></td>";
+			echo "</tr>";
+		?>
+
 	<tr>
 		<td colspan="2" style="padding-top: 100px;"><button id="editprofilebutton" onclick="location.href='editprofile.php';">Edit Profile</button>
 		</td>
@@ -128,9 +134,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.html" id="botnav">About Us</a> </li>
-						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
+						<li><a href="about.php" id="botnav">About Us</a> </li>
+						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				

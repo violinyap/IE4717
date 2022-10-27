@@ -43,7 +43,7 @@
 			<div class="login-container">
         <h1>Signup</h1>
         <?php // register.php
-          include "dbconnect.php";
+          include "methods/dbconnect.php";
 
 
           if (isset($_POST['submit'])) {

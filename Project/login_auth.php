@@ -1,5 +1,5 @@
 <?php //authmain.php
-include "dbconnect.php";
+include "methods/dbconnect.php";
 session_start();
 
 if (isset($_POST['email']) && isset($_POST['pass']))
@@ -24,7 +24,8 @@ $password = md5($password);
   if ($result->num_rows >0 )
   {
     while ($row = mysqli_fetch_assoc($result)){
-      $_SESSION['valid_user'] = $row['name'];// TODO: $result->$name;    
+      $_SESSION['valid_user'] = $row['name'];
+			$_SESSION['valid_user_id'] = $row['userid'];
     }
     // echo reset($result)->name;
     // if they are in the database register the user id
@@ -78,7 +79,7 @@ $password = md5($password);
 			<div class="login-container">
         <h1>Login</h1>
         <?php // login.php
-          include "dbconnect.php";
+          include "methods/dbconnect.php";
 
           if (isset($_SESSION['valid_user']))
           {
