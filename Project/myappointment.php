@@ -19,15 +19,23 @@
 			<a href="doctors.php" class="topnav">Our Doctors</a>
 			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
-		<a href="login.php" id="headerprofile">
-			<img src="images/profile.png" width="38" height="38" class="icon">
-			<?php // Show registered name
+		<?php // Show registered name
 				session_start();
         if (isset($_SESSION['valid_user']))
-        { echo $_SESSION["valid_user"]; } 
-        else { echo "Login / Signup"; }
-      ?>
-		</a> 
+        { 
+					echo "<a href='profile.php' id='headerprofile'>";
+					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo $_SESSION["valid_user"]; 
+					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
+					echo "</a>";
+				} 
+        else { 
+					echo "<a href='login.php' id='headerprofile'>";
+					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "Login / Signup"; 
+					echo "</a>";
+				}
+      ?>  
 	</header>
 	
 	<div id="bodycontent">
