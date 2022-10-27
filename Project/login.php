@@ -71,9 +71,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.html" id="botnav">About Us</a> </li>
-						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
+						<li><a href="about.php" id="botnav">About Us</a> </li>
+						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				
@@ -82,9 +82,9 @@
 				<h3 class="footerheader">Patient's Site</h3>
 				<nav>
 					<ul>
-						<li><a href="profile.html" id="botnav">Profile</a> </li>
-						<li><a href="myappointment.html" id="botnav">Your Appointments</a> </li>
-						<li><a href="bookappointment.html" id="botnav">Book Appointments</a> </li>
+						<li><a href="profile.php" id="botnav">Profile</a> </li>
+						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
+						<li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>
 					</ul>
 				</nav>
 			</div>
