@@ -43,6 +43,14 @@
 			<div class="login-container">
         <h1>Login</h1>
         <form class="login-form" method="post" action="login_auth.php">
+					<div>
+						<label>User type</label>
+						<input type="radio" id="patients" name="usertype" value="patients" checked> 
+						<label for="patient">Patient</label>
+						<input type="radio" id="patients" name="usertype" value="doctors"> 
+						<label for="doctor">Doctor</label>
+					</div>
+					<br/>
           <label for="email">Email*</label>
 					<input type="email" class="login-input" id="email" name="email" placeholder="example@email.com" required>
 					<label for="pass">Password*</label>

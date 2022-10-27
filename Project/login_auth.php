@@ -7,9 +7,11 @@ if (isset($_POST['email']) && isset($_POST['pass']))
   // if the user has just tried to log in
   $email = $_POST['email'];
   $password = $_POST['pass'];
+	$usertype = $_POST['usertype'];
 
 	$password = md5($password);
-  $query = 'select * from patients '
+
+  $query = 'select * from '.$usertype.' '
            ."where email='$email' "
            ." and password='$password'";
 // echo "<br>" .$query. "<br>";
@@ -19,10 +21,11 @@ if (isset($_POST['email']) && isset($_POST['pass']))
     while ($row = mysqli_fetch_assoc($result)){
       $_SESSION['valid_user'] = $row['name'];
 			$_SESSION['valid_user_id'] = $row['userid'];
+			$_SESSION['valid_user_type'] = $usertype;
     }
     // echo reset($result)->name;
     // if they are in the database register the user id
-  }
+  } 
   $dbcnx->close();
 }
 ?>
@@ -80,7 +83,10 @@ if (isset($_POST['email']) && isset($_POST['pass']))
             // echo '<a href="logout.php">Log out</a><br />';
 
             // REDIRECT TO PROFILE
-          }
+          }else {
+						echo "User do not exist. Please sign up";
+						// TODO add sign up button
+					}
         ?>
       </div>
 		</div>
