@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="./style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel="stylesheet" href="./bookappointment.css" />
+
 <body>
 <div id="wrapper">
 	<header>
@@ -14,28 +15,15 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.php" class="topnav">Home</a>
-			<a href="about.php" class="topnav">About Us</a>
-			<a href="doctors.php" class="topnav">Our Doctors</a>
-			<a href="contact.php" class="topnav">Contact Us</a>
+			<a href="home.html" class="topnav">Home</a>
+			<a href="about.html" class="topnav">About Us</a>
+			<a href="doctors.html" class="topnav">Our Doctors</a>
+			<a href="contact.html" class="topnav">Contact Us</a>
 		</nav>
-		<?php // Show registered name
-				session_start();
-        if (isset($_SESSION['valid_user']))
-        { 
-					echo "<a href='profile.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
-					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
-					echo "</a>";
-				} 
-        else { 
-					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
-					echo "Login / Signup"; 
-					echo "</a>";
-				}
-      ?>  
+		<a href="login.html" id="headerprofile">
+			<img src="images/profile.png" width="38" height="38" class="icon">
+			Login / Signup
+		</a> 
 	</header>
 	
 	<div id="bodycontent">
@@ -71,7 +59,8 @@
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-	<?php
+	<?php include "methods/getPatientsData.php";
+		$userid = $currentUserData['userid'];
 		$location = $_POST['location'];
 		$doctor = $_POST['doctor'];
 		$date = $_POST['date'];
@@ -119,7 +108,7 @@
 		exit;
 		}
 		$query = "insert into appointments values
-				(NULL,'".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
+				(NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
 		$result = $db->query($query);
 		if ($result) {
 			echo "<p><br>Please be on time for your appointment(s).<br>You can re-schedule your appointment on your appointment page. <br>*Terms & Conditions applies</p>";
@@ -128,6 +117,34 @@
 			}
 			
 		$db->close();
+		
+		$to      = 'f32ee@localhost';
+		$subject = 'Appointment booked';
+		
+		$message = "
+		<html>
+		<table>
+		<th>Appointment booked successfully. View details below: </th>
+		<tr><td> Location: </td><td>" . $location . "</td></tr>
+		<tr><td> Doctor: </td><td>" . $doctor . "</td></tr>
+		<tr><td> Date: </td><td>" . $date2 . "</td></tr>
+		<tr><td> TIme: </td><td>" . $time . "</td></tr>
+		<tr><td colspan='2'>To edit or cancel appointment, login to the web app to make changes.</td></tr>
+		</table>
+		<dt>From: NTUClinc@donotreply</dt>
+		</html>
+		";
+		
+		$headers = 'From: f31ee@localhost' . "\r\n" .
+			'Reply-To: f32ee@localhost' . "\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+		
+		$headers .= "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		
+		
+
+		mail($to, $subject, $message, $headers, '-ff32ee@localhost');
 	?>
 	</div>
 	</div>
@@ -150,9 +167,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.php" id="botnav">About Us</a> </li>
-						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
+						<li><a href="about.html" id="botnav">About Us</a> </li>
+						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				
