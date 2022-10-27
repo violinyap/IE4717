@@ -14,28 +14,15 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.php" class="topnav">Home</a>
-			<a href="about.php" class="topnav">About Us</a>
-			<a href="doctors.php" class="topnav">Our Doctors</a>
-			<a href="contact.php" class="topnav">Contact Us</a>
+			<a href="home.html" class="topnav">Home</a>
+			<a href="about.html" class="topnav">About Us</a>
+			<a href="doctors.html" class="topnav">Our Doctors</a>
+			<a href="contact.html" class="topnav">Contact Us</a>
 		</nav>
-		<?php // Show registered name
-				session_start();
-        if (isset($_SESSION['valid_user']))
-        { 
-					echo "<a href='profile.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
-					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
-					echo "</a>";
-				} 
-        else { 
-					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
-					echo "Login / Signup"; 
-					echo "</a>";
-				}
-      ?>  
+		<a href="login.html" id="headerprofile">
+			<img src="images/profile.png" width="38" height="38" class="icon">
+			Login / Signup
+		</a> 
 	</header>
 	
 	<div id="bodycontent">
@@ -184,7 +171,7 @@
 			</tr>
 			<tr class="time-row">
 			<td>
-			 <p><input type="radio" value="17:00pm" name="timeslot" onInput="getTime();">
+			 <p><input type="radio" value="17:00" name="timeslot" onInput="getTime();">
 			 <label>5:00pm</label><br></p>
 			</td>
 			</tr>
@@ -217,7 +204,7 @@
 			<tr><td colspan="2"><br></td></tr>
 			<tr>
 				<td>Time: </td>
-				<td class="confirmation-column"><span id="time">8:00am</span></td>
+				<td class="confirmation-column"><span id="time">8:00</span></td>
 			</tr>
 			</table>
 			</div>
@@ -234,6 +221,7 @@
 			</p>
 			<br>
 			<input type="submit" formaction="appointmentunsuccessful.php" id="cancelBtn" value="Cancel"></input><br><br>
+			<input type="hidden" name="button_pressed" value="1" />
 			</div>
 			
 			<div style="overflow:auto;">
@@ -252,7 +240,7 @@
 			<span class="step"></span>
 			</div>
 			
-		</form>
+		</form>	
 			</div>
 	<script type="text/javascript" src="bookappointment.js">
 	</script>
@@ -276,9 +264,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.php" id="botnav">About Us</a> </li>
-						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
+						<li><a href="about.html" id="botnav">About Us</a> </li>
+						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				
