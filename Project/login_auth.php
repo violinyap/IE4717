@@ -7,15 +7,8 @@ if (isset($_POST['email']) && isset($_POST['pass']))
   // if the user has just tried to log in
   $email = $_POST['email'];
   $password = $_POST['pass'];
-/*
-  $db_conn = new mysqli('localhost', 'webauth', 'webauth', 'auth');
 
-  if (mysqli_connect_errno()) {
-   echo 'Connection to database failed:'.mysqli_connect_error();
-   exit();
-  }
-*/
-$password = md5($password);
+	$password = md5($password);
   $query = 'select * from patients '
            ."where email='$email' "
            ." and password='$password'";
