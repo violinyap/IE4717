@@ -39,3 +39,5 @@ editprofile.php
 MOCK ACCOUNTS: (import patients.sql)
 patient@ntu.com (pass: test)
 admin@gmail.com (pass: admin)
+
+doctors accounts: pass:test

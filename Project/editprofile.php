@@ -93,16 +93,22 @@
 		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
 		<br>
 		<form method="post" action="editedprofile.php" id="form">
-			<label for="username">*Name:</label>
-			<input type="text" name="fullname" id="fullname" placeholder="Enter your full name here" required />
+			<?php 
+				include 'methods/getPatientsData.php';
+
+				echo '<label for="fullname">*Name: </label>';
+				echo '<input value="'.$currentUserData['name'].'" type="text" name="fullname" id="fullname" placeholder="Enter your full name here" required/>';
+			
+				echo '<br> <br> <br>';
+				echo '<label for="myEmail">*E-mail: </label>';
+				echo '<input value="'.$currentUserData['email'].'" type="email" name="myEmail" id="myEmail" placeholder="Enter your E-mail ID here" required />';
+
+				echo '<br> <br> <br>';
+				echo '<label for="contact">*Contact: </label>';
+				echo '<input value="'.$currentUserData['contact'].'" type="tel" id="contact" name="contact" pattern="[0-9]{4}-[0-9]{4}" placeholder="9999-9999" required/>';
+			?>
+			
 			<br> <br> <br>
-			<label for="myEmail">*E-mail:</label>
-			<input type="email" name="myEmail" id="myEmail" placeholder="Enter your E-mail ID here" required />
-			<br> <br> <br> <br>
-			<label for="contact">*Contact</label>
-      <input type="tel" id="contact" name="contact" pattern="[0-9]{4}-[0-9]{4}" placeholder="9999-9999" required/>
-			<br> <br> <br>
-					
 			<input id="Change" type="submit" value="Change" /> &nbsp; &nbsp; 
 			<input type ="button" value="Cancel" onclick="history.back()" /> 
 		</form>

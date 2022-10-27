@@ -10,8 +10,7 @@ if (isset($_SESSION['valid_user']))
   $currentUserData = '';
   
   $query = 'select * from patients '
-           ."where name='$currentName' "
-           ." and userid='$currentUserId'";
+           ."where userid='$currentUserId'";
   // echo "<br>" .$query. "<br>";
   $result = $dbcnx->query($query);
   if ($result->num_rows >0 )
@@ -21,7 +20,7 @@ if (isset($_SESSION['valid_user']))
     }
   }
   // echo $currentUserData;
-  // echo $currentUserData['name'];
+  // echo $currentUserData['userid'];
   $dbcnx->close();
 }
 ?>

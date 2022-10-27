@@ -40,6 +40,7 @@
 		<?php // Show registered name
 				session_start(); 
         // todo replace to get name based on id
+        // TODO update name after edit
         if (isset($_SESSION['valid_user']))
         { 
 					echo "<a href='profile.php' id='headerprofile'>";
@@ -91,18 +92,41 @@
 	</dt>
 	</div>
 	<div id="maincontainer">
-		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
 		<br>
-		<form method="post" action="editedprofile.php" id="form">
-			<label for="username">*Username:</label>
-			<br> <br> <br>
-			<label for="username">*Full Name:</label>
-			<br> <br> <br>
-			<label for="birthday">*Birthday:</label>
-			<br> <br> <br>
-			<label for="myEmail">*E-mail:</label>
-			<br> <br> <br> <br>
-		</form>
+		<?php 
+				include "methods/dbconnect.php";
+        session_start();
+
+        $name = $_POST['fullname'];
+        $email = $_POST['myEmail'];
+        $contact = $_POST['contact'];
+
+        if (isset($_POST['fullname']) && isset($_POST['myEmail']) && isset($_POST['contact'])) {
+          $userid = $_SESSION['valid_user_id'];
+          $sql = 
+            "UPDATE Patients 
+            SET name='$name', contact='$contact', email='$email'
+            WHERE userid='$userid'";
+
+          // echo "<br>".$sql;
+          $result = $dbcnx->query($sql);
+
+          if ($result) {
+            $_SESSION['valid_user'] = $name;
+            echo '<b>Your data is successfully updated as below!</b>';
+            echo '<br> <br> <br>';
+
+            echo '<label for="username">Name: '.$name.'</label>';
+          
+            echo '<br> <br> <br>';
+            echo '<label for="myEmail">E-mail: '.$email.'</label>';
+    
+            echo '<br> <br> <br>';
+            echo '<label for="contact">Contact: '.$contact.'</label>';
+          }
+        }
+
+			?>
 	</div>
 	</div>
 	<footer>
