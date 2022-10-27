@@ -14,28 +14,15 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.php" class="topnav">Home</a>
-			<a href="about.php" class="topnav">About Us</a>
-			<a href="doctors.php" class="topnav">Our Doctors</a>
-			<a href="contact.php" class="topnav">Contact Us</a>
+			<a href="home.html" class="topnav">Home</a>
+			<a href="about.html" class="topnav">About Us</a>
+			<a href="doctors.html" class="topnav">Our Doctors</a>
+			<a href="contact.html" class="topnav">Contact Us</a>
 		</nav>
-		<?php // Show registered name
-				session_start();
-        if (isset($_SESSION['valid_user']))
-        { 
-					echo "<a href='profile.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
-					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
-					echo "</a>";
-				} 
-        else { 
-					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
-					echo "Login / Signup"; 
-					echo "</a>";
-				}
-      ?>  
+		<a href="login.html" id="headerprofile">
+			<img src="images/profile.png" width="38" height="38" class="icon">
+			Login / Signup
+		</a> 
 	</header>
 	
 	<div id="bodycontent">
@@ -77,13 +64,20 @@
 		"<i>" . $count . " appointment(s) found.</i></p><br>";
 		?>
 		<?php
+		include "methods/getPatientsData.php";
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
-		$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
-		paid_status as paid_status, book_status as book_status
-		FROM appointments";
+		$sql=
+		"SELECT a.userid, a.location, a.doctor, a.date, a.time, 
+		a.paid_status, a.book_status
+		FROM appointments a
+		INNER JOIN patients p on a.userid = p.userid";
+		//$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
+		//paid_status as paid_status, book_status as book_status
+		//FROM appointments";
 		$result = mysqli_query($db,$sql);
 		while ($row = mysqli_fetch_assoc($result)){
+		if ($row['userid'] == $currentUserData['userid']) { //if ($row['userid']==$session[''])
 		if ($row['paid_status'] == "1") {
 			if ($row['book_status'] == "1")
 			{
@@ -139,6 +133,7 @@
 			}
 			}
 			}
+			}
 			$result->free();
 			$db->close();
 		?>
@@ -174,9 +169,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.php" id="botnav">About Us</a> </li>
-						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
+						<li><a href="about.html" id="botnav">About Us</a> </li>
+						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				
