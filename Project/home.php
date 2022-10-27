@@ -24,7 +24,7 @@
 			<?php // Show registered name
 				session_start();
         if (isset($_SESSION['valid_user']))
-        { echo $_SESSION["valid_user"]; } 
+        { echo ''.$_SESSION['valid_user']."<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>"; } 
         else { echo "Login / Signup"; }
       ?>
 		</a> 
