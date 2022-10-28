@@ -14,15 +14,31 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.html" class="topnav">Home</a>
-			<a href="about.html" class="topnav">About Us</a>
-			<a href="doctors.html" class="topnav">Our Doctors</a>
-			<a href="contact.html" class="topnav">Contact Us</a>
+			<a href="home.php" class="topnav">Home</a>
+			<a href="about.php" class="topnav">About Us</a>
+			<a href="doctors.php" class="topnav">Our Doctors</a>
+			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
-		<a href="login.html" id="headerprofile">
-			<img src="images/profile.png" width="38" height="38" class="icon">
-			Login / Signup
-		</a> 
+		<?php // Show registered name
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
+        if (isset($_SESSION['valid_user']))
+        { 
+					echo "<a href='profile.php' id='headerprofile'>";
+					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo $_SESSION["valid_user"]; 
+					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
+					echo "</a>";
+				} 
+        else { 
+					echo "<a href='login.php' id='headerprofile'>";
+					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "Login / Signup"; 
+					echo "</a>";
+				}
+      ?> 
 	</header>
 	
 	<div id="bodycontent">
@@ -58,192 +74,17 @@
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-		<form method="post" action="appointmentsuccessful.php" id="appointmentform">
-		
-			<div class="tab"> 
-			<dt id="aheader"><b>Start booking an apppointment?</b></dt>
-			<br><br><br>
-			<dt>Follow the instructions for step 1 to 4 for a smooth process.
-			<br><br><i>Note: <b><u>$5</u></b> payment for booking an appointment is required.</i>
-			<br><br>View <a href="doctors.html" id="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</dt>
-			
-			 </div>
-			
-			<div class="tab"> 
-			<dt><b>Step 1a:</b>
-			<br>Select our locations.
-			<br><br>View <a href="doctors.html" id="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</dt>
-			<br><br>
-			<dt>Locations: </dt>
-			 <p><br><input type="radio" value="NTU Hive Clinic" name="location" onInput="getlocation();" checked="checked"> 
-			 <label for="1">NTU Hive Clinic</label><br></p>
-			 <p><input type="radio" value="NTU The Arc Clinic" name="location" onInput="getlocation();"> 
-			 <label for="arc">NTU The Arc Clinic</label><br></p>
-			 <p><input type="radio" value="NTU SPMs Clinic" name="location" onInput="getlocation();"> 
-			 <label for="spms">NTU SPMs Clinic</label><br>
-			 
-			 </p>
-			 </div>
-			
-			<div class="tab"> 
-			<dt><b>Step 1b:</b>
-			<br>Select available doctors.<br>
-			<br><i>Note: Doctors available are subjected to a <u>first come first serve basis</u> and their available schedule. <br></i></dt>
-			<br>
-			<dt><br>Doctors:</dt>
-			 <p><input type="radio" value="Dr. Scheider" name="doctor" onInput="getdoctor();" checked="checked> 
-			 <label for="hive">Dr. Scheider</label><br></p>
-			 <p><input type="radio" value="Dr. Chen L H" name="doctor" onInput="getdoctor();" > 
-			 <label for="arc">Dr. Chen L H</label><br></p>
-			 </div>
-			
-			<div class="tab">
-			<dt><b>Step 2a:
-			<br>Select the available dates as displayed below:</b>
-			<br><br><i> Note: We only allow advance appointment up to the end of the week (Sunday).
-			<br>We reserve the right to cancel the appointment <b>without prior notice</b>, refund will be made to your
-			<br>bank account and a message will be send to your <u>registered email address</u>.
-			<br><br>Choose available dates below.<br>
-			</i>
-			 <p>
-			 <label for="appointmentdate">*Date:</label>
-			 <input type="date" name="date" id="date" oninput="getDate()" />
-			 </p>
-			</div>
-			
-			<div class="tab">
-			<dt><b>Step 2b:
-			<br>Select the available time slots as displayed below: </b><br>
-			<table class="time-table">
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="8:00" name="timeslot" onInput="getTime();" checked="checked">
-			 <label>8:00am</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="9:00" name="timeslot" onInput="getTime();">
-			 <label>9:00am</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			<p><input type="radio" value="10:00" name="timeslot" onInput="getTime();">
-			 <label>10:00am</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			<p><input type="radio" value="11:00" name="timeslot" onInput="getTime();">
-			 <label>11:00am</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="12:00" name="timeslot" onInput="getTime();">
-			 <label>12:00pm</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			<p><input type="radio" value="13:00" name="timeslot" onInput="getTime();">
-			 <label>1:00pm</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="14:00" name="timeslot" onInput="getTime();">
-			 <label>2:00pm</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="15:00" name="timeslot" onInput="getTime();">
-			 <label>3:00pm</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="16:00" name="timeslot" onInput="getTime();">
-			 <label>4:00pm</label><br></p>
-			</td>
-			</tr>
-			<tr class="time-row">
-			<td>
-			 <p><input type="radio" value="17:00" name="timeslot" onInput="getTime();">
-			 <label>5:00pm</label><br></p>
-			</td>
-			</tr>
-			</table>
-			<br>
-			</div>
-			
-			<div class="tab">
-			<dt><b>Step 3:</b>
-			<br>Check your selection below.
-			<br>Go to previous pages if you want to make changes to your selection.
-			</dt>
-			<br>
-			<div id="step3">
-			<table class="confirmation-table"> 
-			<tr>
-				<td>Location: </td>
-				<td class="confirmation-column"><span id="location">NTU Hive Clinic</span> </td>
-			</tr>
-			<tr><td colspan="2"><br></td></tr>
-			<tr>
-				<td>Doctor:  </td>
-				<td class="confirmation-column"><span id="doctor">Dr. Scheider</span></td>
-			</tr>
-			<tr><td colspan="2"><br></td></tr>
-			<tr>
-				<td>Date: </td>
-				<td class="confirmation-column"><input type="date" id="date-confirm" style="font-size:20px;text-align:center;background:transparent;border:0px;font-style:italic;" value="xx/xx/xx" disabled></td>
-			</tr>
-			<tr><td colspan="2"><br></td></tr>
-			<tr>
-				<td>Time: </td>
-				<td class="confirmation-column"><span id="time">8:00</span></td>
-			</tr>
-			</table>
-			</div>
-			</div>
-			
-			<div class="tab">
-			<dt><b>Step 4:</b>
-			<br>Make your payment. </dt>
-			<br>
-			<p>A payment of $5.00 booking fee is required to confirm this appointment.
-			<br>Proceed by clicking the submit button.<br>
-			<br>Or press 'cancel' if you want to make payment later.
-			<br><i>Note: Appointment(s) will only be saved for an hour before deletion.</i>
-			</p>
-			<br>
-			<input type="submit" formaction="appointmentunsuccessful.php" id="cancelBtn" value="Cancel"></input><br><br>
-			<input type="hidden" name="button_pressed" value="1" />
-			</div>
-			
-			<div style="overflow:auto;">
-			<div class="btn-holder">
-			<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button> &nbsp;
-			<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-			</div>
-			
-			<div class="progress-indicator">
-			<span class="step"></span>
-			<span class="step"></span>
-			<span class="step"></span>
-			<span class="step"></span>
-			<span class="step"></span>
-			<span class="step"></span>
-			<span class="step"></span>
-			</div>
-			
-		</form>	
-			</div>
-	<script type="text/javascript" src="bookappointment.js">
-	</script>
+	<table>
+		<th style="float:left;font-size:24px;">Start booking an apppointment?</th>
+		<tr style="height:25px;"><td></tr></td>
+		<tr><td>Follow the instructions for step 1 to 4 for a smooth process.</td></tr>
+		<tr style="height:25px;"><td></tr></td>
+		<tr><td><i>Note: <b><u>$5</u></b> payment for booking an appointment is required.</i></td></tr>
+		<tr style="height:25px;"><td></tr></td>
+		<tr><td>View <a href="doctors.php" id="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
+		<tr style="height:480px;"><td></tr></td>
+		<tr><td><a href="bookappointment1a.php"><button id="nextBtn">Next</button></a></td></tr>
+	</table>
 	</div>
 	</div>
 	<footer>
