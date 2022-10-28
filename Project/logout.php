@@ -1,5 +1,8 @@
 <?php
-  session_start();
+  if(!isset($_SESSION)) 
+	{ 
+		session_start(); 
+	} 
   
   // store to test if they *were* logged in
   $old_user = $_SESSION['valid_user'];  
