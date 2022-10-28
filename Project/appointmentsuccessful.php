@@ -15,10 +15,10 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.html" class="topnav">Home</a>
-			<a href="about.html" class="topnav">About Us</a>
-			<a href="doctors.html" class="topnav">Our Doctors</a>
-			<a href="contact.html" class="topnav">Contact Us</a>
+			<a href="home.php" class="topnav">Home</a>
+			<a href="about.php" class="topnav">About Us</a>
+			<a href="doctors.php" class="topnav">Our Doctors</a>
+			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
 		<a href="login.html" id="headerprofile">
 			<img src="images/profile.png" width="38" height="38" class="icon">
@@ -60,6 +60,10 @@
 	<div class="maincontainer">
 	<dt id="abcd">
 	<?php include "methods/getPatientsData.php";
+	if(!isset($_SESSION)) 
+	{ 
+		session_start(); 
+	} 
 		$userid = $currentUserData['userid'];
 		$location = $_POST['location'];
 		$doctor = $_POST['doctor'];
@@ -71,35 +75,43 @@
 		echo "<b>Appointment booked successfully!</b><br>
 		<i>Check your email for the softcopy confirmation. </i> <br><br>";
 		echo 
-		"<div id='step3'><table class='confirmation-table'>
+		"<table style='width:600px;'>
 			<tr>
-				<td>Location: </td>
+				<td style='font-size:30px;width:200px;'>Location: </td>
 				<td class='confirmation-column'>" . $location . "</td>
 			</tr>
-			<tr><td colspan='2'><br></td></tr>
+			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
-				<td>Doctor:  </td>
+				<td style='font-size:30px;width:200px;'>Doctor:  </td>
 				<td class='confirmation-column'>" . $doctor . "</td>
 			</tr>
-			<tr><td colspan='2'><br></td></tr>
+			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
-				<td>Date: </td>
+				<td style='font-size:30px;width:200px;'>Date: </td>
 				<td class='confirmation-column'>" . $date2 . "</td>
 			</tr>
-			<tr><td colspan='2'><br></td></tr>
+			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
-				<td>Time: </td>
+				<td style='font-size:30px;width:200px;'>Time: </td>
 				<td class='confirmation-column'>" . $time . "</td>
 			</tr>
-			</tr>
-			<tr><td colspan='2'><br></td></tr>
+			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
-				<td>Paid Status: </td>
+				<td style='font-size:30px;width:200px;'>Paid Status: </td>
 				<td class='confirmation-column'>Yes</td>
 			</tr>
-		</table></div>" .
-		"<a href='myappointment.php'><button id='viewBtn'>View Your Appointments</button></a>" .
-		"<a href='bookappointment.php'><button id='anotherBtn'>Make Another Appointment</button></a>";
+			<tr style='height:35px'><td colspan='2'><br></td></tr>
+			<tr><td colspan='2'>
+				Please be on time for your appointment(s).
+				<br>You can re-schedule your appointment on your appointment page. 
+				<br>*Terms & Conditions applies
+			</td></tr>
+			<tr style='height:150px'><td colspan='2'><br></td></tr>
+			<tr>
+			<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
+			<td><a href='bookappointment.php'><button id='nextBtn'>Make Another Appointment</button></a></td>
+			</tr>
+		</table>";
 		
 		@ $db = new mysqli('localhost', 'root', '', 'project');
 
@@ -111,7 +123,7 @@
 				(NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
 		$result = $db->query($query);
 		if ($result) {
-			echo "<p><br>Please be on time for your appointment(s).<br>You can re-schedule your appointment on your appointment page. <br>*Terms & Conditions applies</p>";
+			echo "";
 			} else {
 			echo "An error has occurred.  The appointment was not registered.";
 			}
