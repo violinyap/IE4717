@@ -1,6 +1,11 @@
 <?php
 	include "methods/getPatientsData.php";
 	
+	if(!isset($_SESSION)) 
+	{
+		session_start(); 
+	}
+	
 	$db = mysqli_connect('localhost', 'root', '');
 	mysqli_select_db($db,'project');
 	$sql=
@@ -14,7 +19,7 @@
 	$result = mysqli_query($db,$sql);
 	$count=0;
 	while ($row = mysqli_fetch_assoc($result)){
-	if ($row['userid'] == $currentUserData['userid']) { //if ($row['userid']==$session[''])
+	if ($row['userid'] == $currentUserData['userid']) {
 		if ($row['paid_status'] == "1") {
 			if ($row['book_status'] == "1")
 			{
