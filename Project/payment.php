@@ -14,15 +14,31 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.html" class="topnav">Home</a>
-			<a href="about.html" class="topnav">About Us</a>
-			<a href="doctors.html" class="topnav">Our Doctors</a>
-			<a href="contact.html" class="topnav">Contact Us</a>
+			<a href="home.php" class="topnav">Home</a>
+			<a href="about.php" class="topnav">About Us</a>
+			<a href="doctors.php" class="topnav">Our Doctors</a>
+			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
-		<a href="login.html" id="headerprofile">
-			<img src="images/profile.png" width="38" height="38" class="icon">
-			Login / Signup
-		</a> 
+		<?php // Show registered name
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
+        if (isset($_SESSION['valid_user']))
+        { 
+					echo "<a href='profile.php' id='headerprofile'>";
+					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo $_SESSION["valid_user"]; 
+					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
+					echo "</a>";
+				} 
+        else { 
+					echo "<a href='login.php' id='headerprofile'>";
+					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "Login / Signup"; 
+					echo "</a>";
+				}
+      ?> 
 	</header>
 	
 	<div id="bodycontent">
@@ -66,6 +82,10 @@
 		?>
 		<?php
 		include "methods/getPatientsData.php";
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=
