@@ -14,10 +14,10 @@
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
-			<a href="home.php" class="topnav">Home</a>
-			<a href="about.php" class="topnav">About Us</a>
-			<a href="doctors.php" class="topnav">Our Doctors</a>
-			<a href="contact.php" class="topnav">Contact Us</a>
+			<a href="home.html" class="topnav">Home</a>
+			<a href="about.html" class="topnav">About Us</a>
+			<a href="doctors.html" class="topnav">Our Doctors</a>
+			<a href="contact.html" class="topnav">Contact Us</a>
 		</nav>
 		<?php // Show registered name
 				session_start();
@@ -220,9 +220,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.php" id="botnav">About Us</a> </li>
-						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
+						<li><a href="about.html" id="botnav">About Us</a> </li>
+						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				

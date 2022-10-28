@@ -1,6 +1,9 @@
 <?php //authmain.php
 include "methods/dbconnect.php";
-session_start();
+if(!isset($_SESSION)) 
+{ 
+	session_start(); 
+} 
 
 if (isset($_POST['email']) && isset($_POST['pass']))
 {
@@ -52,7 +55,10 @@ if (isset($_POST['email']) && isset($_POST['pass']))
 		</nav>
 		
 		<?php // Show registered name
-				session_start();
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
         if (isset($_SESSION['valid_user']))
         { 
 					echo "<a href='profile.php' id='headerprofile'>";

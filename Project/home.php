@@ -22,7 +22,10 @@
 		<a href="login.php" id="headerprofile">
 			<img src="images/profile.png" width="38" height="38" class="icon">
 			<?php // Show registered name
-				session_start();
+			if(!isset($_SESSION)) 
+			{ 
+				session_start(); 
+			} 
         if (isset($_SESSION['valid_user']))
         { echo ''.$_SESSION['valid_user']."<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>"; } 
         else { echo "Login / Signup"; }

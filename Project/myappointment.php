@@ -20,7 +20,10 @@
 			<a href="contact.php" class="topnav">Contact Us</a>
 		</nav>
 		<?php // Show registered name
-				session_start();
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
         if (isset($_SESSION['valid_user']))
         { 
 					echo "<a href='profile.php' id='headerprofile'>";
@@ -35,7 +38,7 @@
 					echo "Login / Signup"; 
 					echo "</a>";
 				}
-      ?>  
+      ?> 
 	</header>
 	
 	<div id="bodycontent">
@@ -73,17 +76,28 @@
 	<dt id="abcd">
 		<?php include 'appointmentRetrieval.php';
 		echo "<p>
-		View all upcoming appointment(s) here.<br>" .
+		View all upcoming appointment(s) here.<br><br>" .
 		"<i>" . $count . " appointment(s) found.</i></p><br>";
 		?>
 		<?php
+		include "methods/getPatientsData.php";
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
-		$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
-		paid_status as paid_status, book_status as book_status
-		FROM appointments";
+		$sql=
+		"SELECT a.userid, a.location, a.doctor, a.date, a.time, 
+		a.paid_status, a.book_status
+		FROM appointments a
+		INNER JOIN patients p on a.userid = p.userid";
+		//$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
+		//paid_status as paid_status, book_status as book_status
+		//FROM appointments";
 		$result = mysqli_query($db,$sql);
 		while ($row = mysqli_fetch_assoc($result)){
+		if ($row['userid'] == $currentUserData['userid']) { //if ($row['userid']==$session[''])
 		if ($row['paid_status'] == "1") {
 			if ($row['book_status'] == "1")
 			{
@@ -139,6 +153,7 @@
 			}
 			}
 			}
+			}
 			$result->free();
 			$db->close();
 		?>
@@ -174,9 +189,9 @@
 				<h3 class="footerheader">Information</h3>
 				<nav>
 					<ul>
-						<li><a href="about.php" id="botnav">About Us</a> </li>
-						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
+						<li><a href="about.html" id="botnav">About Us</a> </li>
+						<li><a href="doctor.html" id="botnav">Our Doctors</a> </li>
+						<li><a href="contact.html" id="botnav">Contact Us</a> </li>
 					</ul>
 				</nav>
 				
