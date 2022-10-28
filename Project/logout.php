@@ -36,7 +36,7 @@
 					echo "<a href='profile.php' id='headerprofile'>";
 					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
+					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
 				} 
         else { 

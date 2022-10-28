@@ -7,10 +7,14 @@ if (isset($_SESSION['valid_user']))
   // if the user has just tried to log in
   $currentName = $_SESSION['valid_user'];
   $currentUserId = $_SESSION['valid_user_id'];
+  $currentUserType = $_SESSION['valid_user_type'];
   $currentUserData = '';
-  
-  $query = 'select * from patients '
-           ."where userid='$currentUserId'";
+  $uid = 'userid';
+  if ($currentUserType == 'doctors') {
+    $uid = 'doctorid';
+  }
+  $query = 'select * from '.$currentUserType.' '
+           ."where ".$uid."='$currentUserId'";
   // echo "<br>" .$query. "<br>";
   $result = $dbcnx->query($query);
   if ($result->num_rows >0 )

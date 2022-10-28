@@ -58,7 +58,7 @@ if (isset($_POST['email']) && isset($_POST['pass']))
 					echo "<a href='profile.php' id='headerprofile'>";
 					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
+					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
 				} 
         else { 
@@ -80,7 +80,7 @@ if (isset($_POST['email']) && isset($_POST['pass']))
           if (isset($_SESSION['valid_user']))
           {
             echo 'You are logged in as: '.$_SESSION['valid_user'].' <br />';
-            // echo '<a href="logout.php">Log out</a><br />';
+            // echo '<a href="login.php">Log out</a><br />';
 
             // REDIRECT TO PROFILE
           }else {

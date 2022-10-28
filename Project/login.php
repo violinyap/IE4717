@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  
+  // store to test if they *were* logged in
+  $old_user = $_SESSION['valid_user'];  
+  unset($_SESSION['valid_user']);
+  unset($_SESSION['valid_user_id']);
+  session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +36,7 @@
 					echo "<a href='profile.php' id='headerprofile'>";
 					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
+					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
 				} 
         else { 
@@ -42,6 +52,12 @@
 		<div class="login-banner">
 			<div class="login-container">
         <h1>Login</h1>
+				<?php 
+          if (!empty($old_user))
+          {
+            echo 'You have been logged out.<br />';
+          }
+        ?> 
         <form class="login-form" method="post" action="login_auth.php">
 					<div>
 						<label>User type</label>
