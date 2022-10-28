@@ -1,5 +1,8 @@
-<?php
-	include "methods/getPatientsData.php";
+<?php include "methods/getPatientsData.php";
+	if(!isset($_SESSION)) 
+	{ 
+		session_start(); 
+	} 
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=
