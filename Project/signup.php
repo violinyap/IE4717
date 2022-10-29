@@ -42,7 +42,7 @@
 		<div class="login-banner">
 			<div class="login-container">
         <h1>Signup</h1>
-        <form class="login-form" action="signup_auth.php" method="post">
+        <form class="login-form" action="signup_auth.php" method="post" enctype="multipart/form-data">
 					<label for="email">Email*</label>
 					<input type="email" class="login-input" id="email" name="email" placeholder="example@email.com" required>
 					<label for="pass">Password*</label>
@@ -51,7 +51,7 @@
           <input class="login-input" type="password" id="cpass" name="cpass" placeholder="Password" required/>
 					<label for="name">Name*</label>
 					<input type="text" class="login-input" id="name" name="name" placeholder="Your name" required>
-					<label for="name">Image*</label>
+					<label for="image">Image*</label>
 					<input type="file" class="login-input" id="image" name="image" placeholder="Your photo" required>
 					<label for="contact">Contact*</label>
           <input class="login-input" type="tel" id="contact" name="contact" pattern="[0-9]{4}-[0-9]{4}" placeholder="9999-9999" required/>
