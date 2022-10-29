@@ -1,5 +1,5 @@
 <?php
-	include "methods/getPatientsData.php";
+	include "methods/getUserData.php";
 	
 	if(!isset($_SESSION)) 
 	{
