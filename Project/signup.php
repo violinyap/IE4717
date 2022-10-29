@@ -60,7 +60,7 @@
 					<label for="bday">Birthday*</label>
 					<input type="date" class="login-input" id="bday" name="bday" placeholder="Birthday" required>
           <div class="login-buttons">
-            <a href="login.html">Already have an account? Login here</a>
+            <a href="login.php">Already have an account? Login here</a>
             <button class="primarybutton">
               Signup
             </button>

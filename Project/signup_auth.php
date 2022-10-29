@@ -79,7 +79,7 @@
             echo "Your query failed.";
           else
             echo "<h3>Welcome ". $name . ". You are now registered </h3>";
-            echo "<a class=\"login-buttons\" href=\"login.html\">
+            echo "<a class=\"login-buttons\" href=\"login.php\">
                     <button class=\"primarybutton\">
                       Login
                     </button>

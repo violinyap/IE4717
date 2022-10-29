@@ -1,3 +1,9 @@
+var today = new Date();
+today = new Date(today.setDate(today.getDate() + 2))
+  .toISOString()
+  .split("T")[0];
+document.getElementsByName("date")[0].setAttribute("min", today);
+
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -11,13 +17,13 @@ function showTab(n) {
   } else {
     document.getElementById("prevBtn").style.display = "inline";
   }
-  if (n == (x.length - 1)) {
-	document.getElementById("nextBtn").innerHTML = "Pay";
+  if (n == x.length - 1) {
+    document.getElementById("nextBtn").innerHTML = "Pay";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
   // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
+  fixStepIndicator(n);
 }
 
 function nextPrev(n) {
@@ -41,7 +47,10 @@ function nextPrev(n) {
 
 function validateForm() {
   // This function deals with validation of the form fields
-  var x, y, i, valid = true;
+  var x,
+    y,
+    i,
+    valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
@@ -63,7 +72,8 @@ function validateForm() {
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
+  var i,
+    x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
@@ -75,7 +85,7 @@ function ShowHideDiv() {
   var fullerton = document.getElementById("Fullerton");
   var dvtext = document.getElementById("dvtext");
   dvtext.style.display = fullerton.checked ? "block" : "none";
-  
+
   var raffles = document.getElementById("Raffles");
   var dvtext2 = document.getElementById("dvtext2");
   dvtext2.style.display = raffles.checked ? "block" : "none";
@@ -84,10 +94,10 @@ function ShowHideDiv() {
 function getlocation() {
   var radioBtn = document.getElementsByName("location");
   var c;
-  for(i=0; i<radioBtn.length; i++){
-   if(radioBtn[i].checked){
-     c = radioBtn[i].value;
-   }
+  for (i = 0; i < radioBtn.length; i++) {
+    if (radioBtn[i].checked) {
+      c = radioBtn[i].value;
+    }
   }
   document.getElementById("location").innerHTML = c;
 }
@@ -95,10 +105,10 @@ function getlocation() {
 function getdoctor() {
   var radioBtn = document.getElementsByName("doctor");
   var c;
-  for(i=0; i<radioBtn.length; i++){
-   if(radioBtn[i].checked){
-     c = radioBtn[i].value;
-   }
+  for (i = 0; i < radioBtn.length; i++) {
+    if (radioBtn[i].checked) {
+      c = radioBtn[i].value;
+    }
   }
   document.getElementById("doctor").innerHTML = c;
 }
@@ -111,30 +121,30 @@ function getDate() {
 function getTime() {
   var radioBtn = document.getElementsByName("timeslot");
   var c;
-  for(i=0; i<radioBtn.length; i++){
-   if(radioBtn[i].checked){
-     c = radioBtn[i].value;
-   }
+  for (i = 0; i < radioBtn.length; i++) {
+    if (radioBtn[i].checked) {
+      c = radioBtn[i].value;
+    }
   }
   document.getElementById("time").innerHTML = c;
 }
 
 function chkDate(event) {
-
   // Get the target node of the event
-  
+
   var dateInput = event.currentTarget;
-  const currentDate = Date.now() + 6*1000*60*60;
+  const currentDate = Date.now() + 6 * 1000 * 60 * 60;
   const dateValue = new Date(dateInput.value);
 
   if (dateValue <= currentDate) {
-    alert("The date you entered (" + dateInput.value + 
-          ") should be after today \n");
+    alert(
+      "The date you entered (" + dateInput.value + ") should be after today \n"
+    );
     dateInput.focus();
     dateInput.select();
-	dateInput.value = currentDate;
+    dateInput.value = currentDate;
     return false;
-  } 
+  }
 }
 
 var dateNode = document.getElementById("date");

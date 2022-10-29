@@ -8,38 +8,7 @@
 <link rel="stylesheet" href="./myappointment.css" />
 <body>
 <div id="wrapper">
-	<header>
-		<div id="headerlogo">
-			<img src="../images/cliniclogo.png" width="50" height="50" class="icon"/> 
-			<h1> NTUClinic </h1>
-		</div>
-		<nav id="headernav">
-			<a href="home.php" class="topnav">Home</a>
-			<a href="about.php" class="topnav">About Us</a>
-			<a href="doctors.php" class="topnav">Our Doctors</a>
-			<a href="contact.php" class="topnav">Contact Us</a>
-		</nav>
-		<?php // Show registered name
-		if(!isset($_SESSION)) 
-		{ 
-			session_start(); 
-		} 
-        if (isset($_SESSION['valid_user']))
-        { 
-					echo "<a href='patient/profile.php' id='headerprofile'>";
-					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
-					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
-					echo "</a>";
-				} 
-        else { 
-					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
-					echo "Login / Signup"; 
-					echo "</a>";
-				}
-      ?> 
-	</header>
+	<?php include 'header.php'; ?>
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
@@ -64,8 +33,7 @@
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=
-		"SELECT a.userid, a.location, a.doctor, a.date, a.time, 
-		a.paid_status, a.book_status
+		"SELECT *
 		FROM appointments a
 		INNER JOIN patients p on a.userid = p.userid";
 		//$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
@@ -81,12 +49,19 @@
 			$doctor = $row['doctor'];
 			$date = $row['date'];
 			$time = $row['time'];
+			$apptID = $row['appointmentID'];
 			$date2 = date("d-m-Y", strtotime($date));
 			echo "
 			<table class='appointment-table' style='font-size:20px;border:1px solid black;height:300px;width:450px;'>
 			<th colspan='2' style='float:left;font-size:24px;'>
 				<i>Appointment Details</i>
 			</th>
+			<tr>
+				<td style='width:250px;'><b>ID: </b></td>
+				<td><span id='doctor'>
+				NTCL$apptID
+				</span></td>
+			</tr>
 			<tr>
 				<td style='width:250px;'><b>Doctor: </b></td>
 				<td><span id='doctor'>
@@ -119,7 +94,10 @@
 			</tr>
 			<tr>
 			<td style='float: center; width:250px;'>
-				<a href='editappointment.php'><button id='editbutton'>Edit</button></a>
+				<form action='editappointment.php' method='post'>
+					<input value='$apptID' name='apptID' type='hidden'/>
+					<button id='editbutton'>Edit</button>
+				</form>
 			</td>
 			<td style='float: center;'>
 				<button id='cancelbutton' onclick='alertpopup()'>Cancel</button>

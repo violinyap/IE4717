@@ -88,7 +88,7 @@
 					</div>
 				</div>
 			</div>
-			<button class="primarybutton" onclick="location.href='doctors.html'" type="button">
+			<button class="primarybutton" onclick="location.href='doctors.php'" type="button">
 				More..
 			</button>
 		</div>

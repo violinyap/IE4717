@@ -44,7 +44,7 @@
 		</div>
 
     <div class="doctors-section">
-      <a href="./doctors/1.html">
+      <a href="./doctors/1.php">
         <div class="doctor-card">
           <img class="doctor-card-img">
           <div class="doctor-card-text">

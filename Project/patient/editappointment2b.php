@@ -14,21 +14,22 @@
 	<?php include "sidepanel.php"; ?>
 	<div id="appointmentnav">
 	<dt>
-		<b>Make An Appointment > </b>
-		<b>Step 1a > </b>
-		<b>Step 1b > </b>
-		<b>Step 2a > </b>
-		Step 2b
+		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" id="botnav">Edit Appointment</a>
 	</dt>
 	</div>
 	<div class="maincontainer">
-	<dt id="abcd">
-	<?php
+			
+			<div class="rightside">
+				<div class="leftside">
+				<?php include "../methods/getAppointment.php" ?>
+				</div>
+		<form method="post" action="editappointment3.php" id="appointmentform">
+				<?php
 		$doctor = $_POST['doctor'];
 		$location = $_POST['location'];
 		$date = $_POST['date'];
+		echo "<input value='$apptID' name='apptID' type='hidden'/>";
 	?>
-		<form method="post" action="bookappointment3.php" id="appointmentform">
 			<?php
 			echo "
 			<table class='time-table'>
@@ -96,6 +97,10 @@
 			echo "</table>";
 			?>
 		</form>
+			</div>
+			
+		
+	</div>
 	</div>
 	</div>
 	<?php include "../footer.php";?>

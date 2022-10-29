@@ -75,7 +75,7 @@
 					<label for="pass">Password*</label>
           <input class="login-input" type="password" id="pass" name="pass" placeholder="Password" required/>
           <div class="login-buttons">
-            <a href="signup.html">No account? Sign up here</a>
+            <a href="signup.php">No account? Sign up here</a>
             <button class="primarybutton">
               Login
             </button>
