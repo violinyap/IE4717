@@ -47,11 +47,7 @@
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-	<?php include "methods/getPatientsData.php";
-	if(!isset($_SESSION)) 
-	{ 
-		session_start(); 
-	} 
+	<?php include "../methods/getPatientsData.php";
 		$userid = $currentUserData['userid'];
 		$location = $_POST['location'];
 		$doctor = $_POST['doctor'];

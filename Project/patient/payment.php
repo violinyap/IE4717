@@ -57,11 +57,7 @@
 		"<i>" . $count . " pre-appointment(s) found.</i></p><br>";
 		?>
 		<?php
-		include "methods/getUserData.php";
-		if(!isset($_SESSION)) 
-		{ 
-			session_start(); 
-		} 
+		include "../methods/getUserData.php";
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=

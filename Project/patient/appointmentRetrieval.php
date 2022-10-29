@@ -1,6 +1,5 @@
 <?php
-	include "methods/getUserData.php";
-	
+	include "../methods/getUserData.php";
 	if(!isset($_SESSION)) 
 	{
 		session_start(); 
@@ -16,6 +15,7 @@
 	/*$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
 	paid_status as paid_status, book_status as book_status
 	FROM appointments";*/
+
 	$result = mysqli_query($db,$sql);
 	$count=0;
 	while ($row = mysqli_fetch_assoc($result)){

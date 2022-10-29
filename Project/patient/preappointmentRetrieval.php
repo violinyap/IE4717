@@ -1,8 +1,5 @@
-<?php include "methods/getUserData.php";
-	if(!isset($_SESSION)) 
-	{ 
-		session_start(); 
-	} 
+<?php include "../methods/getUserData.php";
+
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=

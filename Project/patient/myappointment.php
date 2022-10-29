@@ -56,7 +56,7 @@
 		"<i>" . $count . " appointment(s) found.</i></p><br>";
 		?>
 		<?php
-		include "methods/getUserData.php";
+		include "../methods/getUserData.php";
 		if(!isset($_SESSION)) 
 		{ 
 			session_start(); 
@@ -147,6 +147,6 @@
 	</script>
 	</div>
 	</div>
-	<?php include "../footer.php";?>
 </div>
+<?php include "../footer.php";?>
 </body>

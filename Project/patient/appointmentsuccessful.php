@@ -48,11 +48,8 @@
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-	<?php include "methods/getPatientsData.php";
-	if(!isset($_SESSION)) 
-	{ 
-		session_start(); 
-	} 
+	<?php 
+		include "../methods/getPatientsData.php";
 		$userid = $currentUserData['userid'];
 		$location = $_POST['location'];
 		$doctor = $_POST['doctor'];
@@ -61,7 +58,19 @@
 		date_default_timezone_set("Asia/Singapore");
 		$timeCompleted = date('H:i');
 		$date2 = date("d-m-Y", strtotime($date));
-		echo "<b>Appointment booked successfully!</b><br>
+		
+		@ $db = new mysqli('localhost', 'root', '', 'project');
+
+		if (mysqli_connect_errno()) {
+		echo "Error: Could not connect to database.  Please try again later.";
+		exit;
+		}
+		$query = "insert into appointments (`appointmentID`, `userid`, `location`, `doctor`, `date`, `time`, `timeCompleted`, `paid_status`, `book_status`)
+		values (NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
+
+		$result = $db->query($query);
+		if ($result) {
+			echo "<b>Appointment booked successfully!</b><br>
 		<i>Check your email for the softcopy confirmation. </i> <br><br>";
 		echo 
 		"<table style='width:600px;'>
@@ -95,30 +104,12 @@
 				<br>You can re-schedule your appointment on your appointment page. 
 				<br>*Terms & Conditions applies
 			</td></tr>
-			<tr style='height:150px'><td colspan='2'><br></td></tr>
 			<tr>
 			<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
 			<td><a href='bookappointment.php'><button id='nextBtn'>Make Another Appointment</button></a></td>
 			</tr>
 		</table>";
-		
-		@ $db = new mysqli('localhost', 'root', '', 'project');
 
-		if (mysqli_connect_errno()) {
-		echo "Error: Could not connect to database.  Please try again later.";
-		exit;
-		}
-		$query = "insert into appointments values
-				(NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
-		$result = $db->query($query);
-		if ($result) {
-			echo "";
-			} else {
-			echo "An error has occurred.  The appointment was not registered.";
-			}
-			
-		$db->close();
-		
 		$to      = 'f32ee@localhost';
 		$subject = 'Appointment booked';
 		
@@ -146,6 +137,15 @@
 		
 
 		mail($to, $subject, $message, $headers, '-ff32ee@localhost');
+		} else {
+			echo "An error has occurred.  The appointment was not registered.";
+			echo "Please try again";
+			// TODO: add try again button
+		}
+			
+		$db->close();
+		
+		
 	?>
 	</div>
 	</div>
