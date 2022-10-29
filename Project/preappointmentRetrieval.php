@@ -1,4 +1,4 @@
-<?php include "methods/getPatientsData.php";
+<?php include "methods/getUserData.php";
 	if(!isset($_SESSION)) 
 	{ 
 		session_start(); 
