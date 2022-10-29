@@ -3,7 +3,7 @@
 <head>
 <title>NTUClinic</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel='stylesheet' href="./profile.css" />
 <body>
@@ -11,7 +11,7 @@
 
 	<header>
 		<div id="headerlogo">
-			<img src="images/cliniclogo.png" width="50" height="50" class="icon"/> 
+			<img src="../images/cliniclogo.png" width="50" height="50" class="icon"/> 
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
@@ -27,15 +27,15 @@
 		} 
         if (isset($_SESSION['valid_user']))
         { 
-					echo "<a href='profile.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "<a href='patient/profile.php' id='headerprofile'>";
+					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
 					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
 				} 
         else { 
 					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
 					echo "Login / Signup"; 
 					echo "</a>";
 				}
@@ -46,31 +46,31 @@
 	<div class="sidecontainer">
 		<nav id="sidepanel">
 			<div id="panel1">
-			<a href="profile.php"><img src="images/profile.png" width="75" height="75"> </a>
+			<a href="patient/profile.php"><img src="../images/profile.png" width="75" height="75"> </a>
 			<br><dt>Example Guy<!--to add javascript-->
 			<br><b>User</b><br><br><!--to add javascript-->
-			<a href="editprofile.php" id="botnav">Edit Profile</a>
+			<a href="editpatient/profile.php" id="botnav">Edit Profile</a>
 			</div>
 			<div id="panel2">
 			<a href="bookappointment.php" id="sidenav">
 			<dt id="abc">Make An<br>Appointment</dt>
-			<img src="images/bookappointment.png" width="43" height="43"> </a>
+			<img src="../images/bookappointment.png" width="43" height="43"> </a>
 			</div>
 			<div id="panel2">
 			<a href="myappointment.php" id="sidenav">
 			<dt id="abc">My<br>Appointment</dt>
-			<img src="images/myappointment.png" width="43" height="43"> </a>
+			<img src="../images/myappointment.png" width="43" height="43"> </a>
 			</div>
 			<div id="panel2">
 			<a href="payment.php" id="sidenav">
 			<dt id="abc">Payment</dt>
-			<img src="images/payment.png" width="43" height="43"> </a>
+			<img src="../images/payment.png" width="43" height="43"> </a>
 			</div>
 		</nav>
 	</div>
 	
 	<div id="appointmentnav">
-		<a href="profile.php" id="botnav">My Profile</a>
+		<a href="patient/profile.php" id="botnav">My Profile</a>
 		&nbsp;
 	</div>
 	
@@ -82,7 +82,7 @@
 			
 			// NAME
 			echo "<tr>";
-			echo "<td rowspan='7' style='vertical-align: top; margin: auto'><img src='images/profile.png' width='75' height='75'></td>";
+			echo "<td rowspan='7' style='vertical-align: top; margin: auto'><img src='../images/profile.png' width='75' height='75'></td>";
 			echo "<th class='profile-row' style='text-align: left;'>Name:</th>";
 			echo "<td><span id='name'>".$currentUserData['name']."</span></td>";
 			echo "</tr>";
@@ -113,7 +113,7 @@
 		?>
 
 	<tr>
-		<td colspan="2" style="padding-top: 100px;"><button id="editprofilebutton" onclick="location.href='editprofile.php';">Edit Profile</button>
+		<td colspan="2" style="padding-top: 100px;"><button id="editprofilebutton" onclick="location.href='editpatient/profile.php';">Edit Profile</button>
 		</td>
 	</tr>
 	</table>
@@ -123,7 +123,7 @@
 		<div id="footer1">
 			<div id="leftcolumn">
 				<div id="footerlogo">
-					<img src="images/cliniclogo.png" width="38" height="38" id="icon" /> 
+					<img src="../images/cliniclogo.png" width="38" height="38" id="icon" /> 
 					<h2>NTUClinic</h2>
 				</div>
 				<small>
@@ -148,7 +148,7 @@
 				<h3 class="footerheader">Patient's Site</h3>
 				<nav>
 					<ul>
-						<li><a href="profile.php" id="botnav">Profile</a> </li>
+						<li><a href="patient/profile.php" id="botnav">Profile</a> </li>
 						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
 						<li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>
 					</ul>
@@ -157,9 +157,9 @@
 			<div id="rightcolumn">
 				<p>Follow us through our social media.</p>
 				<div id="socialmedia">
-				<image src="images/facebook.png" width="35" height="35" id="contactlogo">
-				<image src="images/instagram.png" width="35" height="35" id="contactlogo">
-				<image src="images/whatsapp.png" width="35" height="35" id="contactlogo">
+				<image src="../images/facebook.png" width="35" height="35" id="contactlogo">
+				<image src="../images/instagram.png" width="35" height="35" id="contactlogo">
+				<image src="../images/whatsapp.png" width="35" height="35" id="contactlogo">
 				</div>
 			</div>
 		</div>

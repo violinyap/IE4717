@@ -8,8 +8,7 @@ body {
 
 /* HEADER STYLES */
 header {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #000000;
+  background-color: #dbeffd;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,6 +26,14 @@ header {
 .icon {
   margin-right: 10px;
 }
+
+.profiledrop {
+  background: none;
+  border: none;
+  color: grey;
+  cursor: pointer;
+}
+
 
 #headernav {
   display: flex;
@@ -46,6 +53,13 @@ nav > .topnav {
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: #000000;
+  text-decoration: none;
+}
+
+#headerprofile:hover {
+  color: #000000;
+  text-decoration: none;
 }
 
 #headerprofile > a {

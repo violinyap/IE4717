@@ -38,10 +38,10 @@
 			<h1>All new online service</h1>
 			<h1>Book your appointment now!</h1>
 			<div class="banner-button">
-				<button class="primarybutton" onclick="location.href='profile.php'" type="button">
+				<button class="primarybutton" onclick="location.href='patient/profile.php'" type="button">
 					I am a Patient
 				</button>
-				<button class="primarybutton" onclick="location.href='profile.php'" type="button">
+				<button class="primarybutton" onclick="location.href='patient/profile.php'" type="button">
 					I am a Doctor
 				</button>
 			</div>
@@ -51,13 +51,10 @@
 			<div class="service-left">
 				<h1>Best services</h1>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-					Sed in enim ultricies, placerat quam ut, maximus nisl. Curabitur scelerisque 
-					nisl erat, dignissim placerat risus ultricies non. Interdum et malesuada fames ac 
-					ante ipsum primis in faucibus. Integer consequat, risus non convallis rhoncus, dui justo convallis ante, 
-					vel tincidunt ante purus ut nulla. Donec pretium ex mauris, et volutpat enim tempor sit amet. 
-					Phasellus nec consectetur metus. Nulla facilisi. Vestibulum non interdum velit, eget suscipit elit. 
-					Integer et blandit lectus. Vestibulum tincidunt lectus qu
+				NTUClinic is build with the value of caring. Our clinic offer a full range of services,<br>
+				from the management of acute and chronic medical conditions to minor procedures & medical testing. <br>
+				We are also able to issue referrals to our specialist network & offer repeat prescription requests <br>
+				for your convenience.
 				</p>
 			</div>
 			<div class="service-right">
@@ -65,8 +62,9 @@
 			</div>
 		</div>
 
-		<div class="home-doctors">
-			<h1>Our Doctors</h1>
+		<div class="home-doctors"> 
+			<h1>Our Doctors</h1> 
+			<!-- TODO : FETCH DOCTORS -->
 			<div class="doctors-section">
 				<div class="doctor-card">
 					<img class="doctor-card-img">
@@ -99,13 +97,8 @@
 			<div class="news-left">
 				<h1>Latest News</h1>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-					Sed in enim ultricies, placerat quam ut, maximus nisl. Curabitur scelerisque 
-					nisl erat, dignissim placerat risus ultricies non. Interdum et malesuada fames ac 
-					ante ipsum primis in faucibus. Integer consequat, risus non convallis rhoncus, dui justo convallis ante, 
-					vel tincidunt ante purus ut nulla. Donec pretium ex mauris, et volutpat enim tempor sit amet. 
-					Phasellus nec consectetur metus. Nulla facilisi. Vestibulum non interdum velit, eget suscipit elit. 
-					Integer et blandit lectus. Vestibulum tincidunt lectus qu
+					Here is some latest update about NTUClinic and medical industry. <br/>
+					Click on the photo on the right to find out more.
 				</p>
 			</div>
 			<div class="news-right">
@@ -171,9 +164,9 @@
 				<h3 class="footerheader">Patient's Site</h3>
 				<nav>
 					<ul>
-						<li><a href="profile.php" id="botnav">Profile</a> </li>
+						<li><a href="patient/profile.php" id="botnav">Profile</a> </li>
 						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
-						<li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>
+						<li><a href="patient/book/appt.php" id="botnav">Book Appointments</a> </li>
 					</ul>
 				</nav>
 			</div>

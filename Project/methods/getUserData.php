@@ -23,7 +23,7 @@ if (isset($_SESSION['valid_user']))
       $currentUserData = $row;
     }
   }
-  // echo $currentUserData;
+  echo $currentUserData;
   // echo $currentUserData['userid'];
   $dbcnx->close();
 }

@@ -27,11 +27,11 @@ payment.php (ignore for now)
 - clicking pay changes payment_status from 0 to 1 and send the email details to patient
 - cancel(delete) pre-appointment booking upon clicking cancel button
 
-profile.php (tbc for Violin)
+patient/profile.php (tbc for Violin)
 
 - updated as php file so username, email, etc. can be retrieved after logging in
 
-editprofile.php
+editpatient/profile.php
 
 - created as form
 - to-do: clicking change after completing form will update in Patients' db

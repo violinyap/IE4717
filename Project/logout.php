@@ -36,7 +36,7 @@
 				session_start();
         if (isset($_SESSION['valid_user']))
         { 
-					echo "<a href='profile.php' id='headerprofile'>";
+					echo "<a href='patient/profile.php' id='headerprofile'>";
 					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
 					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
@@ -114,7 +114,7 @@
 				<h3 class="footerheader">Patient's Site</h3>
 				<nav>
 					<ul>
-						<li><a href="profile.php" id="botnav">Profile</a> </li>
+						<li><a href="patient/profile.php" id="botnav">Profile</a> </li>
 						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
 						<li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>
 					</ul>

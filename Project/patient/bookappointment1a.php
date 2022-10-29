@@ -3,14 +3,14 @@
 <head>
 <title>NTUClinic</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel="stylesheet" href="./bookappointment.css" />
 <body>
 <div id="wrapper">
 	<header>
 		<div id="headerlogo">
-			<img src="images/cliniclogo.png" width="50" height="50" class="icon"/> 
+			<img src="../images/cliniclogo.png" width="50" height="50" class="icon"/> 
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
@@ -26,15 +26,15 @@
 		} 
         if (isset($_SESSION['valid_user']))
         { 
-					echo "<a href='profile.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "<a href='patient/profile.php' id='headerprofile'>";
+					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
 					echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
 				} 
         else { 
 					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
 					echo "Login / Signup"; 
 					echo "</a>";
 				}
@@ -45,7 +45,7 @@
 	<div class="sidecontainer">
 		<nav id="sidepanel">
 			<div id="panel1">
-			<a href="profile.php"><img src="images/profile.png" width="75" height="75"> </a>
+			<a href="patient/profile.php"><img src="../images/profile.png" width="75" height="75"> </a>
 			<br><dt>Example Guy<!--to add javascript-->
 			<br><b>User</b><br><br><!--to add javascript-->
 			<a href="editprofile.html" id="botnav">Edit Profile</a>
@@ -53,78 +53,47 @@
 			<div id="panel2">
 			<a href="bookappointment.php" id="sidenav">
 			<dt id="abc">Make An<br>Appointment</dt>
-			<img src="images/bookappointment.png" width="43" height="43"> </a>
+			<img src="../images/bookappointment.png" width="43" height="43"> </a>
 			</div>
 			<div id="panel2">
 			<a href="myappointment.php" id="sidenav">
 			<dt id="abc">My<br>Appointment</dt>
-			<img src="images/myappointment.png" width="43" height="43"> </a>
+			<img src="../images/myappointment.png" width="43" height="43"> </a>
 			</div>
 			<div id="panel2">
 			<a href="payment.php" id="sidenav">
 			<dt id="abc">Payment</dt>
-			<img src="images/payment.png" width="43" height="43"> </a>
+			<img src="../images/payment.png" width="43" height="43"> </a>
 			</div>
 		</nav>
 	</div>
 	<div id="appointmentnav">
 	<dt>
 		<b>Make An Appointment > </b>
-		<b>Step 1a > </b>
-		<b>Step 1b > </b>
-		<b>Step 2a > </b>
-		<b>Step 2b > </b>
-		Step 3
+		Step 1a
 	</dt>
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-	<?php
-		$doctor = $_POST['doctor'];
-		$location = $_POST['location'];
-		$date = $_POST['date'];
-		$time = $_POST['timeslot'];
-	?>
-		<form method="post" action="bookappointment4.php" id="appointmentform">
-			<table style="width:500px;"> 
-			<th style="text-align:left; ">Step 3:</th>
-			<tr><td colspan="2">Check your selection below.<br>
-			<br>Click 'Change' if you want to make changes to your selection.
-			<br>If all information is correct, click 'Next' to proceed to Payment.
+		<form method="post" action="bookappointment1b.php" id="appointmentform">
+			<table>
+			<th style="float:left;">Step 1a:</th>
+			<tr><td>Select our locations.</td></tr>
+			<tr style="height:25px;"><td></td></tr>
+			<tr><td>View <a href="doctors.html" id="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
+			<tr style="height:25px;"><td></td></tr>
+			<tr><td>Locations: </td></tr>
+			<tr style="height:25px;"><td></td></tr>
+			<tr><td><input type="radio" value="NTU Clinic Fullerton" id="Fullerton" name="location" onclick="ShowHideDiv()" onInput="getlocation()" checked='check'> 
+			<label for="">NTU Clinic Fullerton</label>
 			</td></tr>
-			<tr style="height:50px;"><td colspan="2"></td></tr>
-			<tr>
-				<td style="font-size:30px;width:200px;">Location: </td>
-				<td class="confirmation-column"><span id="location"><?php echo $location;?></span> </td>
-			</tr>
-			<tr style="height:35px;"><td colspan="2"></td></tr>
-			<tr>
-				<td style="font-size:30px;width:200px;">Doctor:  </td>
-				<td class="confirmation-column"><span id="doctor"><?php echo $doctor;?></span></td>
-			</tr>
-			<tr style="height:35px;"><td colspan="2"></td></tr>
-			<tr>
-				<td style="font-size:30px;width:200px;">Date: </td>
-				<td class="confirmation-column"><span id="date"><?php echo $date;?></span></td>
-			</tr>
-			<tr style="height:35px;"><td colspan="2"></td></tr>
-			<tr>
-				<td style="font-size:30px;width:200px;">Time: </td>
-				<td class="confirmation-column"><span id="time"><?php echo $time;?></span></td>
-			</tr>
-			<tr style="height:200px;"><td colspan="2"><br></td></tr>
-			<tr>
-				<td>
-				<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
-				<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
-				<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
-				<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
-				<input type="submit" value="Next" id="nextBtn"></input>
-				</td>
-				<td>
-				<a href="bookappointment1a.php" id="cancelButton">Change</a>
-				</td>
-			</tr>
+			<tr style='height:10px;'><td></td></tr>
+			<tr><td><input type="radio" value="NTU Clinic Raffles" id="Raffles" name="location" onclick="ShowHideDiv()" onInput="getlocation();"> 
+			<label for="">NTU Clinic Raffles</label><br>
+			</td></tr>
+			<tr style="height:400px;"><td></td></tr>
+			<tr><td><input type="submit" value="Next" id="nextBtn"></input>
+			</td></tr>
 			</table>
 		</form>
 	</div>
@@ -133,7 +102,7 @@
 		<div id="footer1">
 			<div id="leftcolumn">
 				<div id="footerlogo">
-					<img src="images/cliniclogo.png" width="38" height="38" id="icon" /> 
+					<img src="../images/cliniclogo.png" width="38" height="38" id="icon" /> 
 					<h2>NTUClinic</h2>
 				</div>
 				<small>
@@ -158,7 +127,7 @@
 				<h3 class="footerheader">Patient's Site</h3>
 				<nav>
 					<ul>
-						<li><a href="profile.php" id="botnav">Profile</a> </li>
+						<li><a href="patient/profile.php" id="botnav">Profile</a> </li>
 						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
 						<li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>
 					</ul>
@@ -167,9 +136,9 @@
 			<div id="rightcolumn">
 				<p>Follow us through our social media.</p>
 				<div id="socialmedia">
-				<image src="images/facebook.png" width="35" height="35" id="contactlogo">
-				<image src="images/instagram.png" width="35" height="35" id="contactlogo">
-				<image src="images/whatsapp.png" width="35" height="35" id="contactlogo">
+				<image src="../images/facebook.png" width="35" height="35" id="contactlogo">
+				<image src="../images/instagram.png" width="35" height="35" id="contactlogo">
+				<image src="../images/whatsapp.png" width="35" height="35" id="contactlogo">
 				</div>
 			</div>
 		</div>

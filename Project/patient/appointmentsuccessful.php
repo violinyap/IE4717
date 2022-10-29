@@ -3,14 +3,15 @@
 <head>
 <title>NTUClinic</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel="stylesheet" href="./bookappointment.css" />
+
 <body>
 <div id="wrapper">
 	<header>
 		<div id="headerlogo">
-			<img src="images/cliniclogo.png" width="50" height="50" class="icon"/> 
+			<img src="../images/cliniclogo.png" width="50" height="50" class="icon"/> 
 			<h1> NTUClinic </h1>
 		</div>
 		<nav id="headernav">
@@ -23,15 +24,15 @@
 				session_start();
         if (isset($_SESSION['valid_user']))
         { 
-					echo "<a href='profile.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "<a href='patient/profile.php' id='headerprofile'>";
+					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
 					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
 				} 
         else { 
 					echo "<a href='login.php' id='headerprofile'>";
-					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+					echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
 					echo "Login / Signup"; 
 					echo "</a>";
 				}
@@ -42,7 +43,7 @@
 	<div class="sidecontainer">
 		<nav id="sidepanel">
 			<div id="panel1">
-			<a href="profile.php"><img src="images/profile.png" width="75" height="75"> </a>
+			<a href="patient/profile.php"><img src="../images/profile.png" width="75" height="75"> </a>
 			<br><dt>Example Guy<!--to add javascript-->
 			<br><b>User</b><br><br><!--to add javascript-->
 			<a href="editprofile.html" id="botnav">Edit Profile</a>
@@ -50,23 +51,23 @@
 			<div id="panel2">
 			<a href="bookappointment.php" id="sidenav">
 			<dt id="abc">Make An<br>Appointment</dt>
-			<img src="images/bookappointment.png" width="43" height="43"> </a>
+			<img src="../images/bookappointment.png" width="43" height="43"> </a>
 			</div>
 			<div id="panel2">
 			<a href="myappointment.php" id="sidenav">
 			<dt id="abc">My<br>Appointment</dt>
-			<img src="images/myappointment.png" width="43" height="43"> </a>
+			<img src="../images/myappointment.png" width="43" height="43"> </a>
 			</div>
 			<div id="panel2">
 			<a href="payment.php" id="sidenav">
 			<dt id="abc">Payment</dt>
-			<img src="images/payment.png" width="43" height="43"> </a>
+			<img src="../images/payment.png" width="43" height="43"> </a>
 			</div>
 		</nav>
 	</div>
 	<div id="appointmentnav">
 	<dt>
-		<a href="bookappointment.php" id="botnav">Make An Appointment </a> > <b>Appointment Unsuccessful</b>
+		<a href="bookappointment.php" id="botnav">Make An Appointment </a> > <b>Appointment Successful</b>
 	</dt>
 	</div>
 	<div class="maincontainer">
@@ -83,18 +84,11 @@
 		$time = $_POST['timeslot'];
 		date_default_timezone_set("Asia/Singapore");
 		$timeCompleted = date('H:i');
-		$timePay = strtotime($timeCompleted)+60*60;
-		$timePay2 = date('H:i', $timePay);
 		$date2 = date("d-m-Y", strtotime($date));
+		echo "<b>Appointment booked successfully!</b><br>
+		<i>Check your email for the softcopy confirmation. </i> <br><br>";
 		echo 
 		"<table style='width:600px;'>
-			<tr>
-				<td colspan='2'>
-				<b>Appointment booked unsuccessfully.</b><br>
-				<i>Go to payment tab to complete the payment by the next hour. </i>
-				</td>
-			</tr>
-			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
 				<td style='font-size:30px;width:200px;'>Location: </td>
 				<td class='confirmation-column'>" . $location . "</td>
@@ -114,26 +108,23 @@
 				<td style='font-size:30px;width:200px;'>Time: </td>
 				<td class='confirmation-column'>" . $time . "</td>
 			</tr>
-			</tr>
 			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
 				<td style='font-size:30px;width:200px;'>Paid Status: </td>
-				<td class='confirmation-column'>No</td>
+				<td class='confirmation-column'>Yes</td>
 			</tr>
 			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr><td colspan='2'>
-				Please pay within the next hour by: <b><u>" . $timePay2 . 
-				"</u></b><br>Or else cancel the preappointment slot to free up the slot for other patients.
+				Please be on time for your appointment(s).
+				<br>You can re-schedule your appointment on your appointment page. 
+				<br>*Terms & Conditions applies
 			</td></tr>
-			<tr style='height: 150px'><td colspan='2'><br></td></tr>
-			<tr><td>
-			<a href='payment.php'><button id='nextBtn'>Proceed to Payment Tab</button></a>
-			</td>
-			<td>
-			<a href='bookappointment.php'><button id='nextBtn'>Make Another Appointment</button></a>
-			</td></tr>
+			<tr style='height:150px'><td colspan='2'><br></td></tr>
+			<tr>
+			<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
+			<td><a href='bookappointment.php'><button id='nextBtn'>Make Another Appointment</button></a></td>
+			</tr>
 		</table>";
-		
 		
 		@ $db = new mysqli('localhost', 'root', '', 'project');
 
@@ -142,7 +133,7 @@
 		exit;
 		}
 		$query = "insert into appointments values
-				(NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,false, true)";
+				(NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
 		$result = $db->query($query);
 		if ($result) {
 			echo "";
@@ -151,6 +142,34 @@
 			}
 			
 		$db->close();
+		
+		$to      = 'f32ee@localhost';
+		$subject = 'Appointment booked';
+		
+		$message = "
+		<html>
+		<table>
+		<th>Appointment booked successfully. View details below: </th>
+		<tr><td> Location: </td><td>" . $location . "</td></tr>
+		<tr><td> Doctor: </td><td>" . $doctor . "</td></tr>
+		<tr><td> Date: </td><td>" . $date2 . "</td></tr>
+		<tr><td> TIme: </td><td>" . $time . "</td></tr>
+		<tr><td colspan='2'>To edit or cancel appointment, login to the web app to make changes.</td></tr>
+		</table>
+		<dt>From: NTUClinc@donotreply</dt>
+		</html>
+		";
+		
+		$headers = 'From: f31ee@localhost' . "\r\n" .
+			'Reply-To: f32ee@localhost' . "\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+		
+		$headers .= "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		
+		
+
+		mail($to, $subject, $message, $headers, '-ff32ee@localhost');
 	?>
 	</div>
 	</div>
@@ -159,7 +178,7 @@
 		<div id="footer1">
 			<div id="leftcolumn">
 				<div id="footerlogo">
-					<img src="images/cliniclogo.png" width="38" height="38" id="icon" /> 
+					<img src="../images/cliniclogo.png" width="38" height="38" id="icon" /> 
 					<h2>NTUClinic</h2>
 				</div>
 				<small>
@@ -184,7 +203,7 @@
 				<h3 class="footerheader">Patient's Site</h3>
 				<nav>
 					<ul>
-						<li><a href="profile.php" id="botnav">Profile</a> </li>
+						<li><a href="patient/profile.php" id="botnav">Profile</a> </li>
 						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
 						<li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>
 					</ul>
@@ -193,9 +212,9 @@
 			<div id="rightcolumn">
 				<p>Follow us through our social media.</p>
 				<div id="socialmedia">
-				<image src="images/facebook.png" width="35" height="35" id="contactlogo">
-				<image src="images/instagram.png" width="35" height="35" id="contactlogo">
-				<image src="images/whatsapp.png" width="35" height="35" id="contactlogo">
+				<image src="../images/facebook.png" width="35" height="35" id="contactlogo">
+				<image src="../images/instagram.png" width="35" height="35" id="contactlogo">
+				<image src="../images/whatsapp.png" width="35" height="35" id="contactlogo">
 				</div>
 			</div>
 		</div>
