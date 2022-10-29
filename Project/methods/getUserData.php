@@ -1,6 +1,9 @@
 <?php //authmain.php
 include "methods/dbconnect.php";
-session_start();
+if(!isset($_SESSION)) 
+{ 
+		session_start(); 
+} 
 
 if (isset($_SESSION['valid_user']))
 {

@@ -81,7 +81,7 @@
 		"<i>" . $count . " pre-appointment(s) found.</i></p><br>";
 		?>
 		<?php
-		include "../methods/getPatientsData.php";
+		include "methods/getUserData.php";
 		if(!isset($_SESSION)) 
 		{ 
 			session_start(); 
