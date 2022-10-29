@@ -1,6 +1,6 @@
 .maincontainer{
   background-color: #FFFFFF;
-  height: 750px;
+  min-height: 400px;
   width: 1200px;
   display: flex;
   flex-direction: row;
@@ -62,6 +62,7 @@ input.invalid {
 #nextBtn {
   font-size: 18px;
   padding: 7px;
+  margin-top: 20px;
 }
 #cancelButton {
   font: 18px Arial;
