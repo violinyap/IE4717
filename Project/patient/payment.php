@@ -33,10 +33,10 @@
 		"SELECT a.userid, a.location, a.doctor, a.date, a.time, 
 		a.paid_status, a.book_status, a.timeCompleted
 		FROM appointments a
-		INNER JOIN patients p on a.userid = p.userid";
+		INNER JOIN patients p on a.user = p.userid";
 		$result = mysqli_query($db,$sql);
 		while ($row = mysqli_fetch_assoc($result)){
-		if ($row['userid'] == $currentUserData['userid']) {
+		if ($row['user'] == $currentUserData['userid']) {
 		if ($row['paid_status'] == "0") {
 			if ($row['book_status'] == "1")
 			{

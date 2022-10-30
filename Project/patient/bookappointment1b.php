@@ -26,6 +26,7 @@
 	?>
 		<form method="post" action="bookappointment2a.php" id="appointmentform">
 			<table>
+			
 			<th style="float:left;">Step 1b:</th>
 			<tr><td>Select available doctors.</td></tr>
 			<tr style="height:25px;"><td></td></tr>
@@ -34,29 +35,24 @@
 			<tr><td>Doctors:</td></tr>
 			<tr style="height:10px;"><td></td></tr>
 			<?php 
-			if ($location == "NTU Clinic Fullerton") {
-				echo "
-				<tr><td><input type='radio' value='Dr Tan' name='doctor' onInput='getdoctor();' checked='check'> 
-				 <label>Dr Tan</label></td></tr>
-				<tr style='height:10px;'><td></td></tr>
-				<tr><td><input type='radio' value='Dr Stanford' name='doctor' onInput='getdoctor();' > 
-				 <label>Dr Standford</label></td></tr>
-				<tr style='height:25px;'><td></td></tr>
-				 ";
+				include "../methods/dbconnect.php";
+				$query = "SELECT * FROM doctors WHERE clinicid='".$location."'";
+				// echo "<br>" .$query. "<br>";
+				$result = $dbcnx->query($query);
+				if ($result->num_rows >0 )
+				{
+					while ($row = mysqli_fetch_assoc($result)){
+						$doctor_name = $row['docname'];
+						$doctor_id = $row['doctorid'];
+						echo "
+						<tr><td><input type='radio' value='$doctor_id' name='doctor'> 
+						<label>$doctor_name</label></td></tr>
+						<tr style='height:10px;'><td></td></tr>";
+					}
 				}
-			else {
-				echo "
-				<tr><td><input type='radio' value='Dr Tasha' name='doctor' onInput='getdoctor();' checked='check'> 
-				 <label>Dr Tasha</label></td></tr>
-				<tr style='height:10px;'><td></td></tr>
-				 <tr><td><input type='radio' value='Dr Strange' name='doctor' onInput='getdoctor();' > 
-				 <label>Dr Strange</label></td></tr>
-				<tr style='height:10px;'><td></td></tr>
-				 <tr><td><input type='radio' value='Dr Kang' name='doctor' onInput='getdoctor();' > 
-				 <label>Dr Kang</label></td></tr>
-				";
-				}
-			?>
+				$dbcnx->close();
+		?>
+		
 			<tr style="height:370px;"><td></td></tr> 
 			<tr><td>
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>

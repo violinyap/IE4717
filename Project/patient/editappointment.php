@@ -41,16 +41,17 @@
 							if ($result->num_rows >0 )
 							{
 								while ($row = mysqli_fetch_assoc($result)){
-									$clinic_name = $row['name'];
+									$clinic_name = $row['clinicname'];
+									$clinic_id = $row['clinicid'];
 									if ($clinic_name == $apptData['location']) {
 										echo '
-										<tr><td><input type="radio" value="'.$clinic_name.'" id="clinic_'.$row['clinicid'].'" name="location" checked> 
+										<tr><td><input type="radio" value="'.$clinic_id.'" id="clinic_'.$row['clinicid'].'" name="location" checked> 
 										<label for="">'.$clinic_name.'</label>
 										</td></tr>
 										';
 									} else {
 										echo '
-										<tr><td><input type="radio" value="'.$clinic_name.'" id="clinic_'.$row['clinicid'].'" name="location"> 
+										<tr><td><input type="radio" value="'.$clinic_id.'" id="clinic_'.$row['clinicid'].'" name="location"> 
 										<label for="">'.$clinic_name.'</label>
 										</td></tr>
 										';

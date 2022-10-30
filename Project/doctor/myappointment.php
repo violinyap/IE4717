@@ -37,7 +37,7 @@
 		$sql=
 		"SELECT *
 		FROM appointments a
-		INNER JOIN patients p on a.userid = p.userid
+		INNER JOIN patients p on a.user = p.userid
 		INNER JOIN doctors d on a.doctor = d.doctorid
 		INNER JOIN clinics c on a.location = c.clinicid
 		WHERE doctor='$doc_id'";

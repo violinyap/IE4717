@@ -25,28 +25,27 @@
 		"<i>" . $count . " appointment(s) found.</i></p><br>";
 		?>
 		<?php
-		include "../methods/getUserData.php";
 		if(!isset($_SESSION)) 
 		{ 
 			session_start(); 
 		} 
+		$patientid = $_SESSION['valid_user_id'];
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=
 		"SELECT *
 		FROM appointments a
-		INNER JOIN patients p on a.userid = p.userid";
-		//$sql= "SELECT location as location, doctor as doctor, date as date, time as time, 
-		//paid_status as paid_status, book_status as book_status
-		//FROM appointments";
+		INNER JOIN patients p on a.user = p.userid
+		INNER JOIN doctors d on a.doctor = d.doctorid
+		INNER JOIN clinics c on a.location = c.clinicid
+		WHERE user='$patientid'";
 		$result = mysqli_query($db,$sql);
 		while ($row = mysqli_fetch_assoc($result)){
-		if ($row['userid'] == $currentUserData['userid']) { //if ($row['userid']==$session[''])
 		if ($row['paid_status'] == "1") {
 			if ($row['book_status'] == "1")
 			{
-			$location = $row['location'];
-			$doctor = $row['doctor'];
+				$location = $row['clinicname'];
+				$doctor = $row['docname'];
 			$date = $row['date'];
 			$time = $row['time'];
 			$apptID = $row['appointmentID'];
@@ -104,7 +103,6 @@
 			</td>
 			</tr>
 			</table><br>";
-			}
 			}
 			}
 			}

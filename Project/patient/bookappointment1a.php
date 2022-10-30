@@ -29,13 +29,29 @@
 			<tr style="height:25px;"><td></td></tr>
 			<tr><td>Locations: </td></tr>
 			<tr style="height:25px;"><td></td></tr>
-			<tr><td><input type="radio" value="NTU Clinic Fullerton" id="Fullerton" name="location" onInput="getlocation()" checked='check'> 
-			<label for="">NTU Clinic Fullerton</label>
-			</td></tr>
-			<tr style='height:10px;'><td></td></tr>
-			<tr><td><input type="radio" value="NTU Clinic Raffles" id="Raffles" name="location" onInput="getlocation();"> 
-			<label for="">NTU Clinic Raffles</label><br>
-			</td></tr>
+			<?php 
+							include "../methods/dbconnect.php";
+							$query = "SELECT * FROM clinics";
+							// echo "<br>" .$query. "<br>";
+							$result = $dbcnx->query($query);
+							echo "<input value='$apptID' name='apptID' type='hidden'/>";
+							if ($result->num_rows >0 )
+							{
+								while ($row = mysqli_fetch_assoc($result)){
+									$clinic_name = $row['clinicname'];
+									$clinic_id = $row['clinicid'];
+									echo '
+									<tr><td><input type="radio" value="'.$clinic_id.'" id="clinic_'.$row['clinicid'].'" name="location"> 
+									<label for="">'.$clinic_name.'</label>
+									</td></tr>
+									';
+									
+									
+									
+								}
+							}
+							$dbcnx->close();
+					?>
 			<tr style="height:400px;"><td></td></tr>
 			<tr><td><input type="submit" value="Next" id="nextBtn"></input>
 			</td></tr>

@@ -40,12 +40,43 @@
 			<tr style="height:50px;"><td colspan="2"></td></tr>
 			<tr>
 				<td style="font-size:30px;width:200px;">Location: </td>
-				<td class="confirmation-column"><span id="location"><?php echo $location;?></span> </td>
+				<td class="confirmation-column"><span id="location">
+					<?php 
+						include "../methods/dbconnect.php";
+						$query = "SELECT * FROM clinics WHERE clinicid='".$location."'";
+						// echo "<br>" .$query. "<br>";
+						$result = $dbcnx->query($query);
+						if ($result->num_rows >0 )
+						{
+							while ($row = mysqli_fetch_assoc($result)){
+								$clinic_name = $row['clinicname'];
+								echo $clinic_name;
+							}
+						}
+						$dbcnx->close();
+					?>
+				
+				</span> </td>
 			</tr>
 			<tr style="height:35px;"><td colspan="2"></td></tr>
 			<tr>
 				<td style="font-size:30px;width:200px;">Doctor:  </td>
-				<td class="confirmation-column"><span id="doctor"><?php echo $doctor;?></span></td>
+				<td class="confirmation-column"><span id="doctor">
+				<?php 
+						include "../methods/dbconnect.php";
+						$query = "SELECT * FROM doctors WHERE doctorid='".$doctor."'";
+						// echo "<br>" .$query. "<br>";
+						$result = $dbcnx->query($query);
+						if ($result->num_rows >0 )
+						{
+							while ($row = mysqli_fetch_assoc($result)){
+								$doctor_name = $row['docname'];
+								echo $doctor_name;
+							}
+						}
+						$dbcnx->close();
+					?>
+			</span></td>
 			</tr>
 			<tr style="height:35px;"><td colspan="2"></td></tr>
 			<tr>

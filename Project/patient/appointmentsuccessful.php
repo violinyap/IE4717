@@ -37,23 +37,42 @@
 		echo "Error: Could not connect to database.  Please try again later.";
 		exit;
 		}
-		$query = "insert into appointments (`appointmentID`, `userid`, `location`, `doctor`, `date`, `time`, `timeCompleted`, `paid_status`, `book_status`)
+		$query = "insert into appointments (`appointmentID`, `user`, `location`, `doctor`, `date`, `time`, `timeCompleted`, `paid_status`, `book_status`)
 		values (NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
 
 		$result = $db->query($query);
+
 		if ($result) {
+
+			
+		$sql=
+		"SELECT *
+		FROM appointments a
+		INNER JOIN patients p on a.user = p.userid
+		INNER JOIN doctors d on a.doctor = d.doctorid
+		INNER JOIN clinics c on a.location = c.clinicid
+		WHERE doctor='$doctor' AND location='$location' AND date='$date' AND time='$time' AND user='$userid'";
+
+		$result = $db->query($sql);
+		if ($result )
+		{
+			while ($row = mysqli_fetch_assoc($result)){
+				$clinic_name = $row['clinicname'];
+				$doctor_name = $row['docname'];
+			}
+		}
 			echo "<b>Appointment booked successfully!</b><br>
 		<i>Check your email for the softcopy confirmation. </i> <br><br>";
 		echo 
 		"<table style='width:600px;'>
 			<tr>
 				<td style='font-size:30px;width:200px;'>Location: </td>
-				<td class='confirmation-column'>" . $location . "</td>
+				<td class='confirmation-column'>" . $clinic_name . "</td>
 			</tr>
 			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
 				<td style='font-size:30px;width:200px;'>Doctor:  </td>
-				<td class='confirmation-column'>" . $doctor . "</td>
+				<td class='confirmation-column'>" .  $doctor_name  . "</td>
 			</tr>
 			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>

@@ -40,7 +40,7 @@
 	<div id="maincontainer">
 		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
 		<br>
-		<form method="post" action="editedpatient/profile.php" id="form">
+		<form method="post" action="editedprofile.php" id="form">
 			<?php 
 				include '../methods/getUserData.php';
 

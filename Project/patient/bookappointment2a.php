@@ -39,7 +39,7 @@
 			<tr style="height:25px;"><td></td></tr>
 			<tr><td>
 			 <label for="appointmentdate">*Date:</label>
-			 <input type="date" name="date" id="date" oninput="getDate()" required />
+			 <input type="date" name="date" id="date" required />
 			</td></tr>
 			<tr style="height:400px;"><td></td></tr>
 			<tr><td>
