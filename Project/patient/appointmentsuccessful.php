@@ -86,8 +86,8 @@
 			</tr>
 			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr>
-				<td style='font-size:30px;width:200px;'>Paid Status: </td>
-				<td class='confirmation-column'>Yes</td>
+				<td style='font-size:30px;width:200px;'>Payment Status: </td>
+				<td class='confirmation-column'>UNPAID</td>
 			</tr>
 			<tr style='height:35px'><td colspan='2'><br></td></tr>
 			<tr><td colspan='2'>
