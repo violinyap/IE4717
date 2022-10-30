@@ -40,7 +40,7 @@
 	<div id="maincontainer">
 		<dt id="abcd"> <b>Fill the required fields and click change to confirm change.</b></dt>
 		<br>
-		<form method="post" action="editedpatient/profile.php" id="form">
+		<form method="post" action="editedprofile.php" id="form">
 			<?php 
 				include '../methods/getUserData.php';
 
@@ -54,6 +54,13 @@
 				echo '<br> <br> <br>';
 				echo '<label for="contact">*Contact: </label>';
 				echo '<input value="'.$currentUserData['contact'].'" type="tel" id="contact" name="contact" pattern="[0-9]{4}-[0-9]{4}" placeholder="9999-9999" required/>';
+
+				echo '<br> <br> <br>';
+				echo '<label for="desc">*Description: </label>';
+				echo '<textarea name="desc" id="desc" placeholder="Enter your description here" required/>
+				'.$currentUserData['description'].'
+				</textarea>';
+			
 			?>
 			
 			<br> <br> <br>

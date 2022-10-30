@@ -38,6 +38,12 @@
 			echo "<td><span id='email'>".$currentUserData['email']."</span></td>";
 			echo "</tr>";
 
+			// CONTACT
+			echo "<tr>";
+			echo "<th class='profile-col'>Contact:</th>";
+			echo "<td><span id='contact'>".$currentUserData['contact']."</span></td>";
+			echo "</tr>";
+
 			// NRIC
 			echo "<tr>";
 			echo "<th class='profile-col'>NRIC/FIN:</th>";

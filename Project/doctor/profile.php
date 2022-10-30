@@ -38,22 +38,28 @@
 			echo "<td><span id='email'>".$currentUserData['email']."</span></td>";
 			echo "</tr>";
 
-			// NRIC
+			// CONTACT
 			echo "<tr>";
-			echo "<th class='profile-col'>NRIC/FIN:</th>";
-			echo "<td><span id='nric'>".$currentUserData['nric']."</span></td>";
+			echo "<th class='profile-col'>Contact:</th>";
+			echo "<td><span id='contact'>".$currentUserData['contact']."</span></td>";
 			echo "</tr>";
 
-			// BDAY
+			// DESCRIPTION
 			echo "<tr>";
-			echo "<th class='profile-col'>Birthday:</th>";
-			echo "<td><span id='bday'>".$currentUserData['birthday']."</span></td>";
+			echo "<th class='profile-col'>Description:</th>";
+			echo "<td><span id='desc'>".$currentUserData['description']."</span></td>";
+			echo "</tr>";
+
+			// CERT
+			echo "<tr>";
+			echo "<th class='profile-col'>Certificate Expiry:</th>";
+			echo "<td><span id='cert'>".$currentUserData['certexp']."</span></td>";
 			echo "</tr>";
 
 			// JOIN DATE
 			echo "<tr>";
 			echo "<th class='profile-col'>Joined since:</th>";
-			echo "<td><span id='signupdate'>".$currentUserData['signupdate']."</span></td>";
+			echo "<td><span id='signupdate'>".$currentUserData['joindate']."</span></td>";
 			echo "</tr>";
 		?>
 
