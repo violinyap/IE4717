@@ -29,7 +29,7 @@
 			echo "<tr>";
 			echo "<td rowspan='7' style='vertical-align: top; margin: auto'><img src='../images/profile.png' width='75' height='75'></td>";
 			echo "<th class='profile-row' style='text-align: left;'>Name:</th>";
-			echo "<td><span id='name'>".$currentUserData['name']."</span></td>";
+			echo "<td><span id='name'>".$currentUserData['docname']."</span></td>";
 			echo "</tr>";
 		
 			// EMAIL

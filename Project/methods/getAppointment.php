@@ -5,6 +5,8 @@ $apptData = [];
 if ($apptID) {
   $query = "SELECT *
   FROM appointments a
+  INNER JOIN doctors d on a.doctor = d.doctorid
+  INNER JOIN clinics c on a.location = c.clinicid
   WHERE appointmentID = $apptID";
   // echo "<br>" .$query. "<br>";
   $result = $dbcnx->query($query);
@@ -18,8 +20,8 @@ if ($apptID) {
   // echo $apptData;
 
   $row = $apptData;
-    $location = $row['location'];
-    $doctor = $row['doctor'];
+    $location = $row['clinicname'];
+    $doctor = $row['docname'];
     $date = $row['date'];
     $time = $row['time'];
     $apptID = $row['appointmentID'];

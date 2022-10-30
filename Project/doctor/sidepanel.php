@@ -5,7 +5,7 @@
   echo '<nav id="sidepanel">';
     echo '<div id="panel1">';
     echo '<a href="profile.php"><img src="../images/profile.png" width="75" height="75"> </a>';
-    echo '<br><dt>'.$currentUserData['name'];
+    echo '<br><dt>'.$currentUserData['docname'];
     echo '<br><b>Doctor</b><br><br>';
     // echo '<a href="editprofile.php" id="botnav">Edit Profile</a>';
     echo '</div>';

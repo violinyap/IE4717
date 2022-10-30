@@ -1,0 +1,96 @@
+.maincontainer{
+  background-color: #FFFFFF;
+  min-height: 400px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+#abcd{
+  padding-top: 20px;
+  padding-left: 20px;
+}
+#appointmentform{
+  padding-top: 5px;
+  padding-left: 10px;
+  width: 80%;
+  min-width: 1000px;
+}
+input.invalid {
+  background-color: #ffffff;
+}
+.tab {
+  display: none;
+}
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+.step.active {
+  opacity: 1;
+}
+.step.finish {
+  background-color: #000000;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#aheader {
+  font-size: 24px;
+}
+
+.btn-holder {
+  position: absolute;
+  left: 375px;
+  bottom: 40px;
+}
+.progress-indicator {
+  position: absolute;
+  left: 850px;
+  bottom: 0px;
+}
+#nextBtn {
+  font-size: 18px;
+  padding: 7px;
+  margin-top: 20px;
+}
+#cancelButton {
+  font: 18px Arial;
+  padding: 7px;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  width: 100px;
+  text-align: center;
+  color: #333333;
+  border-top: 1px solid #333333;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #333333;
+}
+.time-table {
+    color: #000000;
+    max-width: 700px;
+	width: 700px;
+}
+
+.time-row:nth-of-type(odd) {
+    background-color: #D9D9D9;
+}
+.confirmation-column{
+  background-color: #D9D9D9;
+  border: 1px solid black;
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+  width: 300px;
+}

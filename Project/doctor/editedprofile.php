@@ -52,7 +52,7 @@
           $userid = $_SESSION['valid_user_id'];
           $sql = 
             "UPDATE Doctors 
-            SET name='$name', contact='$contact', email='$email', description='$desc'
+            SET docname='$name', contact='$contact', email='$email', description='$desc'
             WHERE doctorid='$userid'";
 
           // echo "<br>".$sql;

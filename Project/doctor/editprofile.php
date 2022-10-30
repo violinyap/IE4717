@@ -45,7 +45,7 @@
 				include '../methods/getUserData.php';
 
 				echo '<label for="fullname">*Name: </label>';
-				echo '<input value="'.$currentUserData['name'].'" type="text" name="fullname" id="fullname" placeholder="Enter your full name here" required/>';
+				echo '<input value="'.$currentUserData['docname'].'" type="text" name="fullname" id="fullname" placeholder="Enter your full name here" required/>';
 			
 				echo '<br> <br> <br>';
 				echo '<label for="myEmail">*E-mail: </label>';
