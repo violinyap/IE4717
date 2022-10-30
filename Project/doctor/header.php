@@ -1,15 +1,16 @@
 <?php
   echo '
+  <script type="text/javascript" src="../methods/getPath.js"></script>
   <header>
   <div id="headerlogo">
     <img src="../images/cliniclogo.png" width="50" height="50" class="icon"/> 
     <h1> NTUClinic </h1>
   </div>
   <nav id="headernav">
-    <a href="home.php" class="topnav">Home</a>
-    <a href="../about.php" class="topnav">About Us</a>
-    <a href="doctors.php" class="topnav">Our Doctors</a>
-    <a href="contact.php" class="topnav">Contact Us</a>
+    <a href="javascript:getAbsolutePath(\'home.php\',\'\');" class="topnav">Home</a>
+    <a href="javascript:getAbsolutePath(\'about.php\',\'\');" class="topnav">About Us</a>
+    <a href="javascript:getAbsolutePath(\'doctors.php\',\'\');" class="topnav">Our Doctors</a>
+    <a href="javascript:getAbsolutePath(\'contact.php\',\'\');" class="topnav">Contact Us</a>
   </nav>';
 ?>
 <?php // Show registered name

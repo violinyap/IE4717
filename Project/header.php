@@ -1,5 +1,6 @@
 <?php
   echo '
+  <script type="text/javascript" src="methods/getPath.js"></script>
   <header>
   <div id="headerlogo">
     <img src="images/cliniclogo.png" width="50" height="50" class="icon"/> 

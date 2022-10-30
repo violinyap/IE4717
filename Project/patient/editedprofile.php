@@ -51,10 +51,10 @@
           $userid = $_SESSION['valid_user_id'];
           $sql = 
             "UPDATE Patients 
-            SET name='$name', contact='$contact', email='$email'
+            SET name='$name', contact='$contact',, email='$email'
             WHERE userid='$userid'";
 
-          // echo "<br>".$sql;
+          echo "<br>".$sql;
           $result = $dbcnx->query($sql);
 					// echo 'done';
           if ($result) {

@@ -26,9 +26,11 @@
 		date_default_timezone_set("Asia/Singapore");
 		$timeCompleted = date('H:i');
 
-		$query = "UPDATE `Appointments` SET `book_status`='0',`timeCompleted`='".$timeCompleted."'
+		$query = "UPDATE `Appointments` SET `book_status`='0',`timeCompleted`=',".$timeCompleted."'
 		WHERE `appointmentID`='".$apptID."'";
 
+		// echo $query;
+		
 		$result = mysqli_query($dbcnx,$query);
 		if ($result) {
 			echo '

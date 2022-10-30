@@ -1,9 +1,10 @@
 <?php 
+  echo '<script type="text/javascript" src="methods/getPath.js"></script>';
   echo '<footer>';
   echo '<div id="footer1">';
   echo '<div id="leftcolumn">';
   echo '<div id="footerlogo">';
-  echo '<img src="../images/cliniclogo.png" width="38" height="38" id="icon" />';
+  echo '<img src="images/cliniclogo.png" width="38" height="38" id="icon" />';
   echo '<h2>NTUClinic</h2>';
   echo '</div>';
   echo '<small>';
@@ -17,9 +18,9 @@
   echo '<h3 class="footerheader">Information</h3>';
   echo '<nav>';
   echo '  <ul>';
-  echo '    <li><a href="about.php" id="botnav">About Us</a> </li>';
-  echo '    <li><a href="doctor.php" id="botnav">Our Doctors</a> </li>';
-  echo '    <li><a href="contact.php" id="botnav">Contact Us</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'about.php\',\'\');" id="botnav">About Us</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'doctor.php\',\'\');" id="botnav">Our Doctors</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'contact.php\',\'\');" id="botnav">Contact Us</a> </li>';
   echo '  </ul>';
   echo '</nav>';
 
@@ -28,16 +29,16 @@
   echo '<h3 class="footerheader">Patient\'s Site</h3>';
   echo '<nav>';
   echo '<ul>';
-  echo '    <li><a href="profile.php" id="botnav">Profile</a> </li>';
-  echo '    <li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>';
-  echo '    <li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'profile.php\',\'patient/\');" id="botnav">Profile</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'myappointment.php\',\'patient/\');" id="botnav">Your Appointments</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'bookappointment.php\',\'patient/\');" id="botnav">Book Appointments</a> </li>';
   echo '  </ul>';
   echo '</nav>';
   echo '</div>';
   echo '<div id="rightcolumn">';
   echo '<p>Follow us through our social media.</p>';
   echo '<div id="socialmedia">';
-  echo '<image src="/images/facebook.png" width="35" height="35" id="contactlogo">';
+  echo '<image src="images/facebook.png" width="35" height="35" id="contactlogo">';
   echo '<image src="images/instagram.png" width="35" height="35" id="contactlogo">';
   echo '<image src="images/whatsapp.png" width="35" height="35" id="contactlogo">';
   echo '</div>';

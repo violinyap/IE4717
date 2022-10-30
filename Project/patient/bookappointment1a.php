@@ -41,7 +41,7 @@
 									$clinic_name = $row['clinicname'];
 									$clinic_id = $row['clinicid'];
 									echo '
-									<tr><td><input type="radio" value="'.$clinic_id.'" id="clinic_'.$row['clinicid'].'" name="location"> 
+									<tr><td><input type="radio" value="'.$clinic_id.'" id="clinic_'.$row['clinicid'].'" name="location" checked> 
 									<label for="">'.$clinic_name.'</label>
 									</td></tr>
 									';

@@ -7,31 +7,7 @@
 	<link rel="stylesheet" href="./home.css" />
 <body>
 <div id="wrapper">
-
-	<header>
-		<div id="headerlogo">
-			<img src="images/cliniclogo.png" width="50" height="50" class="icon"/> 
-			<h1> NTUClinic </h1>
-		</div>
-		<nav id="headernav">
-			<a href="home.php" class="topnav">Home</a>
-			<a href="about.php" class="topnav">About Us</a>
-			<a href="doctors.php" class="topnav">Our Doctors</a>
-			<a href="contact.php" class="topnav">Contact Us</a>
-		</nav>
-		<a href="login.php" id="headerprofile">
-			<img src="images/profile.png" width="38" height="38" class="icon">
-			<?php // Show registered name
-			if(!isset($_SESSION)) 
-			{ 
-				session_start(); 
-			} 
-        if (isset($_SESSION['valid_user']))
-        { echo ''.$_SESSION['valid_user']."<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>"; } 
-        else { echo "Login / Signup"; }
-      ?>
-		</a> 
-	</header>
+	<?php include "header.php";?>
 	
 	<div id="bodycontent">
 		<div class="home-banner">

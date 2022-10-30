@@ -12,8 +12,10 @@ if (isset($_POST['email']) && isset($_POST['pass']))
   $password = $_POST['pass'];
 	$usertype = $_POST['usertype'];
 	$uid = 'userid';
+	$name = 'name';
   if ($usertype == 'doctors') {
     $uid = 'doctorid';
+		$name = 'docname';
   }
 
 	$password = md5($password);
@@ -26,7 +28,8 @@ if (isset($_POST['email']) && isset($_POST['pass']))
   if ($result->num_rows >0 )
   {
     while ($row = mysqli_fetch_assoc($result)){
-      $_SESSION['valid_user'] = $row['name'];
+
+      $_SESSION['valid_user'] = $row[$name];
 			$_SESSION['valid_user_id'] = $row[$uid];
 			$_SESSION['valid_user_type'] = $usertype;
     }

@@ -17,9 +17,9 @@
   echo '<h3 class="footerheader">Information</h3>';
   echo '<nav>';
   echo '  <ul>';
-  echo '    <li><a href="about.php" id="botnav">About Us</a> </li>';
-  echo '    <li><a href="doctor.php" id="botnav">Our Doctors</a> </li>';
-  echo '    <li><a href="contact.php" id="botnav">Contact Us</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'about.php\',\'\');" id="botnav">About Us</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'doctor.php\',\'\');" id="botnav">Our Doctors</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'contact.php\',\'\');" id="botnav">Contact Us</a> </li>';
   echo '  </ul>';
   echo '</nav>';
 
@@ -28,9 +28,9 @@
   echo '<h3 class="footerheader">Patient\'s Site</h3>';
   echo '<nav>';
   echo '<ul>';
-  echo '    <li><a href="profile.php" id="botnav">Profile</a> </li>';
-  echo '    <li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>';
-  echo '    <li><a href="bookappointment.php" id="botnav">Book Appointments</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'profile.php\',\'patient/\');" id="botnav">Profile</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'myappointment.php\',\'patient/\');" id="botnav">Your Appointments</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'bookappointment.php\',\'patient/\');" id="botnav">Book Appointments</a> </li>';
   echo '  </ul>';
   echo '</nav>';
   echo '</div>';
