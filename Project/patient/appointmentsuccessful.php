@@ -38,7 +38,7 @@
 		exit;
 		}
 		$query = "insert into appointments (`appointmentID`, `user`, `location`, `doctor`, `date`, `time`, `timeCompleted`, `paid_status`, `book_status`)
-		values (NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,true, true)";
+		values (NULL,'".$userid."','".$location."','".$doctor."', '".$date."', '".$time."', '".$timeCompleted."' ,false, true)";
 
 		$result = $db->query($query);
 

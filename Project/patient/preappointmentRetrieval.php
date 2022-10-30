@@ -3,7 +3,7 @@
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=
-		"SELECT a.userid, a.location, a.doctor, a.date, a.time, 
+		"SELECT a.user, a.location, a.doctor, a.date, a.time, 
 		a.paid_status, a.book_status, a.timeCompleted
 		FROM appointments a
 		INNER JOIN patients p on a.user = p.userid";

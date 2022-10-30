@@ -30,18 +30,22 @@
 		$db = mysqli_connect('localhost', 'root', '');
 		mysqli_select_db($db,'project');
 		$sql=
-		"SELECT a.userid, a.location, a.doctor, a.date, a.time, 
-		a.paid_status, a.book_status, a.timeCompleted
+		"SELECT *
 		FROM appointments a
-		INNER JOIN patients p on a.user = p.userid";
+		INNER JOIN patients p on a.user = p.userid
+		INNER JOIN doctors d on a.doctor = d.doctorid
+		INNER JOIN clinics c on a.location = c.clinicid";
 		$result = mysqli_query($db,$sql);
+
+		
 		while ($row = mysqli_fetch_assoc($result)){
 		if ($row['user'] == $currentUserData['userid']) {
 		if ($row['paid_status'] == "0") {
 			if ($row['book_status'] == "1")
 			{
-			$location = $row['location'];
-			$doctor = $row['doctor'];
+			$apptID = $row['appointmentID'];
+			$location = $row['clinicname'];
+			$doctor = $row['docname'];
 			$date = $row['date'];
 			$time = $row['time'];
 			$date2 = date("d-m-Y", strtotime($date));
@@ -89,7 +93,10 @@
 			</tr>
 			<tr>
 			<td style='float: center; width:250px;'>
-				<button id='editbutton' onclick='alertpopup2()'>Pay</button>
+				<form action='confirmpayment.php' method='post'>
+					<input value='$apptID' name='apptID' type='hidden'/>
+					<button id='editbutton' onclick='alertpopup2()' type='submit'>Pay</button>
+				</form>
 			</td>
 			<td style='float: center;'>
 				<button id='cancelbutton' onclick='alertpopup()'>Cancel</button>
@@ -104,6 +111,9 @@
 			$db->close();
 		?>
 	<script>
+
+
+
 	function alertpopup(){
 		var val = confirm("Confirm to cancel the pre-appointment? Refund will be made.");
 		if (val == true) {
