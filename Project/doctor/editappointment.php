@@ -53,7 +53,7 @@
 	</div>
 	</div>
 	</div>
-	<?php include "../footer.php";?>
+	<?php include "footer.php";?>
 	<script>
 		var today = new Date();
 		today = new Date(today.setDate(today.getDate() + 2))
