@@ -26,13 +26,14 @@
 		date_default_timezone_set("Asia/Singapore");
 		$timeCompleted = date('H:i');
 
-		$query = "UPDATE `Appointments` SET `paid_status`='1',`timeCompleted`='".$timeCompleted."'
+		$query = "UPDATE `Appointments` SET `book_status`='0',`timeCompleted`='".$timeCompleted."'
 		WHERE `appointmentID`='".$apptID."'";
+
 		$result = mysqli_query($dbcnx,$query);
 		if ($result) {
 			echo '
 				<script>
-				var val = alert("Payment confirmed.");
+				var val = alert("Cancelation confirmed.");
 				window.location.href = "myappointment.php";
 
 				</script>
@@ -40,13 +41,13 @@
 		} else {
 			echo '
 				<script>
-				var val = alert("Payment not updated.");
-				window.location.href = "payment.php";
+				var val = alert("Failed to update.");
+				window.location.href = "myappointment.php";
 
 				</script>
 			';
 		}
-		
+
 			$result->free();
 			$dbcnx->close();
 		?>
@@ -54,23 +55,6 @@
 
 
 
-	function alertpopup(){
-		var val = confirm("Confirm to cancel the pre-appointment? Refund will be made.");
-		if (val == true) {
-		alert("Appointment successfully cancelled.");
-		} else {
-		alert("Appointment not cancelled. To confirm the appointment, click pay.");
-		}
-	}
-	function alertpopup2(){
-		var val1 = window.confirm("Open payment in new window?")
-		if (val1 == true) {
-		alert("Payment Successful!");
-		}
-		else {
-		alert("Payment not successful. Try again.");
-		}
-		}
 	</script>
 	</div>
 	</div>

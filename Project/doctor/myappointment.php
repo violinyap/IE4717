@@ -104,7 +104,10 @@
 				</form>
 			</td>
 			<td style='float: center;'>
+			<form action='cancelappointment.php' method='post'>
+			<input value='$apptID' name='apptID' type='hidden'/>
 				<button id='cancelbutton' onclick='alertpopup()'>Cancel</button>
+				</form>
 			</td>
 			</tr>
 			</table><br>";
@@ -116,22 +119,7 @@
 		?>
 	<script>
 	function alertpopup(){
-		//window.confirm("Confirm to cancel the appointment? Refund will be made.")
-		//}
-		// TODO get id to be cancelled
 		var val = confirm("Confirm to cancel the appointment? Refund will be made.");
-		if (val == true) {
-			<?php 
-				include "../methods/dbconnect.php";
-				$query = "UPDATE `Appointments` SET `book_status`='0'
-				WHERE `appointmentID`='2'";
-				$result = $dbcnx->query($query);
-				
-			?>
-		alert("Appointment successfully cancelled.");
-		} else {
-		alert("Appointment not cancelled. To re-schedule, click Edit.");
-		}
 	}
 	</script>
 	</div>
