@@ -42,6 +42,7 @@
 				}
 				$query = "UPDATE `Appointments` SET `location`='".$location."',`doctor`='".$doctor."',`date`='".$date."',`time`='".$time."',`timeCompleted`='".$timeCompleted."'
 				WHERE `appointmentID`='".$apptID."'";
+			
 				$result = $db->query($query);
 				if ($result) {
 					echo "<b>Appointment updated successfully!</b><br>
