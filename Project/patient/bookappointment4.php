@@ -44,7 +44,7 @@
 			<br><i>Note: Appointment(s) will only be saved for an hour before deletion.</i>
 			</td></tr>
 			<?php 
-		include "../methods/getPatientsData.php";
+		include "../methods/getUserData.php";
 		$userid = $currentUserData['userid'];
 		$location = $_POST['location'];
 		$doctor = $_POST['doctor'];
@@ -173,7 +173,7 @@
 			<input type="submit" value="Make Payment" id="nextBtn"></input><br><br>
 			</td>
 			<td style="width: 250px;align-items: center;">
-			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Cancel"></input><br><br>
+			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Pay Later"></input><br><br>
 			<input type="hidden" name="button_pressed" value="1" />
 			</td>
 			</tr>
