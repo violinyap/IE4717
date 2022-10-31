@@ -1,7 +1,7 @@
 .about-banner {
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/clinic.jpg');
+  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/rooms.jpeg');
 
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -42,6 +42,7 @@
 .doctor-card {
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 250px;
   margin: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -59,6 +60,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* background-color: #dbeffd; */
+  color: #001f54;
 }
 
 .doctor-card-text > h2 {
@@ -66,13 +69,19 @@
 }
 
 .about-news {
+  background: #dbeffd;
+  color: #001f54;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 80px;
   margin-bottom: 80px;
+  text-align: justify;
 }
 
+.about-news > p {
+  width: 90%;
+}
 .about-locations {
   padding: 80px;
   margin-bottom: 80px;
@@ -83,15 +92,35 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid;
+  border: 1px solid #4c6085;
 }
 
 .locations-text {
   width: 30%;
   padding: 20px;
+  color: #001f54;
 }
 
 .locations-img {
   width: 70%;
+  height: 200px;
   background-color: grey;
+}
+
+.locations-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.news-img {
+  width: 250px;
+  height: 200px;
+  margin:10px;
+  background-color: grey;
+  object-fit: cover;
+}
+.news-img:hover {
+  transform: scale(1.1);
 }

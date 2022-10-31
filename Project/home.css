@@ -140,11 +140,11 @@
 .home-small-banner {
   margin: 80px;
   height: 100px;
-  background-color: #b0d3fc;
+  background-color: #4c6085;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #001f54;
+  color: white;
 }
 
 .home-queries {

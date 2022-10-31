@@ -48,24 +48,24 @@
 			<h1>Our Values</h1>
 			<div class="doctors-section">
 				<div class="doctor-card">
-					<img class="doctor-card-img">
+					<img class="doctor-card-img" src="images/home/all.jpeg">
 					<div class="doctor-card-text">
-						<h2>value 1</h2>
-						<p>Specialised in medicine</p>
+						<h2>Professional</h2>
+						<p>Our doctors are stringently evaluated and practise only evidence-based medicine</p>
 					</div>
 				</div>
 				<div class="doctor-card">
-					<img class="doctor-card-img">
+					<img class="doctor-card-img" src="images/home/lab.webp">
 					<div class="doctor-card-text">
-						<h2>value 2</h2>
-						<p>Specialised in medicine</p>
+						<h2>Quality Assurance</h2>
+						<p>We are constantly improving the quality of healthcare through technological advancements</p>
 					</div>
 				</div>
 				<div class="doctor-card">
-					<img class="doctor-card-img">
+					<img class="doctor-card-img" src="images/home/doc.webp">
 					<div class="doctor-card-text">
-						<h2>value 3</h2>
-						<p>Specialised in medicine</p>
+						<h2>Customized Care</h2>
+						<p>Our medical services and treatments are tailored each to individual's needs</p>
 					</div>
 				</div>
 			</div>
@@ -74,51 +74,63 @@
     <div class="about-news">
       <h1>Latest News</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Sed in enim ultricies, placerat quam ut, maximus nisl. Curabitur scelerisque 
-        nisl erat, dignissim placerat risus ultricies non. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus. Integer consequat, risus non convallis rhoncus, dui justo convallis ante, 
-        vel tincidunt ante purus ut nulla. Donec pretium ex mauris, et volutpat enim tempor sit amet. 
-        Phasellus nec consectetur metus. Nulla facilisi. Vestibulum non interdum velit, eget suscipit elit. 
-        Integer et blandit lectus. Vestibulum tincidunt lectus qu
+        Checkout latest update regarding medical area and NTUClinic. We want to provide the most accurate and relevant news to help you in understanding your medical needs. 
+				The news ranges from facilities update, treatments, COVID-19 update, vaccination, and so on. If you want to give feedback please send your feedback to 
+				<a href="mailto:news@ntuclinic.com">news@ntuclinic.com</a> for our assistance. We highly appreciate your support.
       </p>
-      <img class="news-img"/>
-      <img class="news-img"/>
-      <img class="news-img"/>
-      <img class="news-img"/>
+			<div>
+				<img class="news-img" src="images/home/news1.png"/>
+				<img class="news-img" src="images/home/news2.jpeg"/>
+				<img class="news-img" src="images/home/news3.jpeg"/>
+				<img class="news-img" src="images/home/news4.webp"/>
+			</div>
 		</div>
 
     <div class="about-locations">
       <h1>Locations</h1>
-      <div class="locations-box">
-        <div class="locations-text">
-          <h2>Location 1</h2>
-          <p>here is location 1 ksldjlaksj </p>
-        </div>
-        <div class="locations-img">
-          <img />
-        </div>
-      </div>
-      <div class="locations-box">
-        <div class="locations-img">
-          <img />
-        </div>
-        <div class="locations-text">
-          <h2>Location 2</h2>
-          <p>here is location 2 ksldjlaksj </p>
-        </div>
-      </div>
-      <div class="locations-box">
-        <div class="locations-text">
-          <h2>Location 3</h2>
-          <p>here is location 3 ksldjlaksj </p>
-        </div>
-        <div class="locations-img">
-          <img />
-        </div>
-      </div>
-    </div>
+			<?php 
+				include "methods/dbconnect.php";
+				$query = "SELECT *  FROM clinics";
 
+				$result = $dbcnx->query($query);
+				$count = 0;
+				if ($result->num_rows >0 )
+				{
+					while ($row = mysqli_fetch_assoc($result)){
+						$cname = $row['clinicname'];
+						$cloc = $row['cliniclocation'];
+						$cctc = $row['cliniccontact'];
+						$count = $count + 1;
+						if ($count % 2 == 1) {
+							echo '
+								<div class="locations-box">
+									<div class="locations-text">
+										<h2>'.$cname.'</h2>
+										<p>'.$cloc.'</p>
+										<p>(65) '.$cctc.'</p>
+									</div>
+									<div class="locations-img">
+										<img src="images/home/loc'.$count.'.jpeg"/>
+									</div>
+								</div>
+							';
+						} else {
+							echo '
+							<div class="locations-box">
+								<div class="locations-img">
+									<img src="images/home/loc'.$count.'.jpeg"/>
+								</div>
+								<div class="locations-text">
+									<h2>'.$cname.'</h2>
+									<p>'.$cloc.'</p>
+									<p>(65) '.$cctc.'</p>
+								</div>
+							</div>
+							';
+						}
+					}
+				}
+			?>
 	</div>
 
 	
