@@ -25,6 +25,30 @@
 	<?php
 		$doctor = $_POST['doctor'];
 		$location = $_POST['location'];
+		if (!empty($_POST['location'])) {
+					$location = $_POST['location'];
+				}
+				else {
+					$location = "";
+				}
+				if (!empty($_POST['doctor'])) {
+					$doctor = $_POST['doctor'];
+				}
+				else {
+					$doctor = "";
+				}
+				if (!empty($_POST['date'])) {
+					$date = $_POST['date'];
+				}
+				else {
+					$date = "";
+				}
+				if (!empty($_POST['timeslot'])) {
+					$time = $_POST['timeslot'];
+				}
+				else {
+					$time = "";
+				}
 	?>
 		<form method="post" action="bookappointment2b.php" id="appointmentform">
 			<table>
@@ -39,12 +63,16 @@
 			<tr style="height:25px;"><td></td></tr>
 			<tr><td>
 			 <label for="appointmentdate">*Date:</label>
-			 <input type="date" name="date" id="date" required />
+			 <input type="date" name="date" id="date" value="<?php echo $date; ?>" required />
 			</td></tr>
 			<tr style="height:400px;"><td></td></tr>
 			<tr><td>
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
 			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
+			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
+			<input type="submit" value="Previous" formaction="bookappointment1b.php" id="nextBtn"></input>
+			</td>
+			<td>
 			<input type="submit" value="Next" id="nextBtn"></input>
 			</td></tr>
 			</table>
