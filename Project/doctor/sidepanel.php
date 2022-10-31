@@ -7,7 +7,7 @@
     echo '<a href="profile.php"><img src="../images/profile.png" width="75" height="75"> </a>';
     echo '<br><dt>'.$currentUserData['docname'];
     echo '<br><b>Doctor</b><br><br>';
-    // echo '<a href="editprofile.php" id="botnav">Edit Profile</a>';
+    // echo '<a href="editprofile.php" class="botnav">Edit Profile</a>';
     echo '</div>';
     echo '<div id="panel2">';
     echo '<a href="bookappointment.php" id="sidenav">';

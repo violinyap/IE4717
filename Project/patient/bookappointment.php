@@ -55,7 +55,7 @@
 		<tr style="height:25px;"><td></tr></td>
 		<tr><td><i>Note: <b><u>$5</u></b> payment for booking an appointment is required.</i></td></tr>
 		<tr style="height:25px;"><td></tr></td>
-		<tr><td>View <a href="doctors.php" id="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
+		<tr><td>View <a href="doctors.php" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
 		<tr style="height:25px;"><td></tr></td>
 		<tr><td>
 			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>

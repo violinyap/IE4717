@@ -44,50 +44,32 @@
 		</div>
 
     <div class="doctors-section">
-      <a href="./doctors/1.php">
-        <div class="doctor-card">
-          <img class="doctor-card-img">
-          <div class="doctor-card-text">
-            <h2>Dr. Lim</h2>
-            <p>Specialised in medicine</p>
-          </div>
-        </div>
-      </a>
-      <div class="doctor-card">
-        <img class="doctor-card-img">
-        <div class="doctor-card-text">
-          <h2>Dr. Lim</h2>
-          <p>Specialised in medicine</p>
-        </div>
-      </div>
-      <div class="doctor-card">
-        <img class="doctor-card-img">
-        <div class="doctor-card-text">
-          <h2>Dr. Lim</h2>
-          <p>Specialised in medicine</p>
-        </div>
-      </div>
-      <div class="doctor-card">
-        <img class="doctor-card-img">
-        <div class="doctor-card-text">
-          <h2>Dr. Lim</h2>
-          <p>Specialised in medicine</p>
-        </div>
-      </div>
-      <div class="doctor-card">
-        <img class="doctor-card-img">
-        <div class="doctor-card-text">
-          <h2>Dr. Lim</h2>
-          <p>Specialised in medicine</p>
-        </div>
-      </div>
-      <div class="doctor-card">
-        <img class="doctor-card-img">
-        <div class="doctor-card-text">
-          <h2>Dr. Lim</h2>
-          <p>Specialised in medicine</p>
-        </div>
-      </div>
+    <?php
+				include "methods/dbconnect.php";
+				$query = "SELECT *  FROM doctors";
+
+				$result = $dbcnx->query($query);
+
+				if ($result->num_rows >0 )
+				{
+					while ($row = mysqli_fetch_assoc($result)){
+						$docname = $row['docname'];
+						$docdesc = $row['description'];
+						$docimg = $row['image'];
+						echo '
+							<div class="doctor-card">
+								<img src="images/doctors/'.$docimg.'"class="doctor-card-img" resi>
+								<div class="doctor-card-text">
+									<h2>'.$docname.'</h2>
+									<p class="doctor-desc">'.$docdesc.'</p>
+								</div>
+							</div>
+						
+						';
+					}
+				}
+
+			?>
     </div>
     
 	</div>

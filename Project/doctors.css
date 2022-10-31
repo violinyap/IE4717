@@ -1,7 +1,7 @@
 .doctors-banner {
   width: 100vw;
   height: 30vh;
-  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/clinic.jpg');
+  background-image: linear-gradient(0deg, rgba(23, 26, 25, 0.8), rgba(36, 32, 34, 0.3)),url('./images/home/all.jpeg');
 
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -38,20 +38,32 @@
 
 .doctor-card-img {
   width: 100%;
-  height: 200px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .doctor-card-text {
-  width: 100%;
   height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  background-color: white;
 }
 
 .doctor-card-text > h2 {
   margin: 0;
+}
+
+.doctor-desc {
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
 }
 
 .doctors-detail-modal {

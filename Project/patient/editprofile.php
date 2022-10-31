@@ -34,7 +34,7 @@
 	<dt>
 		<b>My Profile</b> &nbsp;
 		>&nbsp;
-		<a href="editprofile.php" id="botnav">Edit Profile</a>
+		<a href="editprofile.php" class="botnav">Edit Profile</a>
 	</dt>
 	</div>
 	<div id="maincontainer">

@@ -71,7 +71,10 @@ nav > .topnav {
 /* FOOTER STYLES */
 
 #footer1{
-  border-top: 1px solid #000000;
+  box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
+  -webkit-box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
+  -moz-box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
+  /* border-top: 1px solid #000000; */
   background-color: #FFFFFF;
   display: flex;
   flex-direction: row;
@@ -96,21 +99,41 @@ nav > .topnav {
   align-items: flex-end;
 }
 #copyright{
-  border-top: 1px solid #000000;
-  background-color: #D9D9D9;
+  /* border-top: 1px solid #000000; */
+  background-color: #001f54;
+  color:white;
   text-align: center;
   padding: 10px 0px;
+}
+.contactlogo {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.botnav {
+  color:#001f54;
+}
+.botnav:hover {
+  color: #4c6085;
 }
 
 /* GENERAL STYLE */
 .primarybutton {
-  background: #D9D9D9;
-  border: 1px solid #000000;
+  background: #dbeffd;
+  /* border: 1px solid #000000; */
+  color: #001f54;
+  border: none;
   border-radius: 80px;
   height: 40px;
   width: 150px;
   cursor: pointer;
 }
+
+.primarybutton:hover {
+  color: #dbeffd;
+  background-color: #001f54;
+}
+
 #wrapper{
   margin: auto;
 }

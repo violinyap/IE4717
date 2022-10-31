@@ -14,7 +14,7 @@
 	<?php include "sidepanel.php"; ?>
 	<div id="appointmentnav">
 	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" id="botnav">Edit Appointment</a>
+		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" class="botnav">Edit Appointment</a>
 	</dt>
 	</div>
 	<div class="maincontainer">
@@ -28,7 +28,7 @@
 					<th style="float:left;">Step 1a:</th>
 					<tr><td>Select our locations.</td></tr>
 					<tr style="height:25px;"><td></td></tr>
-					<tr><td>View <a href="doctors.php" id="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
+					<tr><td>View <a href="doctors.php" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
 					<tr style="height:25px;"><td></td></tr>
 					<tr><td>Locations: </td></tr>
 					<tr style="height:25px;"><td></td></tr>

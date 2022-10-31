@@ -18,9 +18,9 @@
   echo '<h3 class="footerheader">Information</h3>';
   echo '<nav>';
   echo '  <ul>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'about.php\',\'\');" id="botnav">About Us</a> </li>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'doctor.php\',\'\');" id="botnav">Our Doctors</a> </li>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'contact.php\',\'\');" id="botnav">Contact Us</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'about.php\',\'\');" class="botnav">About Us</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'doctor.php\',\'\');" class="botnav">Our Doctors</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'contact.php\',\'\');" class="botnav">Contact Us</a> </li>';
   echo '  </ul>';
   echo '</nav>';
 
@@ -29,18 +29,18 @@
   echo '<h3 class="footerheader">Patient\'s Site</h3>';
   echo '<nav>';
   echo '<ul>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'profile.php\',\'patient/\');" id="botnav">Profile</a> </li>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'myappointment.php\',\'patient/\');" id="botnav">Your Appointments</a> </li>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'bookappointment.php\',\'patient/\');" id="botnav">Book Appointments</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'profile.php\',\'patient/\');" class="botnav">Profile</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'myappointment.php\',\'patient/\');" class="botnav">Your Appointments</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'bookappointment.php\',\'patient/\');" class="botnav">Book Appointments</a> </li>';
   echo '  </ul>';
   echo '</nav>';
   echo '</div>';
   echo '<div id="rightcolumn">';
   echo '<p>Follow us through our social media.</p>';
   echo '<div id="socialmedia">';
-  echo '<image src="images/facebook.png" width="35" height="35" id="contactlogo">';
-  echo '<image src="images/instagram.png" width="35" height="35" id="contactlogo">';
-  echo '<image src="images/whatsapp.png" width="35" height="35" id="contactlogo">';
+  echo '<image src="images/facebook.png" width="35" height="35" class="contactlogo">';
+  echo '<image src="images/instagram.png" width="35" height="35" class="contactlogo">';
+  echo '<image src="images/whatsapp.png" width="35" height="35" class="contactlogo">';
   echo '</div>';
   echo '</div>';
   echo '</div>';

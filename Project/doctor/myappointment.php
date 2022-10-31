@@ -14,7 +14,7 @@
 	<?php include "sidepanel.php"; ?>
 	<div id="appointmentnav">
 	<dt>
-		<a href="myappointment.php" id="botnav">My Appointment</a>
+		<a href="myappointment.php" class="botnav">My Appointment</a>
 	</dt>
 	</div>
 	<div class="maincontainer">

@@ -13,7 +13,7 @@
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
 	<div id="appointmentnav">
-		<a href="payment.php" id="botnav">Payment</a>
+		<a href="payment.php" class="botnav">Payment</a>
 		&nbsp;
 	</div>
 	

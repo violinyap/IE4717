@@ -14,11 +14,8 @@
 			<h1>All new online service</h1>
 			<h1>Book your appointment now!</h1>
 			<div class="banner-button">
-				<button class="primarybutton" onclick="location.href='patient/profile.php'" type="button">
-					I am a Patient
-				</button>
-				<button class="primarybutton" onclick="location.href='patient/profile.php'" type="button">
-					I am a Doctor
+				<button class="primarybutton" onclick="location.href='patient/bookappointment.php'" type="button">
+					Book Now
 				</button>
 			</div>
 		</div>
@@ -27,42 +24,53 @@
 			<div class="service-left">
 				<h1>Best services</h1>
 				<p>
-				NTUClinic is build with the value of caring. Our clinic offer a full range of services,<br>
-				from the management of acute and chronic medical conditions to minor procedures & medical testing. <br>
-				We are also able to issue referrals to our specialist network & offer repeat prescription requests <br>
+				
+				At NTUClinic, we are your trusted and respected family doctor in Singapore. 
+				To us, your health is always our priority, and therefore, we aim to ease your mind by offering 
+				medical services you can depend on. That’s why we screen and select our doctors and clinic assistants carefully and practise only evidence-based medicine. Through best-of-breed technologies and personalisation of healthcare, we aim to transform family medicine and bring you a brand new way of managing your health efficiently and cost-effectively.
+				<br> <br> <br>
+				NTUClinic is build with the value of caring. Our clinic offer a full range of services,
+				from the management of acute and chronic medical conditions to minor procedures & medical testing. 
+				We are also able to issue referrals to our specialist network & offer repeat prescription requests 
 				for your convenience.
 				</p>
 			</div>
 			<div class="service-right">
-				<img src="images/home/consult.jpg" id="service-image"/>
+				<img src="images/home/doc.webp" id="service-image"/>
 			</div>
 		</div>
 
 		<div class="home-doctors"> 
-			<h1>Our Doctors</h1> 
-			<!-- TODO : FETCH DOCTORS -->
+			<h1 class="home-docs-title">Our Doctors</h1> 
 			<div class="doctors-section">
-				<div class="doctor-card">
-					<img class="doctor-card-img">
-					<div class="doctor-card-text">
-						<h2>Dr. Lim</h2>
-						<p>Specialised in medicine</p>
-					</div>
-				</div>
-				<div class="doctor-card">
-					<img class="doctor-card-img">
-					<div class="doctor-card-text">
-						<h2>Dr. Lim</h2>
-						<p>Specialised in medicine</p>
-					</div>
-				</div>
-				<div class="doctor-card">
-					<img class="doctor-card-img">
-					<div class="doctor-card-text">
-						<h2>Dr. Lim</h2>
-						<p>Specialised in medicine</p>
-					</div>
-				</div>
+			<?php
+				include "methods/dbconnect.php";
+				$query = "SELECT *  FROM doctors";
+
+				$result = $dbcnx->query($query);
+				$count = 0;
+				if ($result->num_rows >0 )
+				{
+					while ($row = mysqli_fetch_assoc($result)){
+						if ($count == 3) {break;}
+						$docname = $row['docname'];
+						$docdesc = $row['description'];
+						$docimg = $row['image'];
+						echo '
+							<div class="doctor-card">
+								<img src="images/doctors/'.$docimg.'"class="doctor-card-img" resi>
+								<div class="doctor-card-text">
+									<h2>'.$docname.'</h2>
+									<p class="doctor-desc">'.$docdesc.'</p>
+								</div>
+							</div>
+						
+						';
+						$count = $count + 1;
+					}
+				}
+
+			?>
 			</div>
 			<button class="primarybutton" onclick="location.href='doctors.php'" type="button">
 				More..
@@ -111,53 +119,6 @@
 	</div>
 		
 
-	<footer>
-		<div id="footer1">
-			<div id="leftcolumn">
-				<div id="footerlogo">
-					<img src="images/cliniclogo.png" width="38" height="38" id="icon" /> 
-					<h2>NTUClinic</h2>
-				</div>
-				<small>
-					<dt>55 Ubi Ave 1 #08-01 Singapore 408935
-					<br>Fax: 6590 4389
-					<br>Opens Monday to Friday, 8:30am to
-					<br><dt id="lowesttext">6:00pm, except Public Holidays 
-				</small>
-			</div>
-			<div class="footernav">
-				<h3 class="footerheader">Information</h3>
-				<nav>
-					<ul>
-						<li><a href="about.php" id="botnav">About Us</a> </li>
-						<li><a href="doctor.php" id="botnav">Our Doctors</a> </li>
-						<li><a href="contact.php" id="botnav">Contact Us</a> </li>
-					</ul>
-				</nav>
-				
-			</div>
-			<div class="footernav">
-				<h3 class="footerheader">Patient's Site</h3>
-				<nav>
-					<ul>
-						<li><a href="patient/profile.php" id="botnav">Profile</a> </li>
-						<li><a href="myappointment.php" id="botnav">Your Appointments</a> </li>
-						<li><a href="patient/book/appt.php" id="botnav">Book Appointments</a> </li>
-					</ul>
-				</nav>
-			</div>
-			<div id="rightcolumn">
-				<p>Follow us through our social media.</p>
-				<div id="socialmedia">
-				<image src="images/facebook.png" width="35" height="35" id="contactlogo">
-				<image src="images/instagram.png" width="35" height="35" id="contactlogo">
-				<image src="images/whatsapp.png" width="35" height="35" id="contactlogo">
-				</div>
-			</div>
-		</div>
-		<div id="copyright">
-			<small><i>Copyright &copy; 2022 NTUClinic </small>
-		</div>
-	</footer>
+	<?php include "footer.php"; ?>
 </div>
 </body>
