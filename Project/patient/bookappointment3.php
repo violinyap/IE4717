@@ -29,13 +29,37 @@
 		$location = $_POST['location'];
 		$date = $_POST['date'];
 		$time = $_POST['timeslot'];
+		if (!empty($_POST['location'])) {
+			$location = $_POST['location'];
+		}
+		else {
+			$location = "";
+		}
+		if (!empty($_POST['doctor'])) {
+			$doctor = $_POST['doctor'];
+		}
+		else {
+			$doctor = "";
+		}
+		if (!empty($_POST['date'])) {
+			$date = $_POST['date'];
+		}
+		else {
+			$date = "";
+		}
+		if (!empty($_POST['timeslot'])) {
+			$time = $_POST['timeslot'];
+		}
+		else {
+			$time = "";
+		}
 	?>
 		<form method="post" action="bookappointment4.php" id="appointmentform">
 			<table style="width:500px;"> 
 			<th style="text-align:left; ">Step 3:</th>
 			<tr><td colspan="2">Check your selection below.<br>
-			<br>Click 'Change' if you want to make changes to your selection.
-			<br>If all information is correct, click 'Next' to proceed to Payment.
+			<br>Go previous pages if you want to make changes to your selection.
+			<br>If all information is correct, click 'Book Appointment' to proceed.
 			</td></tr>
 			<tr style="height:50px;"><td colspan="2"></td></tr>
 			<tr>
@@ -95,10 +119,9 @@
 				<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
 				<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
 				<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
-				<input type="submit" value="Next" id="nextBtn"></input>
+				<input type="submit" value="Previous" formaction="bookappointment2b.php" id="nextBtn"></input>
 				</td>
-				<td>
-				<a href="bookappointment1a.php" id="cancelButton">Change</a>
+				<td style="float:right;"><input type="submit" value="Book Appointment" id="nextBtn"></input>
 				</td>
 			</tr>
 			</table>
