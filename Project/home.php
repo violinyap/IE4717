@@ -87,29 +87,31 @@
 			</div>
 			<div class="news-right">
 				<div class="news-photos">
-					<img class="news-img"/>
-					<img class="news-img"/>
-					<img class="news-img"/>
-					<img class="news-img"/>
+					<img class="news-img" src="images/home/news1.png"/>
+					<img class="news-img" src="images/home/news2.jpeg"/>
+					<img class="news-img" src="images/home/news3.jpeg"/>
+					<img class="news-img" src="images/home/news4.webp"/>
 				</div>
 			</div>
 		</div>
 
 		<div class="home-small-banner">
-			small banner
+			<h1>NTUClinic is No.1 Clinic in Singapore</h1>
 		</div>
 
 
 		<div class="home-queries">
 			<div class="queries-left">
-				<img class="queries-img"/>
+				<img class="queries-img" src="images/home/doc2.jpeg"/>
 			</div>
 			<div class="queries-right">
 				<h1>Any queries?</h1>
 				<form class="queries-form">
-					<input placeholder="name"/>
-					<input placeholder="name"/>
-					<button type="submit">
+					<label for="email">Email*</label>
+					<input type="email" class="queries-input" id="email" name="email" placeholder="example@email.com" required>
+					<label for="pass">Queries*</label>
+          <textarea class="queries-input" id="pass" name="pass" placeholder="I need help with..." required></textarea>
+					<button type="submit" class="primarybutton">
 						Send
 					</button>
 				</form>

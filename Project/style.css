@@ -6,6 +6,10 @@ body {
   font-family:arial, sans-serif;
 }
 
+img {
+  object-fit: cover;
+}
+
 /* HEADER STYLES */
 header {
   background-color: #dbeffd;
@@ -71,11 +75,11 @@ nav > .topnav {
 /* FOOTER STYLES */
 
 #footer1{
-  box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
+  /* box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
   -webkit-box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
-  -moz-box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31);
+  -moz-box-shadow: -1px -3px 16px 1px rgba(0,0,0,0.31); */
   /* border-top: 1px solid #000000; */
-  background-color: #FFFFFF;
+  background-color: #dbeffd;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
