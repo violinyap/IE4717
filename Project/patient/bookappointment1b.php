@@ -28,14 +28,38 @@
 			<table>
 			
 			<th style="float:left;">Step 1b:</th>
-			<tr><td>Select available doctors.</td></tr>
-			<tr style="height:25px;"><td></td></tr>
-			<tr><td><i>Note: Doctors available are subjected to a <u>first come first serve basis</u> and their available schedule. <br></i></td></tr>
-			<tr style="height:25px;"><td></td></tr>
-			<tr><td>Doctors:</td></tr>
-			<tr style="height:10px;"><td></td></tr>
+			<tr><td colspan='2'>Select available doctors.</td></tr>
+			<tr style="height:25px;"><td colspan='2'></td></tr>
+			<tr><td colspan='2'><i>Note: Doctors available are subjected to a <u>first come first serve basis</u> and their available schedule. <br></i></td></tr>
+			<tr style="height:25px;"><td colspan='2'></td></tr>
+			<tr><td colspan='2'>Doctors:</td></tr>
+			<tr style="height:10px;"><td colspan='2'></td></tr>
 			<?php 
 				include "../methods/dbconnect.php";
+				
+				$location = $_POST['location'];
+				
+				if (!empty($_POST['doctor'])) {
+					$doctor = $_POST['doctor'];
+				}
+				else {
+					$doctor = 1;
+				}
+				if (!empty($_POST['date'])) {
+					$date = $_POST['date'];
+				}
+				else {
+					$date = "";
+				}
+				if (!empty($_POST['timeslot'])) {
+					$time = $_POST['timeslot'];
+				}
+				else {
+					$time = "";
+				}
+				$doc_id = array((int)1,(int)2,(int)3,(int)4,(int)5);
+				$doc_id_get = array();
+				
 				$query = "SELECT * FROM doctors WHERE clinicid='".$location."'";
 				// echo "<br>" .$query. "<br>";
 				$result = $dbcnx->query($query);
@@ -44,19 +68,34 @@
 					while ($row = mysqli_fetch_assoc($result)){
 						$doctor_name = $row['docname'];
 						$doctor_id = $row['doctorid'];
+						$doc_id_get[] = (int)$doctor_id; //store retrived data in array
+						if ($doctor == $doctor_id) {
 						echo "
-						<tr><td><input type='radio' value='$doctor_id' name='doctor'> 
+						<tr><td colspan='2'><input type='radio' value='$doctor_id' name='doctor' checked>
+						";
+						}
+						else {
+						echo "
+						<tr><td colspan='2'><input type='radio' value='$doctor_id' name='doctor' required>
+						";
+						}
+						echo "
 						<label>$doctor_name</label></td></tr>
-						<tr style='height:10px;'><td></td></tr>";
+						<tr style='height:10px;'><td colspan='2'></td></tr>
+						";
 					}
 				}
 				$dbcnx->close();
 		?>
 		
-			<tr style="height:370px;"><td></td></tr> 
-			<tr><td>
+			<tr style="height:370px;"><td colspan='2'></td></tr> 
+			<tr height="35px"><td>
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
-			<input type="submit" value="Next" id="nextBtn"></input></td></tr>
+			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
+			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
+			<input type="submit" value="Previous" formaction="bookappointment1a.php" id="nextBtn"></input></td>
+			<td><input type="submit" value="Next" id="nextBtn"></input></td>
+			</tr>
 			<!-- <input value="Back" id="nextBtn" onclick></input></td></tr> -->
 			</table>
 		</form>
