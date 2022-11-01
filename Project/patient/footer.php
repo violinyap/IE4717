@@ -38,9 +38,9 @@
   echo '<div id="rightcolumn">';
   echo '<p>Follow us through our social media.</p>';
   echo '<div id="socialmedia">';
-  echo '<image src="../images/facebook.png" width="35" height="35" id="contactlogo">';
-  echo '<image src="../images/instagram.png" width="35" height="35" id="contactlogo">';
-  echo '<image src="../images/whatsapp.png" width="35" height="35" id="contactlogo">';
+  echo '<image src="../images/facebook.png" width="35" height="35" class="contactlogo">';
+  echo '<image src="../images/instagram.png" width="35" height="35" class="contactlogo">';
+  echo '<image src="../images/whatsapp.png" width="35" height="35" class="contactlogo">';
   echo '</div>';
   echo '</div>';
   echo '</div>';

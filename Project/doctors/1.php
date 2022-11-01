@@ -246,9 +246,9 @@
 			<div id="rightcolumn">
 				<p>Follow us through our social media.</p>
 				<div id="socialmedia">
-				<image src="../images/facebook.png" width="35" height="35" id="contactlogo">
-				<image src="../images/instagram.png" width="35" height="35" id="contactlogo">
-				<image src="../images/whatsapp.png" width="35" height="35" id="contactlogo">
+				<image src="../images/facebook.png" width="35" height="35" class="contactlogo">
+				<image src="../images/instagram.png" width="35" height="35" class="contactlogo">
+				<image src="../images/whatsapp.png" width="35" height="35" class="contactlogo">
 				</div>
 			</div>
 		</div>
