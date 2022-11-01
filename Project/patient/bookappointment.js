@@ -25,3 +25,64 @@ function chkDate(event) {
 var dateNode = document.getElementById("date");
 
 dateNode.addEventListener("change", chkDate, false);
+
+function getlocation() {
+  var radioBtn = document.getElementsByName("location");
+  var c;
+  var d;
+  for(i=0; i<radioBtn.length; i++){
+   if(radioBtn[i].checked){
+     c = radioBtn[i].value;
+	 if (c == "1") {
+	 d = "NTU Clinic Fullerton";
+	 }
+	 else if (c == "2") {
+	 d = "NTU Clinic Raffles";
+	 }
+   }
+  }
+  document.getElementById("location").innerHTML = d;
+}
+
+function getdoctor() {
+  var radioBtn = document.getElementsByName("doctor");
+  var c;
+  var d;
+  for(i=0; i<radioBtn.length; i++){
+   if(radioBtn[i].checked){
+     c = radioBtn[i].value;
+	 if (c == "1") {
+	 d = "Dr Tan Kim";
+	 }
+	 else if (c == "2") {
+	 d = "Dr Stanford";
+	 }
+	 else if (c == "3") {
+	 d = "Dr Tasha";
+	 }
+	 else if (c == "4") {
+	 d = "Dr Strange";
+	 }
+	 else if (c == "5") {
+	 d = "Dr Kang";
+	 }
+   }
+  }
+  document.getElementById("doctor").innerHTML = d;
+}
+
+function getDate() {
+  var x = document.getElementById("date").value;
+  document.getElementById("date_show").innerHTML = x.toString();
+}
+
+function getTime() {
+  var radioBtn = document.getElementsByName("timeslot");
+  var c;
+  for(i=0; i<radioBtn.length; i++){
+   if(radioBtn[i].checked){
+     c = radioBtn[i].value;
+   }
+  }
+  document.getElementById("time").innerHTML = c;
+}

@@ -41,6 +41,12 @@
 		else {
 			$doctor = "";
 		}
+		if (!empty($_POST['doctor2'])) {
+			$doctor2 = $_POST['doctor2'];
+		}
+		else {
+			$doctor2 = "";
+		}
 		if (!empty($_POST['date'])) {
 			$date = $_POST['date'];
 		}
@@ -118,6 +124,7 @@
 				<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
 				<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
 				<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
+				<input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
 				<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
 				<input type="submit" value="Previous" formaction="bookappointment2b.php" id="nextBtn"></input>
 				</td>

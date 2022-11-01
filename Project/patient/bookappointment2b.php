@@ -23,7 +23,7 @@
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-	<?php
+	<?php include "../methods/dbconnect.php";
 		$doctor = $_POST['doctor'];
 		$location = $_POST['location'];
 		$date = $_POST['date'];
@@ -39,6 +39,12 @@
 		else {
 			$doctor = "";
 		}
+		if (!empty($_POST['doctor2'])) {
+			$doctor2 = $_POST['doctor2'];
+		}
+		else {
+			$doctor2 = "";
+		}
 		if (!empty($_POST['date'])) {
 			$date = $_POST['date'];
 		}
@@ -51,7 +57,19 @@
 		else {
 			$time2 = "";
 		}
+		$query = "SELECT * FROM doctors WHERE clinicid='".$location."'";
+		$result = $dbcnx->query($query);
+		if ($result->num_rows >0 )
+		{
+			while ($row = mysqli_fetch_assoc($result)){
+			$doctor_name = $row['docname'];
+			$doctor_id = $row['doctorid'];
+			$d_id[] = $doctor_id;
+			$d_name[] = $doctor_name;
+			}
+		}
 	?>
+		<div style="float:left; width: 800px;">
 		<form method="post" action="bookappointment3.php" id="appointmentform">
 			<?php
 			echo "
@@ -144,6 +162,7 @@
 			<input type='hidden' name='date' value='" .$date. "'></input>
 			<input type='hidden' name='location' value='" .$location. "'></input>
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
+			<input type='hidden' name='doctor2' value='" .$doctor2. "'></input>
 			<input type='submit' value='Previous' formaction='bookappointment2a.php' id='nextBtn'></input>
 			</td>
 			<td>
@@ -156,6 +175,53 @@
 			echo "</table>";
 			?>
 		</form>
+	</div>
+	<div style="float:right; background-color: white; padding-top: 20px; width: 350px;">
+	<table style="border:1px solid black;">
+	<th>Options Selected:</th>
+	<tr><td colspan="2" style="height:25px;"></td></tr>
+	<tr><th style="text-align:right;"> Location: </th>
+	<td style="width:200px;background-color: #D9D9D9; border: 1px solid black;text-align:center;">
+	<?php 
+	if ($location == 1) {
+		echo "NTU Clinic Fullerton";}
+	else {echo "NTU Clinic Raffles";}
+	?>
+	</td></tr>
+	<tr><td colspan="2" style="height:25px;"></td></tr>
+	<tr><th style="text-align:right;"> Doctor: </th>
+	<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
+	<?php
+			if ($location == 1) {$j=2;} else {$j=3;}
+			for ($i=0;$i<$j;$i+=1) {
+				if ($doctor == $d_id[$i]) {
+					$doctor2 = $d_name[$i];
+				}
+			}
+		echo $doctor2;
+	?>
+	</td></tr>
+	<tr><td colspan="2" style="height:25px;"></td></tr>
+	<tr><th style="text-align:right;"> Date: </th>
+	<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
+	<?php
+		echo $date;
+	?>
+	</td></tr>
+	<tr><td colspan="2" style="height:25px;"></td></tr>
+	<tr><th style="text-align:right;"> Time: </th>
+	<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
+	<span id="time">
+	<?php
+	if ($time2 == "") {
+		echo $time3;}
+	else {echo $time2;}
+	?>
+	</span>
+	</td></tr>
+	</table>
+	</div>
+	<script type="text/javascript" src="bookappointment.js"></script>
 	</div>
 	</div>
 	<?php include "footer.php";?>
