@@ -21,12 +21,13 @@
 	$apptID = $_POST['apptID'];
 	include "../methods/dbconnect.php";
 	
-		$doctor = $_POST['doctor'];
-		if (!empty($_POST['location'])) {
-			$location = $_POST['location'];
+		$location = $_POST['location'];
+				
+		if (!empty($_POST['doctor'])) {
+			$doctor = $_POST['doctor'];
 		}
 		else {
-			$location = "";
+			$doctor = "";
 		}
 		if (!empty($_POST['doctor2'])) {
 			$doctor2 = $_POST['doctor2'];
@@ -60,33 +61,56 @@
 	?>
 	<div class="maincontainer">
 		<div style="float:left; width: 700px; margin-top: 20px; margin-left:15px;">
-		<form method="post" action="editappointment2b.php" id="appointmentform">
+		<form method="post" action="editappointment2a.php" id="appointmentform">
 			<table>
-			<th style="float:left;">Step 2a:</th>
-			<tr><td colspan='2'><b>Select the available dates as displayed below:</b></td></tr>
-			<tr style="height:25px;"><td colspan='2'></td>
-			<tr><td colspan='2'><i> Note: Appointment(s) can only be booked for the next day. We reserve the right to cancel
-			<br>the appointment <b>without prior notice</b>,  your refund will be made to bank account and a
-			<br>message will be send to your<u> registered email address</u></i>. </td></tr>
+			
+			<th style="float:left;">Step 1b:</th>
+			<tr><td colspan='2'>Select available doctors.</td></tr>
 			<tr style="height:25px;"><td colspan='2'></td></tr>
-			<tr><td colspan='2'>Choose available dates below.</td></tr>
+			<tr><td colspan='2'><i>Note: Doctors available are subjected to a <u>first come first serve basis</u> and their<br>available schedule. </i></td></tr>
+			</tr>
 			<tr style="height:25px;"><td colspan='2'></td></tr>
-			<tr><td colspan='2'>
-			 <label for="appointmentdate">*Date:</label>
-			 <input type="date" name="date" id="date" value="<?php echo $date; ?>" onInput="getDate()" required />
-			</td></tr>
-			<tr style="height:400px;"><td colspan='2'></td></tr>
-			<tr><td>
+			<tr style="height:25px;text-align:left;"><th colspan='2'>Doctors:</th></tr>
+			<tr style="height:10px;"><td colspan='2'></td></tr>
+			<?php
+			if ($location == 1) {$j=2;} else {$j=3;}
+			for ($i=0;$i<$j;$i+=1) {
+				if ($doctor == $d_id[$i]) {
+					echo "
+					<tr><td colspan='2'><input type='radio' value='".$d_id[$i]."' name='doctor' onInput='getdoctor()' checked>
+					";
+					}
+				else {
+				echo "
+				<tr><td colspan='2'><input type='radio' value='".$d_id[$i]."' name='doctor' onInput='getdoctor()' required>
+				";
+				}
+				echo "
+				<label>".$d_name[$i]."</label></td></tr>
+				<tr style='height:10px;'><td colspan='2'></td></tr>
+				";
+			}
+			if ($location == 1) {$j=2;} else {$j=3;}
+			for ($i=0;$i<$j;$i+=1) {
+				if ($doctor == ""){$doctor2="TBD";}
+				else if ($doctor == $d_id[$i]) {
+					$doctor2 = $d_name[$i];
+				}
+			}
+				$dbcnx->close();
+		?>
+		
+			<tr style="height:370px;"><td colspan='2'></td></tr> 
+			<tr height="35px"><td>
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
-			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
 			<input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
+			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
 			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
 			<input value='<?php echo $apptID; ?>' name='apptID' type='hidden'/>
-			<input type="submit" value="Previous" formaction="editappointment1b.php" id="nextBtn"></input>
-			</td>
-			<td>
-			<input type="submit" value="Next" id="nextBtn"></input>
-			</td></tr>
+			<input type="submit" value="Previous" formaction="editappointment1a.php" id="nextBtn"></input></td>
+			<td><input type="submit" value="Next" id="nextBtn"></input></td>
+			</tr>
+			<!-- <input value="Back" id="nextBtn" onclick></input></td></tr> -->
 			</table>
 		</form>
 		</div>
@@ -106,26 +130,20 @@
 		<tr><td colspan="2" style="height:25px;"></td></tr>
 		<tr><th style="text-align:right;"> Doctor: </th>
 		<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
-		<?php
-			if ($location == 1) {$j=2;} else {$j=3;}
-			for ($i=0;$i<$j;$i+=1) {
-				if ($doctor == $d_id[$i]) {
-					$doctor2 = $d_name[$i];
-				}
-			}
+		<span id="doctor">
+			<?php
 			echo $doctor2;
-		?>
+			?>
+		</span>
 		</td></tr>
 		<tr><td colspan="2" style="height:25px;"></td></tr>
 		<tr><th style="text-align:right;"> Date: </th>
 		<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
-		<span id="date_show">
 		<?php
 			if ($date == "") {
 			echo "TBD";}
 			else {echo $date;}
 		?>
-		</span>
 		</td></tr>
 		<tr><td colspan="2" style="height:25px;"></td></tr>
 		<tr><th style="text-align:right;"> Time: </th>

@@ -19,7 +19,7 @@
 	</div>
 	<div class="maincontainer">
 	<dt id="abcd">
-	<?php include "../methods/getPatientsData.php";
+	<?php include "../methods/getUserData.php";
 		$userid = $currentUserData['userid'];
 		$location = $_POST['location'];
 		$doctor = $_POST['doctor'];

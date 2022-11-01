@@ -121,19 +121,38 @@
 			</td></tr>
 			<tr>
 			</tr>
-		</table>
 		<input value='$apptID' name='apptID' type='hidden'/>
 		";
-
-		$to      = 'f32ee@localhost';
+	?>
+			<tr>
+			<td style="width: 250px;align-items: center;">
+			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
+			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
+			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
+			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
+			<input type="submit" value="Make Payment" id="nextBtn"></input><br><br>
+			</td>
+			<td style="width: 250px;align-items: center;">
+			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Pay Later"></input><br><br>
+			<input type="hidden" name="button_pressed" value="1" />
+			</td>
+			</tr>
+			</table>
+		</form>
+	</div>
+	</div>
+	<?php include "footer.php";?>
+</div>
+<?php
+	$to      = 'f32ee@localhost';
 		$subject = 'Payment Required';
 		
 		$message = "
 		<html>
 		<table>
 		<th>Appointment booked successfully. View details below: </th>
-		<tr><td> Location: </td><td>" . $location . "</td></tr>
-		<tr><td> Doctor: </td><td>" . $doctor . "</td></tr>
+		<tr><td> Location: </td><td>" . $clinic_name . "</td></tr>
+		<tr><td> Doctor: </td><td>" . $doctor_name . "</td></tr>
 		<tr><td> Date: </td><td>" . $date2 . "</td></tr>
 		<tr><td> TIme: </td><td>" . $time . "</td></tr>
 		<tr><td colspan='2'> Please complete the payment. To edit or cancel appointment, login to the web app to make changes.</td></tr>
@@ -161,26 +180,5 @@
 		$db->close();
 		
 		
-	?>
-			
-			<tr style="height:450px;"><td></td></tr>
-			<tr>
-			<td style="width: 250px;align-items: center;">
-			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
-			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
-			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
-			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
-			<input type="submit" value="Make Payment" id="nextBtn"></input><br><br>
-			</td>
-			<td style="width: 250px;align-items: center;">
-			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Pay Later"></input><br><br>
-			<input type="hidden" name="button_pressed" value="1" />
-			</td>
-			</tr>
-			</table>
-		</form>
-	</div>
-	</div>
-	<?php include "footer.php";?>
-</div>
+?>
 </body>

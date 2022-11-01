@@ -140,18 +140,19 @@
 			if (empty($items3)) {
 			echo "
 			<tr><td colspan='2'>All slots occupied! Go previous pages to change selection.
-			<br>Or press 'restart to start from Step 1a again.
+			<br>Or press 'restart to start from beginning again.
 			<br>Please check <a href='doctors.php' id='botnav'>'Our Doctors'</a> page for their available schedule.
 			</td></tr>
-			<tr style='height:540px;'><td colspan='2'></td></tr>
+			<tr style='height:500px;'><td colspan='2'></td></tr>
 			<tr><td>
 			<input type='hidden' name='date' value='" .$date. "'></input>
 			<input type='hidden' name='location' value='" .$location. "'></input>
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
-			<input type='submit' value='Previous' formaction='bookappointment2b.php' id='nextBtn'></input>
-			</td></tr>
+			<input type='hidden' name='doctor2' value='" .$doctor2. "'></input>
+			<input type='submit' value='Previous' formaction='bookappointment2a.php' id='nextBtn'></input>
+			</td>
 			<td>
-			<input type='submit' value='Restart' formaction='bookappointment1a.php' id='nextBtn'></input>
+			<input type='submit' value='Restart' formaction='bookappointment.php' id='nextBtn'></input>
 			</td></tr>
 			";
 			}
@@ -214,8 +215,13 @@
 	<span id="time">
 	<?php
 	if ($time2 == "") {
-		echo $time3;}
-	else {echo $time2;}
+		if (empty($items3)) {echo "TBD";}
+		else {
+		echo $time3;}}
+	else {
+		if (empty($items3)) {echo "TBD";}
+		else {
+		echo $time2;}}
 	?>
 	</span>
 	</td></tr>

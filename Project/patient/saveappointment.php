@@ -18,73 +18,90 @@
 	</dt>
 	</div>
 	<div class="maincontainer">
-			
-			<div class="rightside">
-				<div class="leftside">
-				<?php include "../methods/getAppointment.php" ?>
-				</div>
-				
-				<?php
-						
-				$location = $_POST['location'];
-				$doctor = $_POST['doctor'];
-				$date = $_POST['date'];
-				$time = $_POST['timeslot'];
-				date_default_timezone_set("Asia/Singapore");
-				$timeCompleted = date('H:i');
-				$date2 = date("d-m-Y", strtotime($date));
-				
-				@ $db = new mysqli('localhost', 'root', '', 'project');
+		<div style="float:left; width: 700px; margin-top: 20px; margin-left:15px;">
 		
-				if (mysqli_connect_errno()) {
-				echo "Error: Could not connect to database.  Please try again later.";
-				exit;
-				}
-				$query = "UPDATE `Appointments` SET `location`='".$location."',`doctor`='".$doctor."',`date`='".$date."',`time`='".$time."',`timeCompleted`='".$timeCompleted."'
-				WHERE `appointmentID`='".$apptID."'";
-			
-				$result = $db->query($query);
-				if ($result) {
-					echo "<b>Appointment updated successfully!</b><br>
-				<i>Check your email for the softcopy confirmation. </i> <br><br>";
-				echo 
-				"<table style='width:600px;'>
-					<tr>
-						<td style='font-size:30px;width:200px;'>Location: </td>
-						<td class='confirmation-column'>" . $location . "</td>
-					</tr>
-					<tr style='height:35px'><td colspan='2'><br></td></tr>
-					<tr>
-						<td style='font-size:30px;width:200px;'>Doctor:  </td>
-						<td class='confirmation-column'>" . $doctor . "</td>
-					</tr>
-					<tr style='height:35px'><td colspan='2'><br></td></tr>
-					<tr>
-						<td style='font-size:30px;width:200px;'>Date: </td>
-						<td class='confirmation-column'>" . $date2 . "</td>
-					</tr>
-					<tr style='height:35px'><td colspan='2'><br></td></tr>
-					<tr>
-						<td style='font-size:30px;width:200px;'>Time: </td>
-						<td class='confirmation-column'>" . $time . "</td>
-					</tr>
-					<tr style='height:35px'><td colspan='2'><br></td></tr>
-					<tr>
-						<td style='font-size:30px;width:200px;'>Paid Status: </td>
-						<td class='confirmation-column'>Yes</td>
-					</tr>
-					<tr style='height:35px'><td colspan='2'><br></td></tr>
-					<tr><td colspan='2'>
-						Please be on time for your appointment(s).
-						<br>You can re-schedule your appointment on your appointment page. 
-						<br>*Terms & Conditions applies
-					</td></tr>
-					<tr>
-					<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
-					<td><a href='bookappointment.php'><button id='nextBtn'>Make A New Appointment</button></a></td>
-					</tr>
-				</table>";
+				
+		<?php
+		include "../methods/getUserData.php";
+		$userid = $currentUserData['userid'];
+		$apptID = $_POST['apptID'];
+		$location = $_POST['location'];
+		$doctor = $_POST['doctor'];
+		$doctor2 = $_POST['doctor2'];
+		$date = $_POST['date'];
+		$time = $_POST['timeslot'];
+		date_default_timezone_set("Asia/Singapore");
+		$timeCompleted = date('H:i');
+		$date2 = date("d-m-Y", strtotime($date));
+				
+		@ $db = new mysqli('localhost', 'root', '', 'project');
 		
+		if (mysqli_connect_errno()) {
+		echo "Error: Could not connect to database.  Please try again later.";
+		exit;
+		}
+		$query = "UPDATE `Appointments` SET `location`='".$location."',`doctor`='".$doctor."',`date`='".$date."',`time`='".$time."',`timeCompleted`='".$timeCompleted."'
+					WHERE `appointmentID`='".$apptID."'";
+			
+		$result = $db->query($query);
+		if ($result) {
+		echo "<b>Appointment updated successfully!</b><br>
+		<i>Check your email for the softcopy confirmation. </i> <br><br>";
+		$sql=
+		"SELECT *
+		FROM appointments a
+		INNER JOIN patients p on a.user = p.userid
+		INNER JOIN doctors d on a.doctor = d.doctorid
+		INNER JOIN clinics c on a.location = c.clinicid
+		WHERE doctor='$doctor' AND location='$location' AND date='$date' AND time='$time' AND user='$userid'";
+		$result = $db->query($sql);
+		if ($result )
+		{
+			while ($row = mysqli_fetch_assoc($result)){
+				$clinic_name = $row['clinicname'];
+				$doctor_name = $row['docname'];
+				$apptID = $row['appointmentID'];
+			}
+		}
+		echo
+		"<table style='width:600px;'>
+		<tr>
+		<td style='font-size:30px;width:200px;'>Location: </td>
+		<td class='confirmation-column'>" . $clinic_name . "</td>
+		</tr>
+		<tr style='height:35px'><td colspan='2'><br></td></tr>
+		<tr>
+		<td style='font-size:30px;width:200px;'>Doctor:  </td>
+		<td class='confirmation-column'>" . $doctor_name . "</td>
+		</tr>
+		<tr style='height:35px'><td colspan='2'><br></td></tr>
+		<tr>
+		<td style='font-size:30px;width:200px;'>Date: </td>
+		<td class='confirmation-column'>" . $date2 . "</td>
+		</tr>
+		<tr style='height:35px'><td colspan='2'><br></td></tr>
+		<tr>
+		<td style='font-size:30px;width:200px;'>Time: </td>
+		<td class='confirmation-column'>" . $time . "</td>
+		</tr>
+		<tr style='height:35px'><td colspan='2'><br></td></tr>
+		<tr>
+		<td style='font-size:30px;width:200px;'>Paid Status: </td>
+		<td class='confirmation-column'>Yes</td>
+		</tr>
+		<tr style='height:35px'><td colspan='2'><br></td></tr>
+		<tr><td colspan='2'>
+		Please be on time for your appointment(s).
+		<br>You can re-schedule your appointment on your appointment page. 
+		<br>*Terms & Conditions applies
+		</td></tr>
+		<tr style='height:35px'><td colspan='2'><br></td></tr>
+		<tr>
+		<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
+		<td><a href='bookappointment.php'><button id='nextBtn'>Make A New Appointment</button></a></td>
+		</tr>
+		</table>";
+		//email
 				$to      = 'f32ee@localhost';
 				$subject = 'Appointment updated';
 				
@@ -92,8 +109,8 @@
 				<html>
 				<table>
 				<th>Appointment updated successfully. View details below: </th>
-				<tr><td> Location: </td><td>" . $location . "</td></tr>
-				<tr><td> Doctor: </td><td>" . $doctor . "</td></tr>
+				<tr><td> Location: </td><td>" . $clinic_name . "</td></tr>
+				<tr><td> Doctor: </td><td>" . $doctor_name . "</td></tr>
 				<tr><td> Date: </td><td>" . $date2 . "</td></tr>
 				<tr><td> TIme: </td><td>" . $time . "</td></tr>
 				<tr><td colspan='2'>To edit or cancel appointment, login to the web app to make changes.</td></tr>
@@ -118,11 +135,13 @@
 					// TODO: add try again button
 				}
 			
-				?>
+		?>
 					
-			</div>
-			
-		
+		</div>
+		<div style="float:right; padding-top: 20px;">
+		<?php include "../methods/getAppointment.php"; ?>
+		<dt>Updated successfully!</dt>
+		</div>
 	</div>
 	</div>
 	</div>
