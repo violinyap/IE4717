@@ -131,6 +131,7 @@ nav > .topnav {
   height: 40px;
   width: 150px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .primarybutton:hover {

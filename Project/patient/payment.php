@@ -12,10 +12,10 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-		<a href="payment.php" class="botnav">Payment</a>
-		&nbsp;
-	</div>
+	<div class="leftcontent">
+	<div class="breadcrumb">
+			<a href="payment.php" class="botnav">Payment</a>
+		</div>
 	
 	<div class="maincontainer">
 	<dt id="abcd">
@@ -51,10 +51,17 @@
 			$date2 = date("d-m-Y", strtotime($date));
 			$timeCompleted = $row['timeCompleted'];
 			echo "
-			<table class='appointment-table' style='font-size:20px;border:1px solid black;height:300px;width:450px;'>
+			<div class='table-wrapper'>
+			<table class='appointment-table' style='font-size:20px;height:300px;width:450px;'>
 			<th colspan='2' style='float:left;font-size:24px;'>
 				<i>Appointment Details</i>
 			</th>
+			<tr>
+				<td style='width:250px;'><b>ID: </b></td>
+				<td><span id='doctor'>
+				NTCL$apptID
+				</span></td>
+			</tr>
 			<tr>
 				<td style='width:250px;'><b>Doctor: </b></td>
 				<td><span id='doctor'>
@@ -92,17 +99,23 @@
 				</span></td>
 			</tr>
 			<tr>
+			<form action='confirmpayment.php' method='post'>
 			<td style='float: center; width:250px;'>
-				<form action='confirmpayment.php' method='post'>
 					<input value='$apptID' name='apptID' type='hidden'/>
-					<button id='editbutton' onclick='alertpopup2()' type='submit'>Pay</button>
+					<button id='editbutton' onclick='alertpopup2()' type='submit' class='darkbluebutton'>Pay</button>
+					</td>
+					</form>
+			<td style='float: center;'>
+				<form action='cancelappointment.php' method='post'>
+				<input value='$apptID' name='apptID' type='hidden'/>
+					<button id='cancelbutton' onclick='alertpopup()' class='primarybutton'>Cancel</button>
 				</form>
 			</td>
-			<td style='float: center;'>
-				<button id='cancelbutton' onclick='alertpopup()' class='primarybutton'>Cancel</button>
 			</td>
 			</tr>
-			</table><br>";
+			</table>
+			</div>
+			<br>";
 			}
 			}
 			}
@@ -132,6 +145,7 @@
 		}
 		}
 	</script>
+	</div>
 	</div>
 	</div>
 	<?php include "footer.php";?>
