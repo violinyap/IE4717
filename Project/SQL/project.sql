@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 30, 2022 at 07:58 AM
+-- Generation Time: Nov 02, 2022 at 02:07 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,7 +44,7 @@ CREATE TABLE `Appointments` (
 --
 
 INSERT INTO `Appointments` (`appointmentID`, `user`, `location`, `doctor`, `date`, `time`, `timeCompleted`, `paid_status`, `book_status`) VALUES
-(1, 1, '2', '4', '2022-11-03', '11:00:00', '05:25:00', 1, 1),
+(1, 1, '2', '3', '2022-11-24', '10:00:00', '20:24:00', 1, 1),
 (2, 1, '1', '1', '2022-10-31', '17:00:00', '02:15:00', 1, 0),
 (3, 1, '1', '1', '2022-11-10', '12:00:00', '12:42:00', 1, 1),
 (4, 1, '1', '1', '2022-10-31', '17:00:00', '02:16:00', 1, 1),
@@ -64,7 +64,11 @@ INSERT INTO `Appointments` (`appointmentID`, `user`, `location`, `doctor`, `date
 (18, 8, '1', '1', '2022-11-22', '12:00:00', '13:48:00', 0, 1),
 (19, 8, '1', '1', '2022-11-22', '12:00:00', '13:49:00', 0, 1),
 (20, 8, '1', '1', '2022-11-22', '12:00:00', '13:49:00', 0, 1),
-(21, 8, '1', '1', '2022-11-22', '12:00:00', '13:50:00', 1, 1);
+(21, 8, '1', '1', '2022-11-22', '12:00:00', '13:50:00', 1, 1),
+(22, 1, '1', '1', '2022-11-17', '10:00:00', '19:39:00', 0, 1),
+(23, 1, '1', '1', '2022-11-17', '10:00:00', '20:30:00', 0, 0),
+(24, 1, '1', '1', '2022-11-17', '10:00:00', '19:44:00', 0, 1),
+(25, 1, '1', '1', '2022-11-17', '10:00:00', '19:45:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -111,11 +115,11 @@ CREATE TABLE `Doctors` (
 --
 
 INSERT INTO `Doctors` (`doctorid`, `docname`, `description`, `clinicid`, `image`, `contact`, `joindate`, `certexp`, `email`, `password`) VALUES
-(1, 'Dr. Tan Kim', '				Professional doctor \r\n				', 1, 'img', '1233-2323', '2022-10-07', '2027-10-20', 'doc.tan@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
-(2, 'Dr. Stanford', 'Professional doctor ', 1, 'img', '1233-2323', '2022-10-07', '2027-10-20', 'doc.stan@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
-(3, 'Dr. Tasha', 'Professional Doc', 2, 'img', '1233-2323', '2022-10-07', '', 'doc.tash@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
-(4, 'Dr. Strange', 'Professional Doc', 2, 'img', '1233-2323', '2022-10-07', '', 'doc.strange@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
-(5, 'Dr. Kang', 'Professional Doc', 2, 'img', '1233-2323', '2022-10-07', '', 'doc.kang@clinic.com', '098f6bcd4621d373cade4e832627b4f6');
+(1, 'Dr. Mark Liew', 'Professional doctor in the field of family medicine. Dr. Liew is an accredited Family Physician by the College of Family Physicians, Singapore.\r\n				', 1, 'mark_liew.png', '1233-2323', '2022-10-07', '2027-10-20', 'doc.mark@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
+(2, 'Dr. Usman Yousuf', 'Dr. Usman is a family physician who believes in providing holistic and comprehensive care to his patients and their families. He has special interests in managing chronic diseases and performing joint injections for various Orthopaedic conditions such as frozen shoulder, trigger finger, tennis/golfer’s elbow, plantar fasciitis (heel spur), etc.', 1, 'usman_yousaf.png', '1233-2323', '2022-10-07', '2027-10-20', 'doc.usman@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
+(3, 'Dr. Tan Jiayi', 'As a female doctor and a mother of two, Dr Tan is particularly passionate about promoting women’s health in Singapore. Her special interests are contraception, cancer screening, weight management, sexually transmitted disease screening and menopause. She believes that early detection and screening can potentially save lives.', 2, 'tan_jiayi.png', '1233-2323', '2022-10-07', '2028-11-07', 'doc.tan@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
+(4, 'Dr. Thomas Soh', 'Dr Soh believes that maintenance of the elderly patients’ daily functions and optimal management of their chronic conditions can add more life to their remaining years.', 2, 'thomas_soh.png', '1233-2323', '2022-10-07', '2026-08-13', 'doc.soh@clinic.com', '098f6bcd4621d373cade4e832627b4f6'),
+(5, 'Dr. Johan Tang', 'Dr. Tang is currently registered as a Family Physician in the registry of Family Physicians in the Ministry of Health (MOH). Besides being involved in the practice of Family Medicine on a day-to-day basis for the past 20 years, he also sees a lot of dermatological cases in a primary care setting. He has a vested interest in non-procedural Aesthetic Dermatology and has built up a significant client base who go to him for treatment of acne vulgaris, hyperpigmentation and anti-aging skin care.', 2, 'johan_tang.png', '1233-2323', '2022-10-07', '2028-03-12', 'doc.tang@clinic.com', '098f6bcd4621d373cade4e832627b4f6');
 
 -- --------------------------------------------------------
 
@@ -182,7 +186,7 @@ ALTER TABLE `Patients`
 -- AUTO_INCREMENT for table `Appointments`
 --
 ALTER TABLE `Appointments`
-  MODIFY `appointmentID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `appointmentID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `Clinics`
