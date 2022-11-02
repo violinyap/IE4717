@@ -6,6 +6,8 @@ function getAbsolutePath(path, type) {
 }
 
 // for public path: eg, Project/home.php
+
+// import <script type="text/javascript" src="methods/getPath.js"></script>
 // use: getAbsolutePath("home.php", "")
 // for patient path: eg. Project/patient/profile.php
 // use getAbsolutePath("profile.php", "patient/")

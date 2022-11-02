@@ -1,4 +1,5 @@
 <?php
+
   echo '
   <script type="text/javascript" src="../methods/getPath.js"></script>
   <header>
@@ -20,6 +21,14 @@
   } 
   if (isset($_SESSION['valid_user']))
   { 
+    $usertype = $_SESSION['valid_user_type'];
+    if ($usertype != 'patients') {
+      echo '
+        <script>
+          getAbsolutePath(\'login.php\',\'\');
+        </script>
+      ';
+    }
     echo "<div style='display:flex; flex-direction:'row';>";
     echo '<a href="javascript:getAbsolutePath(\'profile.php\',\'patient/\');" id="headerprofile">';
     echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
@@ -29,6 +38,11 @@
     echo "</div>";
   } 
   else { 
+    echo '
+        <script>
+          getAbsolutePath(\'login.php\',\'\');
+        </script>
+      ';
     echo "<a href='login.php' id='headerprofile'>";
     echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
     echo "Login / Signup"; 

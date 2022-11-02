@@ -23,7 +23,15 @@ include '../methods/getUserData.php';
   { 
     $usertype = $_SESSION['valid_user_type'];
     $newpath = 'patient/profile.php';
-    if ($usertype == 'doctors') {$newpath = 'doctor/profile.php';}
+    if ($usertype == 'doctors') {
+      $newpath = 'doctor/profile.php';
+    } else {
+      echo '
+        <script>
+          getAbsolutePath(\'login.php\',\'\');
+        </script>
+      ';
+    }
     echo "<a href='doctor/profile.php' id='headerprofile'>";
     echo '<img src="../images/doctors/'.$currentUserData['image'].'" width="38" height="38" class="icon profimg">';
     echo $_SESSION["valid_user"]; 
@@ -31,6 +39,11 @@ include '../methods/getUserData.php';
     echo "</a>";
   } 
   else { 
+    echo '
+        <script>
+          getAbsolutePath(\'login.php\',\'\');
+        </script>
+      ';
     echo "<a href='login.php' id='headerprofile'>";
     echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
     echo "Login / Signup"; 

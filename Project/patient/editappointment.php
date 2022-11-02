@@ -77,7 +77,6 @@
 			<tr style="height:25px;"><td colspan='2'></td></tr>
 			<tr>
 			<td style="width: 350px;">
-			<button class="primarybutton" onclick="location.href='myappointment.php'" id="nextBtn">Previous</button>
 		</td>
 			<td>
 			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>

@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel="stylesheet" href="./bookappointment.css" />
+<script type="text/javascript" src="../methods/getPath.js"></script>
 <body>
 <div id="wrapper">
 	<?php include 'header.php'; ?>
@@ -52,8 +53,7 @@
 				<h3>Start booking an apppointment?</h3>
 				<tr><td>Follow the instructions for step 1 to 4 for a smooth process.</td></tr>
 				<tr><td><i>Note: <b><u>$5</u></b> payment for booking an appointment is required.</i></td></tr>
-				<tr><td>View <a href="doctors.php" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
-
+				<tr><td>View <a href="javascript:getAbsolutePath('doctors.php','');" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
 				</table>
 				<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
 				<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>

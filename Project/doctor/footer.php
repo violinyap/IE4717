@@ -18,7 +18,7 @@
   echo '<nav>';
   echo '  <ul>';
   echo '    <li><a href="javascript:getAbsolutePath(\'about.php\',\'\');" class="botnav">About Us</a> </li>';
-  echo '    <li><a href="javascript:getAbsolutePath(\'doctor.php\',\'\');" class="botnav">Our Doctors</a> </li>';
+  echo '    <li><a href="javascript:getAbsolutePath(\'doctors.php\',\'\');" class="botnav">Our Doctors</a> </li>';
   echo '    <li><a href="javascript:getAbsolutePath(\'contact.php\',\'\');" class="botnav">Contact Us</a> </li>';
   echo '  </ul>';
   echo '</nav>';

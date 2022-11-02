@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel="stylesheet" href="./bookappointment.css" />
+<script type="text/javascript" src="../methods/getPath.js"></script>
 <body>
 <div id="wrapper">
 	<?php include 'header.php'; ?>
@@ -66,7 +67,7 @@
 			<td colspan='2'>Select our locations.</td></tr>
 			<tr style="height:25px;"><td></td></tr>
 			<tr>
-			<td colspan='2'>View <a href="javascript:getAbsolutePath(\'doctors.php\',\'\');" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
+			<td colspan='2'>View <a href="javascript:getAbsolutePath('doctors.php','');" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
 			<tr style="height:25px;"><td colspan="2"></td></tr>
 			<tr style="height:25px;text-align:left;"><th colspan="2">Locations:</th></tr>
 			<tr>
