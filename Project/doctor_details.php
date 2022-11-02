@@ -79,7 +79,7 @@
 						<br/>
 						Working days: Mon, Tue, Wed, Thu, Fri, Sat, Sun 
 					</p>
-					<a href="javascript:getAbsolutePath(\'bookappointment.php\',"patient/");">
+					<a href="javascript:getAbsolutePath(\'bookappointment.php\',\'patient/\');">
 						<button class="primarybutton">
 							Book Appointment
 						</button>

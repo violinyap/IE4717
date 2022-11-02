@@ -12,7 +12,7 @@
     echo '<a href="myappointment.php" id="sidenav">';
     echo '<div class="panel">';
     echo '<p id="abc">My<br>Appointment</p>';
-    echo '<img src="../images/myappointment.png" width="43" height="43">';
+    echo '<img src="../images/myapp.svg" width="43" height="43">';
     echo '</div> </a>';
     echo '</nav>';
     echo '</div>';
