@@ -12,11 +12,10 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<a href="myappointment.php" class="botnav">My Appointment</a>
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+		<a href="myappointment.php" class="botnav"><b>My Appointment</b></a>
+  </div>
 	<div class="maincontainer">
 	<dt id="abcd">
 		<?php include 'appointmentRetrieval.php';
@@ -56,7 +55,8 @@
 			$apptID = $row['appointmentID'];
 			$date2 = date("d-m-Y", strtotime($date));
 			echo "
-			<table class='appointment-table' style='font-size:20px;border:1px solid black;height:300px;width:450px;'>
+			<div class='table-wrapper'>
+			<table class='appointment-table' style='font-size:20px;height:300px;width:450px;'>
 			<th colspan='2' style='float:left;font-size:24px;'>
 				<i>Appointment Details</i>
 			</th>
@@ -70,12 +70,6 @@
 				<td style='width:250px;'><b>Doctor: </b></td>
 				<td><span id='doctor'>
 				$doctor
-				</span></td>
-			</tr>
-			<tr>
-				<td style='width:250px;'><b>Patient: </b></td>
-				<td><span id='patient'>
-				$patient
 				</span></td>
 			</tr>
 			<tr>
@@ -97,6 +91,12 @@
 				</span></td>
 			</tr>
 			<tr>
+				<td style='width:250px;'><b>Status: </b></td>
+				<td><span id='status'>
+				Paid
+				</span></td>
+			</tr>
+			<tr>
 			<td style='float: center; width:250px;'>
 				<form action='editappointment.php' method='post'>
 					<input value='$apptID' name='apptID' type='hidden'/>
@@ -110,7 +110,9 @@
 				</form>
 			</td>
 			</tr>
-			</table><br>";
+			</table>
+			</div>
+			<br>";
 			}
 			}
 			}
@@ -123,6 +125,7 @@
 	}
 	</script>
 	</div>
+</div>
 	</div>
 </div>
 <?php include "footer.php";?>

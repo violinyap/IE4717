@@ -19,7 +19,7 @@
 	</dt>
 	</div>
 	<div class="maincontainer">
-	<dt id="abcd">
+
 	<?php 
 		include "../methods/getPatientsData.php";
 		$userid = $currentUserData['userid'];

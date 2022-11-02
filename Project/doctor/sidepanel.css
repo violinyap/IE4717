@@ -1,47 +1,103 @@
-#bodycontent{
-  background-color: #D9D9D9;
-  display: flex;
-  flex-direction: row;
-}
+
 .sidecontainer{
   width:250px;
   height:auto;
-  border: 1px solid #D9D9D9;
-  border-bottom: 1px solid #000000;
-  border-right: 1px solid #000000;
-  background-color: #FFFFFF;
+  background-color: #4c6085;
+  color: white;
+  width: 250px;
 }
-#appointmentnav{
-  position: absolute;
-  top: 150px;
-  left: 355px;
-}
-#sidepanel{
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #4c6085;
+  cursor: pointer;
+  height: 150px;
   text-align: center;
+  border-bottom: 1px white solid;
+}
+.panel > p {
+  margin: 0px;
+}
+.panel:hover {
+  background-color: #001f54;
 }
 #panel1{
-  width:247px;
-  height:150px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  border: 1px solid #D9D9D9;
-}
-#panel2{
-  width: 247px;
-  height: 100px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  border: 1px solid #D9D9D9;
+  height:200px;
 }
 #sidenav{
   text-decoration: none;
-  color: #000000;
+  color: white;
 }
-#abc{
-  padding-bottom: 10px;
+
+/* OTHERS */
+#bodycontent{
+  display: flex;
+  flex-direction: row;
 }
-#botnav {
+
+.leftcontent {
+  /* padding: 40px; */
+  width: 100%;
+}
+.breadcrumb {
+  /* padding: 40px; */
+  color: #001f54;
+  margin: 50px 0px 20px 0;
+  background-color: #dbeffd;
+  padding: 10px;
+  padding-left: 40px;
+  border-radius: 0 40px 40px 0;
+  width: max-content;
+}
+
+.maincontainer{
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+.leftform {
+  width: 60%;
+  float:left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.rightform {
+  width: 30%;
+  float:right;
+  padding-right: 50px;
+}
+
+label {
+  width: 250px;
+}
+.inputform { 
+  margin: 10px 0px;
+  height: 30px;
+  border-radius: 80px;
+  border: solid 1px #001f54;
+  padding-left: 10px;
+  min-width: 250px;
+}
+.inputarea {
+  margin: 10px 0px;
+  height: 30px;
+  border-radius: 20px;
+  border: solid 1px #001f54;
+  padding-left: 10px;
+  min-width: 250px;
+  min-height: 200px;
+}
+
+.botnav {
   text-decoration: none;
+}
+
+.profimg {
+  border-radius: 50px;
 }

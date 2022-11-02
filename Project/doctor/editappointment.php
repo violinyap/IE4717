@@ -12,56 +12,54 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" class="botnav">Edit Appointment</a>
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+			> Edit Appointment
+		
+			> <b>Step 1</b>
+			
+		</div>
+	<?php
+	$apptID = $_POST['apptID'];
+	
+	?>
 	<div class="maincontainer">
-			
-			<div class="rightside">
-				<div class="leftside">
-				<?php include "../methods/getAppointment.php" ?>
-				</div>
+		<div class="leftform">
 		<form method="post" action="editappointment2b.php" id="appointmentform">
-			
 			<table>
-			<th style="float:left;">Step 2a:</th>
-			<tr><td><b>Select the available dates as displayed below:</b></td></tr>
-			<tr style="height:25px;"><td></td></tr>
-			<tr><td><i> Note: Appointment(s) can only be booked for the next day.
-			<br>We reserve the right to cancel the appointment <b>without prior notice</b>, refund will be made to your
-			<br>bank account and a message will be send to your <u>registered email address</u></i>. </td></tr>
-			<tr style="height:25px;"><td></td></tr>
-			<tr><td>Choose available dates below.</td></tr>
-			<tr style="height:25px;"><td></td></tr>
-			<tr><td>
+			<th style="float:left;">Step 1:</th>
+			<tr><td colspan='2'><b>Select the available dates as displayed below:</b></td></tr>
+			<tr style="height:25px;"><td colspan='2'></td>
+			<tr><td colspan='2'><i> Note: Appointment(s) can only be booked for the next day. We reserve the right to cancel
+			<br>the appointment <b>without prior notice</b>,  your refund will be made to bank account and a
+			<br>message will be send to your<u> registered email address</u></i>. </td></tr>
+			<tr style="height:25px;"><td colspan='2'></td></tr>
+			<tr><td colspan='2'>Choose available dates below.</td></tr>
+			<tr style="height:25px;"><td colspan='2'></td></tr>
+			<tr><td colspan='2'>
 			 <label for="appointmentdate">*Date:</label>
-			 <input type="date" name="date" id="date" oninput="getDate()" required />
+			 <input type="date" name="date" id="date" value="<?php echo $date; ?>" onInput="getDate()" required />
 			</td></tr>
-			<tr style="height:400px;"><td></td></tr>
 			<tr><td>
-			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
-			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
+			
+			<input value='<?php echo $apptID; ?>' name='apptID' type='hidden'/>
+			<input type="submit" value="Previous" class="primarybutton" formaction="editappointment1b.php" id="nextBtn"></input>
+			</td>
+			<td>
 			<input type="submit" value="Next" class="darkbluebutton" id="nextBtn"></input>
 			</td></tr>
 			</table>
-		</form>	
-			</div>
-			
-		
+		</form>
+		</div>
+		<div class="rightform">
+		<?php include "../methods/getAppointment.php"; ?>
+		</div>
+		<script type="text/javascript" src="bookappointment.js"></script>
 	</div>
 	</div>
 	</div>
+		</div>
 	<?php include "footer.php";?>
-	<script>
-		var today = new Date();
-		today = new Date(today.setDate(today.getDate() + 2))
-			.toISOString()
-			.split("T")[0];
-		document.getElementsByName("date")[0].setAttribute("min", today);
-
-
-	</script>
 </div>
 </body>

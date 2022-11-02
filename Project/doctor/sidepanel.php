@@ -1,25 +1,20 @@
 <?php
   include '../methods/getUserData.php';
 
-  echo '<div class="sidecontainer">';
-  echo '<nav id="sidepanel">';
-    echo '<div id="panel1">';
-    echo '<a href="profile.php"><img src="../images/profile.png" width="75" height="75"> </a>';
-    echo '<br><dt>'.$currentUserData['docname'];
-    echo '<br><b>Doctor</b><br><br>';
-    // echo '<a href="editprofile.php" class="botnav">Edit Profile</a>';
-    echo '</div>';
-    echo '<div id="panel2">';
-    echo '<a href="bookappointment.php" id="sidenav">';
-    echo '<dt id="abc">Set Unavailable <br>Dates & Time</dt>';
-    echo '<img src="../images/bookappointment.png" width="43" height="43"> </a>';
-    echo '</div>';
-    echo '<div id="panel2">';
+    echo '<div class="sidecontainer">';
+    echo '<nav id="sidepanel">';
+    echo '<a href="profile.php"><div class="panel" id="panel1">';
+    echo '<img src="../images/doctors/'.$currentUserData['image'].'" width="75" height="75" class="profimg">';
+    echo '<p><b>'.$currentUserData['docname'].'</b>';
+    echo '<p>Doctor</p>';
+    echo '</div></a>';
+  
     echo '<a href="myappointment.php" id="sidenav">';
-    echo '<dt id="abc">My<br>Appointment</dt>';
-    echo '<img src="../images/myappointment.png" width="43" height="43"> </a>';
+    echo '<div class="panel">';
+    echo '<p id="abc">My<br>Appointment</p>';
+    echo '<img src="../images/myappointment.png" width="43" height="43">';
+    echo '</div> </a>';
+    echo '</nav>';
     echo '</div>';
-  echo '</nav>';
-  echo '</div>';
 ?>
 
