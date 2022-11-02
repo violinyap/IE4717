@@ -14,6 +14,7 @@
   </nav>';
 ?>
 <?php // Show registered name
+include '../methods/getUserData.php';
   if(!isset($_SESSION)) 
   { 
     session_start(); 
@@ -23,8 +24,8 @@
     $usertype = $_SESSION['valid_user_type'];
     $newpath = 'patient/profile.php';
     if ($usertype == 'doctors') {$newpath = 'doctor/profile.php';}
-    echo "<a href='$newpath' id='headerprofile'>";
-    echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
+    echo "<a href='doctor/profile.php' id='headerprofile'>";
+    echo '<img src="../images/doctors/'.$currentUserData['image'].'" width="38" height="38" class="icon profimg">';
     echo $_SESSION["valid_user"]; 
     echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
     echo "</a>";

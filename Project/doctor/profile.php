@@ -14,10 +14,10 @@
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
 	
-	<div id="appointmentnav">
-		<a href="profile.php" class="botnav">My Profile</a>
-		&nbsp;
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="profile.php" class="botnav">My Profile</a>
+		</div>
 	
 	<div class="maincontainer">
 	<dt id="abcd">
@@ -27,7 +27,7 @@
 			
 			// NAME
 			echo "<tr>";
-			echo "<td rowspan='7' style='vertical-align: top; margin: auto'><img src='../images/profile.png' width='75' height='75'></td>";
+			echo "<td rowspan='7' style='vertical-align: top; padding-right:20px;'><img src='../images/doctors/".$currentUserData['image']."' width='180' height='250'></td>";
 			echo "<th class='profile-row' style='text-align: left;'>Name:</th>";
 			echo "<td><span id='name'>".$currentUserData['docname']."</span></td>";
 			echo "</tr>";
@@ -64,12 +64,13 @@
 		?>
 
 	<tr>
-		<td colspan="2" style="padding-top: 100px;"><button id="editprofilebutton" onclick="location.href='editprofile.php';">Edit Profile</button>
+		<td colspan="2" style="padding-top: 50px;"><button class="darkbluebutton" onclick="location.href='editprofile.php';">Edit Profile</button>
 		</td>
 	</tr>
 	</table>
 	</div>
 	</div>
+</div>
 	<?php include "footer.php";?>
 </div>
 </body>

@@ -12,23 +12,25 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" class="botnav">Edit Appointment</a>
-	</dt>
-	</div>
-	<div class="maincontainer">
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+			> Edit Appointment
+			> Step 1
+			> <b>Step 2</b>
 			
-			<div class="rightside">
-				<div class="leftside">
-				<?php include "../methods/getAppointment.php" ?>
-				</div>
+		</div>
+
+	<div class="maincontainer">
+		<div class="leftform">
 		<form method="post" action="editappointment3.php" id="appointmentform">
 				<?php
+				$apptID = $_POST['apptID'];
 		$doctor = $_POST['doctor'];
 		$location = $_POST['location'];
 		$date = $_POST['date'];
 		echo "<input value='$apptID' name='apptID' type='hidden'/>";
+		echo "<input value='$date' name='date' type='hidden'/>";
 	?>
 			<?php
 			echo "
@@ -87,6 +89,8 @@
 			<input type='hidden' name='date' value='" .$date. "'></input>
 			<input type='hidden' name='location' value='" .$location. "'></input>
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
+			<input type='submit' value='Previous' class='primarybutton' formaction='editappointment.php' id='nextBtn'></input>
+			</td><td>
 			<input type='submit' value='Next' id='nextBtn' class='darkbluebutton'></input>
 			</tr></td>
 			";
@@ -97,9 +101,15 @@
 			echo "</table>";
 			?>
 		</form>
-			</div>
-			
+		<div style="height:50px"></div>
+
+		</div>
+		<div class="rightform">
+		<?php include "../methods/getAppointment.php"; ?>
 		
+		</div>
+		<script type="text/javascript" src="bookappointment.js"></script>
+	</div>
 	</div>
 	</div>
 	</div>

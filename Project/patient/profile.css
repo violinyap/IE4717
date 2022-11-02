@@ -1,8 +1,9 @@
 .profile-table {
   color: #000000;
-  width: 700px;
+  width: 900px;
   height: auto;
-  font-size: 24px;
+  font-size: 18px;
+  line-height: 24px;
 }
 .profile-row {
   height: 30px;
@@ -10,8 +11,4 @@
 .profile-col {
   width: 220px;
   text-align: left;
-}
-#abcd{
-  padding-top: 30px;
-  padding-left: 30px;
 }

@@ -12,16 +12,15 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" class="botnav">Edit Appointment</a>
-	</dt>
-	</div>
-	<div class="maincontainer">
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+			> Edit Appointment 
+			> <b>Saved</b>
 			
-			<div class="rightside">
-				<div class="leftside">
-				<?php include "../methods/getAppointment.php" ?>
+		</div>
+	<div class="maincontainer">
+		<div class="leftform">
 				</div>
 				
 				<?php
@@ -67,8 +66,7 @@
 						<br>*Terms & Conditions applies
 					</td></tr>
 					<tr>
-					<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
-					<td><a href='bookappointment.php'><button id='nextBtn'>Make A New Appointment</button></a></td>
+					<td><a href='myappointment.php'><button id='nextBtn' class='darkbluebutton' style='width:250px'>View Your Appointments</button></a></td>
 					</tr>
 				</table>";
 		
