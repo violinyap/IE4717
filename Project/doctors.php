@@ -58,7 +58,7 @@
 						$docid = $row['doctorid'];
 						$docimg = $row['image'];
 						echo '
-							<a href="doctors'.$docid.'.php" style="text-decoration: none; color:black;">
+							<a href="doctor_details.php?docid='.$docid.'" class="post" style="text-decoration: none; color:black;">
 							<div class="doctor-card">
 								<img src="images/doctors/'.$docimg.'"class="doctor-card-img" resi>
 								<div class="doctor-card-text">
@@ -75,9 +75,9 @@
     </div>
     
 	</div>
-
 	
 
 	<?php include "footer.php";?>
+
 </div>
 </body>

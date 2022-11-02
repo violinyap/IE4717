@@ -70,10 +70,12 @@
   position: fixed;
   width: 80vw;
   height: 70vh;
-  top: 100px;
-  left: 100px;
+  top: 15vh;
+  left: 10vw;
   z-index: 999;
-  background-color: wheat;
+  background-color: white;
+  border: 10px solid #dbeffd;
+  border-radius: 40px;
   margin: auto;
   justify-self: center;
 
@@ -111,10 +113,6 @@
   align-items: center;
 }
 
-.availability-table > tbody > tr {
-  background-color: white;
-}
-
 .doctor-schedule {
   display: flex;
   flex-direction: column;
@@ -130,4 +128,19 @@
   align-items: center;
   padding: 10px;
   background-color: white;
+}
+
+
+.availability-table > tbody > tr {
+  background-color: #dbeffd;
+}
+
+
+.availability-row > th {
+  padding: 5px;
+  text-align: center;
+}
+.availability-row > td {
+  padding: 5px;
+  text-align: center;
 }
