@@ -21,8 +21,8 @@
 	<dt id="abcd">
 		<?php include 'preappointmentRetrieval.php';
 		echo "<p>
-		Make payment here if you want to continue/edit your planned appointment.<br>
-		Slots will be reserved only for 1 hour and will be deleted after the timing.<br><br>" .
+		Make payment here if you want to continue your planned appointment.<br>
+		Or cancel the appointment to free up the slot for other patients.<br><br>" .
 		"<i>" . $count . " pre-appointment(s) found.</i></p><br>";
 		?>
 		<?php
