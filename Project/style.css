@@ -138,6 +138,23 @@ nav > .topnav {
   background-color: #001f54;
 }
 
+.darkbluebutton {
+  background: #001f54;
+  /* border: 1px solid #000000; */
+  color: #dbeffd;
+  border: none;
+  border-radius: 80px;
+  height: 40px;
+  width: 150px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.darkbluebutton:hover {
+  /* color: #4c6085; */
+  background-color: #4c6085;
+}
+
 #wrapper{
   margin: auto;
 }
