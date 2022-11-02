@@ -20,11 +20,13 @@
   } 
   if (isset($_SESSION['valid_user']))
   { 
-    echo "<a href='patient/profile.php' id='headerprofile'>";
+    echo "<div style='display:flex; flex-direction:'row';>";
+    echo '<a href="javascript:getAbsolutePath(\'profile.php\',\'patient/\');" id="headerprofile">';
     echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
     echo $_SESSION["valid_user"]; 
-    echo "<form method=\"post\" action=\"logout.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
     echo "</a>";
+    echo '<a class="profiledrop" type="submit" href="javascript:getAbsolutePath(\'login.php\',\'\');">V</a>';
+    echo "</div>";
   } 
   else { 
     echo "<a href='login.php' id='headerprofile'>";

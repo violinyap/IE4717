@@ -66,9 +66,13 @@ if (isset($_POST['email']) && isset($_POST['pass']))
 		{ 
 			session_start(); 
 		} 
+
         if (isset($_SESSION['valid_user']))
         { 
-					echo "<a href='patient/profile.php' id='headerprofile'>";
+					$usertype = $_SESSION['valid_user_type'];
+					$newpath = 'patient/profile.php';
+					if ($usertype == 'doctors') {$newpath = 'doctor/profile.php';}
+					echo "<a href='$newpath' id='headerprofile'>";
 					echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
 					echo $_SESSION["valid_user"]; 
 					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
