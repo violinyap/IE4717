@@ -43,7 +43,7 @@
 			<tr><td>
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
 			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
-			<input type="submit" value="Next" id="nextBtn"></input>
+			<input type="submit" value="Next" class="darkbluebutton" id="nextBtn"></input>
 			</td></tr>
 			</table>
 		</form>	

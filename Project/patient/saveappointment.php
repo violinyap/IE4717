@@ -12,13 +12,15 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" class="botnav">Edit Appointment</a>
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+			> Edit Appointment 
+			> <b>Saved</b>
+			
+		</div>
 	<div class="maincontainer">
-		<div style="float:left; width: 700px; margin-top: 20px; margin-left:15px;">
+		<div class="leftform">
 		
 				
 		<?php
@@ -97,8 +99,8 @@
 		</td></tr>
 		<tr style='height:35px'><td colspan='2'><br></td></tr>
 		<tr>
-		<td><a href='myappointment.php'><button id='nextBtn'>View Your Appointments</button></a></td>
-		<td><a href='bookappointment.php'><button id='nextBtn'>Make A New Appointment</button></a></td>
+		<td><a href='myappointment.php'><button id='nextBtn' class='darkbluebutton' style='width:250px'>View Your Appointments</button></a></td>
+		<td><a href='bookappointment.php'><button id='nextBtn' class='primarybutton' style='width:250px'>Make A New Appointment</button></a></td>
 		</tr>
 		</table>";
 		//email
@@ -137,10 +139,6 @@
 			
 		?>
 					
-		</div>
-		<div style="float:right; padding-top: 20px;">
-		<?php include "../methods/getAppointment.php"; ?>
-		<dt>Updated successfully!</dt>
 		</div>
 	</div>
 	</div>

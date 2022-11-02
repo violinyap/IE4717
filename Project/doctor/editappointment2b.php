@@ -87,7 +87,7 @@
 			<input type='hidden' name='date' value='" .$date. "'></input>
 			<input type='hidden' name='location' value='" .$location. "'></input>
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
-			<input type='submit' value='Next' id='nextBtn'></input>
+			<input type='submit' value='Next' id='nextBtn' class='darkbluebutton'></input>
 			</tr></td>
 			";
 			}

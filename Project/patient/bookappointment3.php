@@ -12,16 +12,15 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>Make An Appointment > </b>
-		<b>Step 1a > </b>
-		<b>Step 1b > </b>
-		<b>Step 2a > </b>
-		<b>Step 2b > </b>
-		Step 3
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="profile.php" class="botnav">Make An Appointment</a>
+			>	Step 1a
+			>	Step 1b
+			>	Step 2a
+			>	Step 2b
+			><b>	Step 3</b>
+		</div>
 	<div class="maincontainer">
 	<dt id="abcd">
 	<?php
@@ -126,13 +125,14 @@
 				<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
 				<input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
 				<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
-				<input type="submit" value="Previous" formaction="bookappointment2b.php" id="nextBtn"></input>
+				<input type="submit" value="Previous" class="primarybutton" formaction="bookappointment2b.php" id="nextBtn"></input>
 				</td>
-				<td style="float:right;"><input type="submit" value="Book Appointment" id="nextBtn"></input>
+				<td style="float:right;"><input type="submit" value="Book Appointment" id="nextBtn" class="darkbluebutton" style="width:250px"></input>
 				</td>
 			</tr>
 			</table>
 		</form>
+	</div>
 	</div>
 	</div>
 	<?php include "footer.php";?>

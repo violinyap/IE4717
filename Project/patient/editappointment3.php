@@ -12,13 +12,19 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp;<a href="editappointment.php" class="botnav">Edit Appointment</a>
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+			> Edit Appointment
+			> Step 1a
+			> Step 1b
+			> Step 2a
+			> Step 2b
+			> <b>Step 3</b>
+			
+		</div>
 	<div class="maincontainer">
-		<div style="float:left; width: 700px; margin-top: 20px; margin-left:15px;">
+		<div class="leftform">
 		<form method="post" action="saveappointment.php" id="appointmentform">
 		<?php
 		include "../methods/dbconnect.php";
@@ -126,7 +132,7 @@
 				<td style="font-size:30px;width:200px;">Time: </td>
 				<td class="confirmation-column"><span id="time"><?php echo $time;?></span></td>
 			</tr>
-			<tr style="height:200px;"><td colspan="2"><br></td></tr>
+			<tr style="height:50px;"><td colspan="2"><br></td></tr>
 			<tr>
 				<td>
 				<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
@@ -135,18 +141,21 @@
 				<input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
 				<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
 				<input value='<?php echo $apptID; ?>' name='apptID' type='hidden'/>
-				<input type="submit" value="Previous" formaction="editappointment2b.php" id="nextBtn"></input>
+				<input type="submit" value="Previous" class="primarybutton" formaction="editappointment2b.php" id="nextBtn"></input>
 				</td>
 				<td style="float:right;">
-				<input type="submit" value="Save Changes" id="nextBtn"></input>
+				<input type="submit" value="Save Changes" id="nextBtn" class="darkbluebutton"></input>
 				</td>
 			</tr>
+			<tr style="height:50px;"><td colspan="2"><br></td></tr>
+
 		</table>
 		</form>
 		</div>
-		<div style="float:right; padding-top: 20px;">
+		<div class="rightform">
 		<?php include "../methods/getAppointment.php"; ?>
 		</div>
+	</div>
 	</div>
 	</div>
 	</div>

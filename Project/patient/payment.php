@@ -99,7 +99,7 @@
 				</form>
 			</td>
 			<td style='float: center;'>
-				<button id='cancelbutton' onclick='alertpopup()'>Cancel</button>
+				<button id='cancelbutton' onclick='alertpopup()' class='primarybutton'>Cancel</button>
 			</td>
 			</tr>
 			</table><br>";

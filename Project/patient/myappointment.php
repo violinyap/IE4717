@@ -12,13 +12,12 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<a href="myappointment.php" class="botnav">My Appointment</a>
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+		</div>
 	<div class="maincontainer">
-	<dt id="abcd">
+		<div class="leftform">
 		<?php include 'appointmentRetrieval.php';
 		echo "<p>
 		View all upcoming appointment(s) here.<br><br>" .
@@ -51,7 +50,8 @@
 			$apptID = $row['appointmentID'];
 			$date2 = date("d-m-Y", strtotime($date));
 			echo "
-			<table class='appointment-table' style='font-size:20px;border:1px solid black;height:300px;width:450px;'>
+			<div class='table-wrapper'>
+			<table class='appointment-table' style='font-size:20px;height:300px;width:450px;'>
 			<th colspan='2' style='float:left;font-size:24px;'>
 				<i>Appointment Details</i>
 			</th>
@@ -95,17 +95,19 @@
 			<td style='float: center; width:250px;'>
 				<form action='editappointment.php' method='post'>
 					<input value='$apptID' name='apptID' type='hidden'/>
-					<button id='editbutton'>Edit</button>
+					<button id='editbutton' class='primarybutton'>Edit</button>
 				</form>
 			</td>
 			<td style='float: center;'>
 			<form action='cancelappointment.php' method='post'>
 			<input value='$apptID' name='apptID' type='hidden'/>
-				<button id='cancelbutton' onclick='alertpopup()'>Cancel</button>
+				<button id='cancelbutton' onclick='alertpopup()' class='primarybutton'>Cancel</button>
 				</form>
 			</td>
 			</tr>
-			</table><br>";
+			</table>
+			</div>
+			<br>";
 			}
 			}
 			}
@@ -121,6 +123,8 @@
 	}
 	</script>
 	</div>
+	</div>
+</div>
 	</div>
 </div>
 <?php include "footer.php";?>

@@ -100,13 +100,13 @@
 			<td style='float: center; width:250px;'>
 				<form action='editappointment.php' method='post'>
 					<input value='$apptID' name='apptID' type='hidden'/>
-					<button id='editbutton'>Edit</button>
+					<button id='editbutton' class='primarybutton'>Edit</button>
 				</form>
 			</td>
 			<td style='float: center;'>
 			<form action='cancelappointment.php' method='post'>
 			<input value='$apptID' name='apptID' type='hidden'/>
-				<button id='cancelbutton' onclick='alertpopup()'>Cancel</button>
+				<button id='cancelbutton' onclick='alertpopup()' class='primarybutton'>Cancel</button>
 				</form>
 			</td>
 			</tr>

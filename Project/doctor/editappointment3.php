@@ -53,7 +53,7 @@
 							<input type="submit" value="Save Changes" id="nextBtn"></input>
 							</td>
 							<td>
-							<a href="editappointment.php" id="cancelButton">Change</a>
+							<a href="editappointment.php" class="primarybutton">Change</a>
 							</td>
 						</tr>
 						</table>

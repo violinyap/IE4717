@@ -12,17 +12,16 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>Make An Appointment > </b>
-		<b>Step 1a > </b>
-		<b>Step 1b > </b>
-		<b>Step 2a > </b>
-		<b>Step 2b > </b>
-		<b>Step 3 > </b>
-		Step 4
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="profile.php" class="botnav">Make An Appointment</a>
+			>	Step 1a
+			>	Step 1b
+			>	Step 2a
+			>	Step 2b
+			>	Step 3
+			><b>	Step 4</b>
+		</div>
 	<div class="maincontainer">
 	<dt id="abcd">
 	<?php
@@ -130,15 +129,16 @@
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
 			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
 			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
-			<input type="submit" value="Make Payment" id="nextBtn"></input><br><br>
+			<input type="submit" value="Make Payment" id="nextBtn" class="darkbluebutton"></input><br><br>
 			</td>
 			<td style="width: 250px;align-items: center;">
-			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Pay Later"></input><br><br>
+			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Pay Later" class="primarybutton"></input><br><br>
 			<input type="hidden" name="button_pressed" value="1" />
 			</td>
 			</tr>
 			</table>
 		</form>
+	</div>
 	</div>
 	</div>
 	<?php include "footer.php";?>

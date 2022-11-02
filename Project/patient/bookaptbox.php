@@ -32,7 +32,7 @@
 						<td><b>Doctor:</b></td>
 						<td class="selectedoption">';
             
-								if ($doctor == "") {
+								if ($doctor2 == "") {
 								echo "TBD";}
 								else {echo $doctor2;}
     echo '				

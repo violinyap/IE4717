@@ -16,6 +16,7 @@
 	<div class="leftcontent">
 		<div class="breadcrumb">
 			<a href="profile.php" class="botnav">Make An Appointment</a>
+			><b>	Step 1a</b>
 		</div>
 		<div class="maincontainer">
 		<?php
@@ -51,9 +52,7 @@
 			$time = "";
 		}
 		$query = "SELECT * FROM clinics";
-		// echo "<br>" .$query. "<br>";
 		$result = $dbcnx->query($query);
-		//echo "<input value='$apptID' name='apptID' type='hidden'/>";
 		$c_id = array();
 		if ($result->num_rows >0 )
 		{
@@ -61,9 +60,7 @@
 			$clinic_name = $row['clinicname'];
 			$clinic_id = $row['clinicid'];
 			$c_id[] = $clinic_id; 
-			//print_r($c_id); echo "<br>";
 			$c_name[] = $clinic_name;
-			//print_r($c_name); echo "<br>";
 			}
 		}
 	?>
@@ -87,7 +84,7 @@
 				echo '
 				<tr><td colspan="2">
 				<label for="clinic_'.$c_id[$i].'">
-				<input type="radio" value="'.$c_id[$i].'" id="clinic_'.$c_id[$i].'" name="location" required checked>
+				<input type="radio" value="'.$c_id[$i].'" id="clinic_'.$c_id[$i].'" name="location" onInput="getlocation()"  checked>
 				<span>'.$c_name[$i].'</span></label>
 				</td></tr>
 				<tr style="height:25px;"><td colspan="2"></td></tr>
@@ -97,7 +94,7 @@
 				echo '
 				<tr><td colspan="2">
 				<label for="clinic_'.$c_id[$i].'">
-				<input type="radio" value="'.$c_id[$i].'" id="clinic_'.$c_id[$i].'" name="location" required checked>
+				<input type="radio" value="'.$c_id[$i].'" id="clinic_'.$c_id[$i].'" name="location" onInput="getlocation()"   required>
 				<span>'.$c_name[$i].'</span></label>
 				</td></tr>
 				<tr style="height:25px;"><td colspan="2"></td></tr>
@@ -108,7 +105,7 @@
 			?>
 			<tr>
 			<td>
-			<input type="submit" value="Previous" formaction="bookappointment.php" id="nextBtn"  class="primarybutton"></input></td>
+			<input type="submit" value="Previous" class="primarybutton" formaction="bookappointment.php" id="nextBtn"  class="primarybutton"></input></td>
 			<td>
 			<input type="hidden" name="date" value='<?php echo "$date";?>'></input>
 			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>

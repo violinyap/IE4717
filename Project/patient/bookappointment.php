@@ -55,7 +55,7 @@
 		<form method="post" action="bookappointment1a.php" id="appointmentform">
 			<div class="leftform">
 			<table>
-				<th><h3>Start booking an apppointment?</h3></th>
+				<h3>Start booking an apppointment?</h3>
 				<tr><td>Follow the instructions for step 1 to 4 for a smooth process.</td></tr>
 				<tr><td><i>Note: <b><u>$5</u></b> payment for booking an appointment is required.</i></td></tr>
 				<tr><td>View <a href="doctors.php" class="botnav"><i>'Our Doctors'</i></a> for their location, and available date and time slots.</td></tr>
@@ -66,7 +66,7 @@
 				<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
 				<input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
 				<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
-				<input type="submit" value="Next" class="darkbluebutton"></input>
+				<input type="submit" value="Next" class="darkbluebutton" id="nextBtn"></input>
 			</div>
 		</form>
 		<div class="rightform">

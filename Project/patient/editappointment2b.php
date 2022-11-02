@@ -12,11 +12,16 @@
 	
 	<div id="bodycontent">
 	<?php include "sidepanel.php"; ?>
-	<div id="appointmentnav">
-	<dt>
-		<b>My Appointment</b> &nbsp; > &nbsp; Edit Appointment
-	</dt>
-	</div>
+	<div class="leftcontent">
+		<div class="breadcrumb">
+			<a href="myappointment.php" class="botnav">My Appointment</a>
+			> Edit Appointment
+			> Step 1a
+			> Step 1b
+			> Step 2a
+			> <b>Step 2b</b>
+			
+		</div>
 	<?php
 	$apptID = $_POST['apptID'];
 	include "../methods/dbconnect.php";
@@ -67,7 +72,7 @@
 		}
 	?>
 	<div class="maincontainer">
-		<div style="float:left; width: 700px; margin-top: 20px; margin-left:15px;">
+		<div class="leftform">
 		<form method="post" action="editappointment3.php" id="appointmentform">
 			<?php
 			echo "
@@ -147,7 +152,7 @@
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
 			<input type='hidden' name='doctor2' value='" .$doctor2. "'>
 			<input value='".$apptID."' name='apptID' type='hidden'/>
-			<input type='submit' value='Previous' formaction='editappointment2a.php' id='nextBtn'></input>
+			<input type='submit' value='Previous' class='primarybutton' formaction='editappointment2a.php' id='nextBtn'></input>
 			</td>
 			";
 			}
@@ -160,10 +165,10 @@
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
 			<input type='hidden' name='doctor2' value='" .$doctor2. "'></input>
 			<input value='".$apptID."' name='apptID' type='hidden'/>
-			<input type='submit' value='Previous' formaction='editappointment2a.php' id='nextBtn'></input>
+			<input type='submit' value='Previous' class='primarybutton' formaction='editappointment2a.php' id='nextBtn'></input>
 			</td>
 			<td>
-			<input type='submit' value='Next' id='nextBtn'></input>
+			<input type='submit' value='Next' id='nextBtn' class='darkbluebutton'></input>
 			</td></tr>
 			";
 			}
@@ -172,59 +177,15 @@
 			echo "</table>";
 			?>
 		</form>
+		<div style="height:50px"></div>
+
 		</div>
-		<div style="float:right; padding-top: 20px;">
+		<div class="rightform">
 		<?php include "../methods/getAppointment.php"; ?>
-		<table style="border:1px solid black;">
-		<th>Options Selected:</th>
-		<tr><td colspan="2" style="height:25px;"></td></tr>
-		<tr><th style="text-align:right;"> Location: </th>
-		<td style="width:200px;background-color: #D9D9D9; border: 1px solid black;text-align:center;">
-		<?php 
-		if ($location == 1) {
-			echo "NTU Clinic Fullerton";}
-		else {echo "NTU Clinic Raffles";}
-		?>
-		</td></tr>
-		<tr><td colspan="2" style="height:25px;"></td></tr>
-		<tr><th style="text-align:right;"> Doctor: </th>
-		<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
-		<?php
-				if ($location == 1) {$j=2;} else {$j=3;}
-				for ($i=0;$i<$j;$i+=1) {
-					if ($doctor == $d_id[$i]) {
-						$doctor2 = $d_name[$i];
-					}
-				}
-			echo $doctor2;
-		?>
-		</td></tr>
-		<tr><td colspan="2" style="height:25px;"></td></tr>
-		<tr><th style="text-align:right;"> Date: </th>
-		<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
-		<?php
-			echo $date;
-		?>
-		</td></tr>
-		<tr><td colspan="2" style="height:25px;"></td></tr>
-		<tr><th style="text-align:right;"> Time: </th>
-		<td style="width:200px; background-color: #D9D9D9; border: 1px solid black;text-align:center;"> 
-		<span id="time">
-		<?php
-		if ($time2 == "") {
-			if (empty($items3)) {echo "TBD";}
-			else {
-			echo $time3;}}
-		else {
-			if (empty($items3)) {echo "TBD";}
-			else {
-			echo $time2;}}
-		?>
-		</span>
-		</td></tr>
-		</table>
+		
 		</div>
 		<script type="text/javascript" src="bookappointment.js"></script>
+	</div>
 	</div>
 	</div>
 	</div>

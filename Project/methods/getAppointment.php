@@ -27,42 +27,42 @@ if ($apptID) {
     $apptID = $row['appointmentID'];
     $date2 = date("d-m-Y", strtotime($date));
     echo "
-    <table class='appointment-table' style='font-size:16px;border:1px solid black;height:300px;width:450px;padding: 20px'>
-    <th colspan='2' style='float:left;font-size:20px;'>
-      <i>Current Appointment</i>
+    <table class='appointment-table' style='font-size:16px;border:1px solid black;height:300px;width:350px;padding: 20px'>
+    <th colspan='2' >
+      <h3 style='margin:0;'><i>Current Appointment</i></h3>
     </th>
     <tr>
-      <td style='width:250px;'><b>ID: </b></td>
-      <td><span id='doctor'>
+      <td style='width:150px;'><b>ID: </b></td>
+      <td><span id='aptid'>
       NTCL$apptID
       </span></td>
     </tr>
     <tr>
-      <td style='width:250px;'><b>Doctor: </b></td>
-      <td><span id='doctor'>
+      <td style='width:150px;'><b>Doctor: </b></td>
+      <td><span id='doctorname'>
       $doctor
       </span></td>
     </tr>
     <tr>
-      <td style='width:250px;'><b>Date: </b></td>
-      <td><span id='date'>
+      <td style='width:150px;'><b>Date: </b></td>
+      <td><span id='dates'>
       $date2
       </span></td>
     </tr>
     <tr>
-      <td style='width:250px;'><b>Time: </b></td>
-      <td><span id='time'>
+      <td style='width:150px;'><b>Time: </b></td>
+      <td><span id='times'>
       $time
       </span></td>
     </tr>
     <tr>
-      <td style='width:250px;'><b>Location: </b></td>
-      <td><span id='location'>
+      <td style='width:150px;'><b>Location: </b></td>
+      <td><span id='locations'>
       $location
       </span></td>
     </tr>
     <tr>
-      <td style='width:250px;'><b>Status: </b></td>
+      <td style='width:150px;'><b>Status: </b></td>
       <td><span id='status'>
       Paid
       </span></td>

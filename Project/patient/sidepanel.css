@@ -59,6 +59,20 @@
   padding-top: 20px;
 }
 
+.leftform {
+  width: 60%;
+  float:left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.rightform {
+  width: 30%;
+  float:right;
+  padding-right: 50px;
+}
+
 label {
   width: 250px;
 }
