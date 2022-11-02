@@ -7,7 +7,8 @@
 				<table>
 					<tr class="selectedrow">
 						<td><b>Location:</b></td>
-						<td class="selectedoption">';
+						<td class="selectedoption">
+							<span id="location">';
 
 
 								if ($location == "") {
@@ -22,7 +23,7 @@
                     $name=$row['clinicname'];
                     }
                   } 
-                  echo $name;
+                  echo $name . '</span>';
 								}
                 
     echo '
@@ -30,7 +31,8 @@
 					</tr>
 					<tr class="selectedrow">
 						<td><b>Doctor:</b></td>
-						<td class="selectedoption">';
+						<td class="selectedoption">
+							<span id="doctor">';
 						if ($doctor == "") {
 							echo "TBD";}
 						else {
@@ -41,7 +43,7 @@
 							{
 								while ($row = mysqli_fetch_assoc($result)){
 									$doctor_name = $row['docname'];
-									echo $doctor_name;
+									echo $doctor_name . '</span>';
 								}
 							}
 						}
@@ -50,20 +52,24 @@
 					</tr>
 					<tr class="selectedrow">
 						<td><b>Date:</b></td>
-						<td class="selectedoption">';
+						<td class="selectedoption">
+							<span id="date_show">';
 
 								if ($date == "") {
 								echo "TBD";}
-								else {echo $date;}
+								else {echo $date . '</span>';}
 echo'						</td>
 					</tr>
 					<tr class="selectedrow">
 						<td><b>Time:</b></td>
-						<td class="selectedoption">';
+						<td class="selectedoption">
+							<span id="time">';
 
 								if ($time == "") {
 								echo "TBD";}
-								else {echo $time;}
+								else {
+									echo $time . '</span>';
+								}
 echo'						</td>
 					</tr>
 					

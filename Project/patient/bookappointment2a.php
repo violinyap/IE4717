@@ -29,12 +29,6 @@
 		else {
 			$location = "";
 		}
-		if (!empty($_POST['doctor2'])) {
-			$doctor2 = $_POST['doctor2'];
-		}
-		else {
-			$doctor2 = "";
-		}
 		if (!empty($_POST['date'])) {
 			$date = $_POST['date'];
 		}
@@ -46,17 +40,6 @@
 		}
 		else {
 			$time = "";
-		}
-		$query = "SELECT * FROM doctors WHERE clinicid='".$location."'";
-		$result = $dbcnx->query($query);
-		if ($result->num_rows >0 )
-		{
-			while ($row = mysqli_fetch_assoc($result)){
-			$doctor_name = $row['docname'];
-			$doctor_id = $row['doctorid'];
-			$d_id[] = $doctor_id;
-			$d_name[] = $doctor_name;
-			}
 		}
 	?>
 		<div class="leftform">
@@ -79,7 +62,6 @@
 			<tr><td>
 			<input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
 			<input type="hidden" name="doctor" value='<?php echo "$doctor"; ?>'></input>
-			<input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
 			<input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
 			<input type="submit" value="Previous" class="primarybutton" formaction="bookappointment1b.php" id="nextBtn"></input>
 			</td>
@@ -98,5 +80,4 @@
 	<?php include "footer.php";?>
 </div>
 <script type="text/javascript" src="bookappointment.js"></script>
-
 </body>

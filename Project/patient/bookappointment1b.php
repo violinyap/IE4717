@@ -31,12 +31,6 @@ include "../methods/dbconnect.php";
   else {
     $doctor = "";
   }
-  if (!empty($_POST['doctor2'])) {
-    $doctor2 = $_POST['doctor2'];
-  }
-  else {
-    $doctor2 = "";
-  }
   if (!empty($_POST['date'])) {
     $date = $_POST['date'];
   }
@@ -103,7 +97,6 @@ include "../methods/dbconnect.php";
   
     <tr height="35px"><td>
     <input type="hidden" name="location" value='<?php echo "$location"; ?>'></input>
-    <input type="hidden" name="doctor2" value='<?php echo "$doctor2"; ?>'></input>
     <input type="hidden" name="date" value='<?php echo "$date";?>'></input>
     <input type="hidden" name="timeslot" value='<?php echo "$time"; ?>'></input>
     <input type="submit" value="Previous" class="primarybutton" formaction="bookappointment1a.php" id="nextBtn"></input></td>
@@ -121,4 +114,5 @@ include "../methods/dbconnect.php";
 	</div>
 	<?php include "footer.php";?>
 </div>
+<script type="text/javascript" src="bookappointment.js"></script>
 </body>

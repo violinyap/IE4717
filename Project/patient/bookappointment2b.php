@@ -38,12 +38,6 @@
 		else {
 			$doctor = "";
 		}
-		if (!empty($_POST['doctor2'])) {
-			$doctor2 = $_POST['doctor2'];
-		}
-		else {
-			$doctor2 = "";
-		}
 		if (!empty($_POST['date'])) {
 			$date = $_POST['date'];
 		}
@@ -51,7 +45,13 @@
 			$date = "";
 		}
 		if (!empty($_POST['timeslot'])) {
-			$time2 = $_POST['timeslot'];
+			$time = $_POST['timeslot'];
+		}
+		else {
+			$time = "";
+		}
+		if (!empty($_POST['time2'])) {
+			$time2 = $_POST['time2'];
 		}
 		else {
 			$time2 = "";
@@ -100,43 +100,43 @@
 			}
 			}
 			$items3 = array();
-			$items3 = array_diff($items2,$items);
-			$time3 = array();
-			$time3 = date("H:i" ,reset($items3));
+			$items3 = array_diff($items2,$items); //array $items3[] contain all available appointment slots
+			//$time3 = array();
+			//$time3 = date("H:i" ,reset($items3));
 			foreach($items3 as $items3){
-			$time = date("H:i" , $items3);
-			if ($time == $time2) {
+			$time2 = date("H:i" , $items3); //set $time = available time slots
+			if ($time2 == $time) { //check if available time slots = posted timeslot (rmb user selection)
 			echo "
 			<tr class='time-row'>
 			<td colspan='2'>
-			<p><input type='radio' value='". $time ."' name='timeslot' onInput='getTime();' checked>
-			<label>" . $time . "</label><br></p>
+			<p><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' checked>
+			<label>" . $time2 . "</label><br></p>
 			</td>
 			</tr>
 			";
 			}
-			else if ($time == $time3) {
+			/*else if ($time2 == $time3) { //check if availabe time slots = first item of available timeslot array $items3 (check first available time)
 			echo "
 			<tr class='time-row'>
 			<td colspan='2'>
-			<p><input type='radio' value='". $time ."' name='timeslot' onInput='getTime();' checked>
-			<label>" . $time . "</label><br></p>
+			<p><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' checked>
+			<label>" . $time2 . "</label><br></p>
 			</td>
 			</tr>
 			";
-			}
+			}*/
 			else {
 			echo "
 			<tr class='time-row'>
 			<td colspan='2'>
-			<p><input type='radio' value='". $time ."' name='timeslot' onInput='getTime();' required>
-			<label>" . $time . "</label><br></p>
+			<p><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' required>
+			<label>" . $time2 . "</label><br></p>
 			</td>
 			</tr>
 			";
 			}
 			}
-			if (empty($items3)) {
+			if (empty($items3)) { //if all appointment slots occupied then remove next button (force user to change selection)
 			echo "
 			<tr><td colspan='2'>All slots occupied! Go previous pages to change selection.
 			<br>Or press 'restart to start from beginning again.
@@ -147,7 +147,7 @@
 			<input type='hidden' name='date' value='" .$date. "'></input>
 			<input type='hidden' name='location' value='" .$location. "'></input>
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
-			<input type='hidden' name='doctor2' value='" .$doctor2. "'></input>
+			
 			<input type='submit' value='Previous' class='primarybutton' formaction='bookappointment2a.php' id='nextBtn'></input>
 			</td>
 			<td>
@@ -162,7 +162,6 @@
 			<input type='hidden' name='date' value='" .$date. "'></input>
 			<input type='hidden' name='location' value='" .$location. "'></input>
 			<input type='hidden' name='doctor' value='" .$doctor. "'></input>
-			<input type='hidden' name='doctor2' value='" .$doctor2. "'></input>
 			<input type='submit' value='Previous' class='primarybutton' formaction='bookappointment2a.php' id='nextBtn'></input>
 			</td>
 			<td>
