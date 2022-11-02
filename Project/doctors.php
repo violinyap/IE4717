@@ -55,8 +55,10 @@
 					while ($row = mysqli_fetch_assoc($result)){
 						$docname = $row['docname'];
 						$docdesc = $row['description'];
+						$docid = $row['doctorid'];
 						$docimg = $row['image'];
 						echo '
+							<a href="doctors'.$docid.'.php" style="text-decoration: none; color:black;">
 							<div class="doctor-card">
 								<img src="images/doctors/'.$docimg.'"class="doctor-card-img" resi>
 								<div class="doctor-card-text">
@@ -64,7 +66,7 @@
 									<p class="doctor-desc">'.$docdesc.'</p>
 								</div>
 							</div>
-						
+							</a>
 						';
 					}
 				}

@@ -114,3 +114,20 @@
 .availability-table > tbody > tr {
   background-color: white;
 }
+
+.doctor-schedule {
+  display: flex;
+  flex-direction: column;
+  width: 1500px;
+  margin: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.doctor-schdule-text {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
