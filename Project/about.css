@@ -87,13 +87,16 @@
   margin-bottom: 80px;
 }
 
+
 .locations-box {
   margin: 20px 0px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid #4c6085;
+  border: 1px solid;
+  max-height: 220px;
 }
+
 
 .locations-text {
   width: 30%;
@@ -103,7 +106,7 @@
 
 .locations-img {
   width: 70%;
-  height: 200px;
+  max-height: 220px;
   background-color: grey;
 }
 

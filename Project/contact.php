@@ -45,24 +45,16 @@
 
 		<div class="home-queries">
 			<div class="queries-left">
-				<div id="leftcolumn">
-					<div id="footerlogo">
-						<img src="images/cliniclogo.png" width="38" height="38" id="icon" /> 
-						<h2>NTUClinic</h2>
-					</div>
-						<p>55 Ubi Ave 1 #08-01 Singapore 408935
-						<br>Fax: 6590 4389
-						<br>Opens Monday to Friday, 8:30am to
-						<br>6:00pm, except Public Holidays 
-						</p>
-				</div>
+				<img class="queries-img" src="images/home/all.jpeg"/>
 			</div>
 			<div class="queries-right">
-				<h1>Any queries?</h1>
+				<h1>Ask us!</h1>
 				<form class="queries-form">
-					<input placeholder="name"/>
-					<input placeholder="name"/>
-					<button type="submit">
+					<label for="email">Email*</label>
+					<input type="email" class="queries-input" id="email" name="email" placeholder="example@email.com" required>
+					<label for="pass">Queries*</label>
+          <textarea class="queries-input" id="pass" name="pass" placeholder="I need help with..." required></textarea>
+					<button type="submit" class="primarybutton">
 						Send
 					</button>
 				</form>
@@ -71,39 +63,72 @@
 
 		<div class="home-services">
 			<div class="service-left">
-				<img src="images/home/consult.jpg" id="service-image"/>
+				<div class="about-locations">
+				<h1>Locations</h1>
+				<?php 
+					include "methods/dbconnect.php";
+					$query = "SELECT *  FROM clinics";
+	
+					$result = $dbcnx->query($query);
+					$count = 0;
+					if ($result->num_rows >0 )
+					{
+						while ($row = mysqli_fetch_assoc($result)){
+							$cname = $row['clinicname'];
+							$cloc = $row['cliniclocation'];
+							$cctc = $row['cliniccontact'];
+							$count = $count + 1;
+							if ($count % 2 == 1) {
+								echo '
+									<div class="locations-box">
+										<div class="locations-text">
+											<h2>'.$cname.'</h2>
+											<p>'.$cloc.'</p>
+											<p>(65) '.$cctc.'</p>
+										</div>
+										<div class="locations-img">
+											<img src="images/home/loc'.$count.'.jpeg"/>
+										</div>
+									</div>
+								';
+							} else {
+								echo '
+								<div class="locations-box">
+									<div class="locations-img">
+										<img src="images/home/loc'.$count.'.jpeg"/>
+									</div>
+									<div class="locations-text">
+										<h2>'.$cname.'</h2>
+										<p>'.$cloc.'</p>
+										<p>(65) '.$cctc.'</p>
+									</div>
+								</div>
+								';
+							}
+						}
+					}
+				?>
+		</div>
 			</div>
 			<div class="service-right">
-				<h1>Locations</h1>
-				<div class="locations-box">
-					<div class="locations-text">
-						<h2>Location 1</h2>
-						<p>here is location 1 ksldjlaksj </p>
-					</div>
-					<div class="locations-img">
-						<img />
-					</div>
+				<div class="hotline-box">
+					<h1>NTUClinic Hotline </h1>
+					<h1 style="transform:scale(2);font-size:72px;margin:0px;">✆</h1>
+					<br>
+					<h3>For emergency</h3>
+					<p> (+65) 6938 1295 </p>
+
+					<h3>For quick enquiries</h3>
+					<p> (+65) 6938 1296 </p>
+
+					<h3>For 24 hours service</h3>
+					<p> (+65) 6938 1296 </p>
+
+					<h3>Email services</h3>
+					<p>ask@ntuclinic.sg</p>
 				</div>
-				<div class="locations-box">
-					<div class="locations-img">
-						<img />
-					</div>
-					<div class="locations-text">
-						<h2>Location 2</h2>
-						<p>here is location 2 ksldjlaksj </p>
-					</div>
-				</div>
-				<div class="locations-box">
-					<div class="locations-text">
-						<h2>Location 3</h2>
-						<p>here is location 3 ksldjlaksj </p>
-					</div>
-					<div class="locations-img">
-						<img />
-					</div>
-				</div>
+				
 			</div>
-		</div>
 		
 
 	</div>
