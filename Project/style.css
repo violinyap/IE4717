@@ -53,20 +53,21 @@ nav > .topnav {
   margin: 20px;
 }
 
-#headerprofile {
+.headerprofile {
   display: flex;
   flex-direction: row;
   align-items: center;
   color: #000000;
   text-decoration: none;
+  cursor: pointer;
 }
 
-#headerprofile:hover {
+.headerprofile:hover {
   color: #000000;
   text-decoration: none;
 }
 
-#headerprofile > a {
+.headerprofile > a {
   text-decoration: none;
   color: #000000;
 }

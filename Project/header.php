@@ -25,22 +25,42 @@ include 'methods/getUserData.php';
 					$usertype = $_SESSION['valid_user_type'];
 					$newpath = 'patient/profile.php';
 					if ($usertype == 'doctors') {
-            echo "<a href='doctor/profile.php' id='headerprofile'>";
+            $newpath = 'doctor/profile.php';
+            echo "<a class='headerprofile' id='headerbutton' onClick='hidePopup()'>";
             echo '<img src="images/doctors/'.$currentUserData['image'].'" width="38" height="38" class="icon profimg"">';
           } else {
-            echo "<a href='$newpath' id='headerprofile'>";
+            echo "<a class='headerprofile' id='headerbutton'  onClick='hidePopup()'>";
             echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
           }
 					echo $_SESSION["valid_user"]; 
-					echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
 					echo "</a>";
+          echo '</header>';
+          echo '
+          <div id="headeroptions" style="display:none;position:absolute; right:10px;background-color:white; width:150px;padding:10px;text-decoration:none;">
+            <a href="'.$newpath.'"><p style="margin:10px;cursor:pointer;">My Profile </p></a>
+            <a href="login.php"><p style="margin:10px;cursor:pointer;"> Logout </p></a>
+          </div>
+        ';
 				} 
   else { 
-    echo "<a href='login.php' id='headerprofile'>";
+    echo "<a href='login.php' class='headerprofile'>";
     echo "<img src='images/profile.png' width='38' height='38' class='icon'>";
     echo "Login / Signup"; 
     echo "</a>";
+    echo '</header>';
   }
-  echo '</header>';
-?>  
 
+  echo '
+    <script>
+      function hidePopup() {
+        var x = document.getElementById("headeroptions");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+  '
+ 
+?>

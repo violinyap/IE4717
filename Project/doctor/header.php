@@ -32,11 +32,18 @@ include '../methods/getUserData.php';
         </script>
       ';
     }
-    echo "<a href='doctor/profile.php' id='headerprofile'>";
+    echo "<a class='headerprofile' id='headerbutton' onClick='hidePopup()'>";
     echo '<img src="../images/doctors/'.$currentUserData['image'].'" width="38" height="38" class="icon profimg">';
     echo $_SESSION["valid_user"]; 
     echo "<form method=\"post\" action=\"login.php\" ><button class=\"profiledrop\" type=\"submit\">V</button></form>";
     echo "</a>";
+    echo '</header>';
+    echo '
+          <div id="headeroptions" style="display:none;position:absolute; right:10px;background-color:white; width:150px;padding:10px;text-decoration:none;">
+            <a href="javascript:getAbsolutePath(\'profile.php\',\'doctor/\');"><p style="margin:10px;cursor:pointer;">My Profile </p></a>
+            <a href="javascript:getAbsolutePath(\'login.php\',\'\');"><p style="margin:10px;cursor:pointer;"> Logout </p></a>
+          </div>
+        ';
   } 
   else { 
     echo '
@@ -44,11 +51,25 @@ include '../methods/getUserData.php';
           getAbsolutePath(\'login.php\',\'\');
         </script>
       ';
-    echo "<a href='login.php' id='headerprofile'>";
+    echo "<a href='login.php' class='headerprofile'>";
     echo "<img src='../images/profile.png' width='38' height='38' class='icon'>";
     echo "Login / Signup"; 
     echo "</a>";
+    echo '</header>';
   }
-  echo '</header>';
+  
+  echo '
+  <script>
+    function hidePopup() {
+      var x = document.getElementById("headeroptions");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+'
+
 ?>  
 

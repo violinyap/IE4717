@@ -129,7 +129,7 @@
 						<td>'.$curDateInStr.'</td>';
 						for ($j = 8 ; $j<18; $j+=1){
 							$time = sprintf("%02d", $j);
-							$check = "SELECT * FROM appointments WHERE doctor='".$docid."' AND date='".$curDateInStr."' AND time='".$time.":00:00'";
+							$check = "SELECT * FROM appointments WHERE doctor='".$docid."' AND date='".$curDateInStr."' AND time='".$time.":00:00' AND book_status=1";
 							$result3 = $dbcnx->query($check);
 							if ($result3->num_rows >0){
 								echo '
