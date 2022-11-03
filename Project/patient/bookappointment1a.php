@@ -84,7 +84,7 @@
 				<input type="radio" value="'.$c_id[$i].'" id="clinic_'.$c_id[$i].'" name="location" onInput="getlocation()"  checked>
 				<span>'.$c_name[$i].'</span></label>
 				</td></tr>
-				<tr style="height:25px;"><td colspan="2"></td></tr>
+				<tr style="height:10px;"><td colspan="2"></td></tr>
 				';
 				}
 				else {
@@ -94,7 +94,7 @@
 				<input type="radio" value="'.$c_id[$i].'" id="clinic_'.$c_id[$i].'" name="location" onInput="getlocation()"   required>
 				<span>'.$c_name[$i].'</span></label>
 				</td></tr>
-				<tr style="height:25px;"><td colspan="2"></td></tr>
+				<tr style="height:10px;"><td colspan="2"></td></tr>
 				';
 				}
 			}

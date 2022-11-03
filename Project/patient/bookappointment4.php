@@ -134,7 +134,7 @@
 			<input type="submit" value="Make Payment" id="nextBtn" class="darkbluebutton"></input><br><br>
 			</td>
 			<td style="width: 250px;align-items: center;">
-			<input type="submit" formaction="appointmentunsuccessful.php" id="nextBtn" value="Pay Later" class="primarybutton"></input><br><br>
+			<input type="submit" formaction="paymentunsuccessful.php" id="nextBtn" value="Pay Later" class="primarybutton"></input><br><br>
 			<input type="hidden" name="button_pressed" value="1" />
 			</td>
 			</tr>

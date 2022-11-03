@@ -74,18 +74,20 @@ include "../methods/dbconnect.php";
     for ($i=0;$i<$j;$i+=1) {
       if ($doctor == $d_id[$i]) {
         echo "
-        <tr><td colspan='2'><input type='radio' value='".$d_id[$i]."' name='doctor' onInput='getdoctor()' checked>
+        <tr><td colspan='2'><label><input type='radio' value='".$d_id[$i]."' name='doctor' onInput='getdoctor()' checked><span>".$d_name[$i]."</span></label></td></tr>
+		<tr height='10px'><td></td></tr>
         ";
         }
       else {
       echo "
-      <tr><td colspan='2'><input type='radio' value='".$d_id[$i]."' name='doctor' onInput='getdoctor()' required>
+      <tr><td colspan='2'><label><input type='radio' value='".$d_id[$i]."' name='doctor' onInput='getdoctor()' required><span>".$d_name[$i]."</span></label></td></tr>
+	  <tr height='10px'><td></td></tr>
       ";
       }
-      echo "
+      /*echo "
       <label>".$d_name[$i]."</label></td></tr>
       <tr style='height:10px;'><td colspan='2'></td></tr>
-      ";
+      ";*/
     }
     if ($location == 1) {$j=2;} else {$j=3;}
     for ($i=0;$i<$j;$i+=1) {
