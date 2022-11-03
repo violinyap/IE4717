@@ -109,8 +109,8 @@
 			echo "
 			<tr class='time-row'>
 			<td colspan='2'>
-			<p><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' checked>
-			<label>" . $time2 . "</label><br></p>
+			<p><label><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' checked><span>". $time2 ."</span></label>
+			<br></p>
 			</td>
 			</tr>
 			";
@@ -129,8 +129,8 @@
 			echo "
 			<tr class='time-row'>
 			<td colspan='2'>
-			<p><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' required>
-			<label>" . $time2 . "</label><br></p>
+			<p><label><input type='radio' value='". $time2 ."' name='timeslot' onInput='getTime();' required><span>". $time2 ."</span></label>
+			<br></p>
 			</td>
 			</tr>
 			";
@@ -140,7 +140,11 @@
 			echo "
 			<tr><td colspan='2'>All slots occupied! Go previous pages to change selection.
 			<br>Or press 'restart to start from beginning again.
-			<br>Please check <a href='doctors.php' id='botnav'>'Our Doctors'</a> page for their available schedule.
+			<br>Please check"?>
+			<a href="javascript:getAbsolutePath('doctors.php','');" class="botnav">
+			<?php
+			echo "
+			'Our Doctors'</a> page for their available schedule.
 			</td></tr>
 			<tr style='height:500px;'><td colspan='2'></td></tr>
 			<tr><td>
@@ -151,7 +155,7 @@
 			<input type='submit' value='Previous' class='primarybutton' formaction='bookappointment2a.php' id='nextBtn'></input>
 			</td>
 			<td>
-			<input type='submit' value='Restart' formaction='bookappointment.php' id='nextBtn'></input>
+			<input type='submit' value='Restart' class='primarybutton' formaction='bookappointment.php' id='nextBtn'></input>
 			</td></tr>
 			";
 			}

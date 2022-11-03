@@ -52,19 +52,19 @@ function getdoctor() {
    if(radioBtn[i].checked){
      c = radioBtn[i].value;
 	 if (c == "1") {
-	 d = "Dr. Tan Kim";
+	 d = "Dr. Mark Liew";
 	 }
 	 else if (c == "2") {
-	 d = "Dr. Stanford";
+	 d = "Dr. Usman Yousuf";
 	 }
 	 else if (c == "3") {
-	 d = "Dr. Tasha";
+	 d = "Dr. Tan Jiayi";
 	 }
 	 else if (c == "4") {
-	 d = "Dr. Strange";
+	 d = "Dr. Thomas Soh";
 	 }
 	 else if (c == "5") {
-	 d = "Dr. Kang";
+	 d = "Dr. Johan Tang";
 	 }
    }
   }
