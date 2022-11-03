@@ -5,9 +5,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./style.css" />
 	<link rel="stylesheet" href="./login.css" />
-	<script>
-		
-	</script>
+	<script type="text/javascript" src="signup.js"></script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -48,7 +47,48 @@
 		
 
 	<?php include "footer.php";?>
-	<script type="text/javascript" src="signup.js"></script>
+	<script>
+		var today = new Date();
+		today = new Date(today.setDate(today.getDate()))
+			.toISOString()
+			.split("T")[0];
+		document.getElementsByName("bday")[0].setAttribute("max", today);
+		function checkNRIC(event) {
+
+			// Get the target node of the event
+
+			var nricInput = event.currentTarget;
+
+			var pos = nricInput.value.search(/^[stfgSTFG]\d{7}[A-Za-z]$/);
+			if (pos != 0) {
+				alert("The NRIC/FIN you entered (" + nricInput.value + 
+							") is not in the correct form. The format should be an alphabet (S/T/F/G), followed by 7 numbers, and ends with another alphabet. \n");
+				nricInput.focus();
+				nricInput.select();
+				return false;
+			} 
+		}
+
+		function checkPass(event) {
+
+			// Get the target node of the event
+
+			var newpassInput = document.getElementById("cpass").value;
+			var passInput = document.getElementById("pass").value;
+			
+			if (newpassInput != passInput) {
+				alert("The password you re-entered does not match your password input. Please retry.\n");
+				newpassInput.focus();
+				newpassInput.select();
+				return false;
+			} 
+		}
+
+			var nricNode = document.getElementById("nric");
+			var confirmPassNode = document.getElementById("cpass");
+			nricNode.addEventListener("change", checkNRIC, false);
+			confirmPassNode.addEventListener("change", checkPass, false);
+		</script>
 </div>
 
 	

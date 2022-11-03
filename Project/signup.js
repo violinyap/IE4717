@@ -24,4 +24,4 @@ var today = new Date();
 today = new Date(today.setDate(today.getDate()))
   .toISOString()
   .split("T")[0];
-document.getElementsByName("date")[0].setAttribute("max", today);
+document.getElementsByName("bday")[0].setAttribute("max", today);
