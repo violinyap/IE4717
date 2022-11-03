@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./style.css" />
 	<link rel="stylesheet" href="./home.css" />
+	</head>
 <body>
 <div id="wrapper">
 	<?php include "header.php";?>

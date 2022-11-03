@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
 <link rel='stylesheet' href="./profile.css" />
+</head>
 
 <body>
 <div id="wrapper">

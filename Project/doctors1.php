@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./style.css" />
 	<link rel="stylesheet" href="./doctors.css" />
+	</head>
 <body>
 <script type="text/javascript" src="../methods/getPath.js"></script>
 <div id="wrapper">

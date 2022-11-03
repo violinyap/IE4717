@@ -5,6 +5,10 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./style.css" />
 	<link rel="stylesheet" href="./login.css" />
+	<script>
+		
+	</script>
+</head>
 <body>
 <div id="wrapper">
 
@@ -31,7 +35,7 @@
 					<input type="date" class="login-input" id="bday" name="bday" placeholder="Birthday" required>
           <div class="login-buttons">
             <a href="login.php">Already have an account? Login here</a>
-            <button class="primarybutton">
+            <button class="primarybutton" type="submit">
               Signup
             </button>
           </div>
@@ -44,5 +48,8 @@
 		
 
 	<?php include "footer.php";?>
+	<script type="text/javascript" src="signup.js"></script>
 </div>
+
+	
 </body>

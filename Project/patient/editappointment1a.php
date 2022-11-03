@@ -5,7 +5,9 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="../style.css" />
 <link rel="stylesheet" href="./sidepanel.css" />
+
 <link rel="stylesheet" href="./bookappointment.css" />
+</head>
 <script type="text/javascript" src="../methods/getPath.js"></script>
 
 <body>

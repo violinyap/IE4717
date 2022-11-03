@@ -46,6 +46,7 @@ if (isset($_POST['email']) && isset($_POST['pass']))
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./style.css" />
 	<link rel="stylesheet" href="./login.css" />
+  </head>
 <body>
 <div id="wrapper">
 

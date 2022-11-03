@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="doctors.css" />
 	<script type="text/javascript" src="methods/getPath.js"></script>
+</head>
 <body>
 <div id="wrapper">
 
